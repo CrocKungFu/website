@@ -266,6 +266,7 @@ p.lede:last-child{ margin-bottom:0; }
   color: var(--white);
   font-size: clamp(2.1rem, 4.6vw, 3.8rem);
   margin-bottom: 24px;
+  text-shadow: 0 2px 16px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.4);
 }
 .hero h1 .accent{ color: var(--gold-light); }
 .hero p.sub{
@@ -343,8 +344,8 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .retreat-card.in-view{ opacity:1; transform:translateY(0); }
 .retreat-card.featured{ position:relative; }
-.retreat-card .card-media{ aspect-ratio: 4/3; overflow:hidden; }
-.retreat-card.featured .card-media{ aspect-ratio: 16/10; }
+.retreat-card .card-media{ height: clamp(230px, 24vw, 300px); overflow:hidden; }
+.retreat-card.featured .card-media{ height: clamp(230px, 24vw, 300px); }
 .retreat-card .card-media img{ width:100%; height:100%; object-fit:cover; transition: transform .6s var(--ease); }
 .retreat-card:hover .card-media img{ transform: scale(1.05); }
 .retreat-card .card-body{ padding: 30px clamp(22px,3vw,34px) 34px; flex:1; display:flex; flex-direction:column; }
@@ -625,7 +626,6 @@ p.lede:last-child{ margin-bottom:0; }
   .split-media{ aspect-ratio: 4/3; }
 
   .retreat-grid{ grid-template-columns: 1fr; }
-  .retreat-card.featured .card-media{ aspect-ratio: 4/3; }
 
   .testimonial-grid{ grid-template-columns: 1fr; }
   .path-grid{ grid-template-columns: 1fr; }
@@ -659,7 +659,7 @@ p.lede:last-child{ margin-bottom:0; }
 <header class="site-header" id="siteHeader">
   <div class="container">
     <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
-      <img src="images/Nam%20Yang%20Greece%20Black.jpg" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+      <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
       <span class="logo-wordmark">Nam Yang Greece</span>
     </a>
 
@@ -686,7 +686,7 @@ p.lede:last-child{ margin-bottom:0; }
 <!-- Mobile full-screen overlay menu -->
 <div class="mobile-overlay" id="mobileOverlay">
   <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
-    <img src="images/Nam%20Yang%20Greece%20Black.jpg" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+    <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
     <span class="logo-wordmark">Nam Yang Greece</span>
   </a>
   <nav class="main-nav" aria-label="Mobile">
@@ -709,7 +709,7 @@ p.lede:last-child{ margin-bottom:0; }
     <img src="images/Home-LNE_7055.webp" alt="Students and instructor practising Kung Fu forms on the beach at sunrise in Corfu">
   </div>
   <div class="container hero-content">
-    <h1>Train <span class="accent">Traditional Shaolin Kung Fu</span><br>and Chi Kung in Corfu</h1>
+    <h1><span class="accent">Traditional Shaolin Kung Fu</span><br>and Chi Kung in Corfu</h1>
     <p class="sub">Authentic retreats, workshops and private training rooted in the Nam Yang tradition.</p>
     <div class="btn-row">
       <a href="retreats.html" class="btn">Upcoming Retreats</a>
@@ -772,7 +772,7 @@ p.lede:last-child{ margin-bottom:0; }
           <p>Traditional Kung Fu & Chi Kung retreat in Corfu.</p>
           <div class="card-footer">
             <span class="price-tag">4–11 July • From €600</span>
-            <a href="retreats.html" class="btn-ghost">Learn More</a>
+            <a href="retreats.html" class="btn-ghost on-dark">Learn More</a>
           </div>
         </div>
       </article>
@@ -791,10 +791,6 @@ p.lede:last-child{ margin-bottom:0; }
           </div>
         </div>
       </article>
-    </div>
-
-    <div class="section-cta reveal">
-      <a href="retreats.html" class="btn">View All Retreats</a>
     </div>
   </div>
 </section>
@@ -829,7 +825,6 @@ p.lede:last-child{ margin-bottom:0; }
       <p class="lead-statement">People often arrive for the training.<br>They return for the people.</p>
       <p class="lede">Nestled on the northwest coast of Corfu, Arillas is known for its beautiful beaches, relaxed pace of life, and welcoming international community. Between training sessions, students explore the coastline, share meals, watch the sunset over the Ionian Sea, and enjoy everything the village has to offer.</p>
       <p class="lede">What begins as a week of practice often becomes lasting friendships and a connection to a place many students return to year after year.</p>
-      <a href="arillas.html" class="btn-ghost">Discover Arillas</a>
     </div>
   </div>
 </section>
@@ -974,7 +969,7 @@ p.lede:last-child{ margin-bottom:0; }
     <div class="footer-grid">
       <div class="footer-col footer-brand">
         <div class="logo-lockup">
-          <img src="images/Nam%20Yang%20Greece%20Black.jpg" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+          <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
           <span class="logo-wordmark">Nam Yang Greece</span>
         </div>
         <p>Traditional Shaolin Kung Fu &amp; Chi Kung training in Corfu, Greece.</p>
@@ -987,8 +982,8 @@ p.lede:last-child{ margin-bottom:0; }
           <li><a href="retreats.html">Retreats</a></li>
           <li><a href="classes.html">Classes</a></li>
           <li><a href="private-training.html">Private Training</a></li>
-          <li><a href="arts.html">The Arts</a>
-      <a href="about.html">About Thomas</a></li>
+          <li><a href="arts.html">The Arts</a></li>
+          <li><a href="about.html">About Thomas</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -1007,12 +1002,10 @@ p.lede:last-child{ margin-bottom:0; }
         <h4>Contact</h4>
         <ul>
           <li>
-            <a href="mailto:hello@crockkungfu.com">hello@crockkungfu.com</a>
-            <span class="contact-note">sample address — replace with real contact</span>
+            <a href="mailto:crockungfu@gmail.com">crockungfu@gmail.com</a>
           </li>
           <li>
-            <a href="tel:+306912345678">+30 691 234 5678</a>
-            <span class="contact-note">sample number — replace with real contact</span>
+            <a href="tel:+33749085814">+33 7 49 08 58 14</a>
           </li>
           <li>Arillas, Corfu, Greece</li>
         </ul>
