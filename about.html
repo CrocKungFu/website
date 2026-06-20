@@ -241,18 +241,32 @@ p.lede:last-child{ margin-bottom:0; }
   align-items:center;
 }
 .portrait-circle{
+  position:relative;
   width: 132px; height: 132px;
   border-radius: 50%;
   overflow:hidden;
   border: 2px solid var(--gold);
   margin-bottom: 28px;
   box-shadow: 0 8px 30px rgba(0,0,0,.35);
+  background-image: url('images/about-01-thomas-beach.webp');
+  background-repeat: no-repeat;
+  /* These two values control the crop — adjust together to dial in the face:
+     background-size = zoom amount (bigger % = more zoomed in)
+     background-position = pan (first value left/right, second value up/down) */
+  background-size: 300%;
+  background-position: 50% 28%;
 }
 .portrait-circle img{
-  width:100%; height:100%; object-fit:cover;
-  object-position: 50% 15%;
-  transform: scale(1.7);
-  transform-origin: 50% 15%;
+  /* Visually hidden — kept only so the photo still has real alt text
+     for accessibility and search engines. The background-image above
+     is what actually renders. */
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 .about-hero h1{
   color: var(--white);
@@ -382,11 +396,8 @@ p.lede:last-child{ margin-bottom:0; }
 
 @media (min-width: 981px){
   .retreat-feature-media{
-    max-width: 960px;
-    margin: 0 auto;
-    border-radius: 6px;
     aspect-ratio: auto;
-    min-height: 520px;
+    min-height: 560px;
   }
   .retreat-feature-media img{
     position:absolute; inset:0;
@@ -403,10 +414,10 @@ p.lede:last-child{ margin-bottom:0; }
   .retreat-feature-content{
     position:relative;
     z-index:2;
-    width:66%;
+    width:72%;
+    max-width: 840px;
     margin: 0 0 0 auto;
-    max-width:none;
-    padding: clamp(28px, 4vw, 52px);
+    padding: clamp(28px, 4vw, 64px);
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
