@@ -214,10 +214,11 @@ p.lede:last-child{ margin-bottom:0; }
   position: relative;
   min-height: 100vh;
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   justify-content:center;
   overflow:hidden;
   text-align:center;
+  padding-bottom: clamp(56px, 9vh, 110px);
 }
 .about-hero-media{ position:absolute; inset:0; overflow:hidden; }
 .about-hero-media img{
@@ -247,13 +248,19 @@ p.lede:last-child{ margin-bottom:0; }
   margin-bottom: 28px;
   box-shadow: 0 8px 30px rgba(0,0,0,.35);
 }
-.portrait-circle img{ width:100%; height:100%; object-fit:cover; }
+.portrait-circle img{
+  width:100%; height:100%; object-fit:cover;
+  object-position: 50% 15%;
+  transform: scale(1.7);
+  transform-origin: 50% 15%;
+}
 .about-hero h1{
   color: var(--white);
   font-size: clamp(2.1rem, 4.4vw, 3.4rem);
   margin-bottom: 16px;
-  text-shadow: 0 2px 18px rgba(0,0,0,.4);
+  text-shadow: 0 4px 22px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.55);
 }
+.about-hero h1 .accent{ color: var(--gold-light); }
 .about-hero p.sub{
   font-family: var(--font-display);
   font-style: italic;
@@ -261,6 +268,7 @@ p.lede:last-child{ margin-bottom:0; }
   font-size: clamp(1.05rem, 1.6vw, 1.3rem);
   color: rgba(255,255,255,.85);
   max-width: 460px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
 }
 
 /* =========================================================
@@ -279,7 +287,7 @@ p.lede:last-child{ margin-bottom:0; }
 .story-img-wrap.in-view{ opacity:1; transform:translateY(0); }
 .story-img-wrap img{ width:100%; height:100%; object-fit:cover; }
 
-.story-img-wrap.size-xl{ height: min(70vh, 760px); }
+.story-img-wrap.size-xl{ aspect-ratio: 4/3; }
 .story-img-wrap.size-lg{ aspect-ratio: 16/9; }
 
 .story-caption{
@@ -341,6 +349,80 @@ p.lede:last-child{ margin-bottom:0; }
   opacity:.85;
 }
 .on-dark .reflective-lines p{ color: var(--bone); }
+
+/* =========================================================
+   RETREAT FEATURE — Finding A Home: image-overlay on desktop,
+   simple stacked layout on mobile
+   ========================================================= */
+.retreat-feature-media{
+  position:relative;
+  width:100%;
+  aspect-ratio: 4/3;
+  overflow:hidden;
+  opacity:0; transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.retreat-feature-media.in-view{ opacity:1; transform:translateY(0); }
+.retreat-feature-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.retreat-feature-scrim{ display:none; }
+
+.retreat-feature-content{
+  max-width: 680px;
+  margin: 32px auto 0;
+  padding: 0 var(--gutter);
+}
+.retreat-feature-content .story-eyebrow{ margin-bottom: 10px; }
+
+.cascade-line{
+  opacity:0;
+  transform: translateY(14px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.cascade-line.in-view{ opacity:1; transform:translateY(0); }
+
+@media (min-width: 981px){
+  .retreat-feature-media{
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 6px;
+    aspect-ratio: auto;
+    min-height: 520px;
+  }
+  .retreat-feature-media img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .retreat-feature-scrim{
+    display:block;
+    position:absolute; inset:0;
+    background:
+      linear-gradient(115deg, rgba(16,15,14,0) 22%, rgba(16,15,14,.55) 55%, rgba(16,15,14,.86) 100%),
+      linear-gradient(180deg, rgba(16,15,14,.4) 0%, rgba(16,15,14,0) 42%);
+  }
+  .retreat-feature-content{
+    position:relative;
+    z-index:2;
+    width:66%;
+    margin: 0 0 0 auto;
+    max-width:none;
+    padding: clamp(28px, 4vw, 52px);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    text-align:left;
+  }
+  .retreat-feature-content .story-eyebrow{ color: var(--gold-light); }
+  .retreat-feature-content h2.section-heading{
+    color: var(--white);
+    text-shadow: 0 3px 18px rgba(0,0,0,.55);
+  }
+  .retreat-feature-content p.lede{
+    color: rgba(255,255,255,.96);
+    text-shadow: 0 2px 12px rgba(0,0,0,.5);
+    font-size: 1rem;
+  }
+}
 
 /* supporting two-image grid (Sections 4 & 5) */
 .support-grid{
@@ -422,10 +504,23 @@ p.lede:last-child{ margin-bottom:0; }
   .nav-toggle{ display:block; }
 }
 
+@media (min-width: 981px){
+  .story-img-wrap{
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 6px;
+  }
+  .story-img-wrap.size-xl{
+    max-width: 600px;
+    aspect-ratio: 1/1;
+  }
+}
+
 @media (max-width: 980px){
   .footer-grid{ grid-template-columns: 1fr 1fr; }
   .support-grid{ grid-template-columns: 1fr; }
-  .story-img-wrap.size-xl{ height: 56vh; }
+  .on-dark .retreat-feature-content h2.section-heading{ color: var(--gold); }
+  .on-dark .retreat-feature-content p.lede{ color: var(--bone); opacity:.88; }
 }
 
 @media (max-width: 600px){
@@ -509,7 +604,7 @@ p.lede:last-child{ margin-bottom:0; }
     <div class="portrait-circle">
       <img src="images/about-01-thomas-beach.webp" alt="Portrait of Thomas Croc on the beach in Corfu">
     </div>
-    <h1>Meet Thomas</h1>
+    <h1>Meet <span class="accent">Thomas</span></h1>
     <p class="sub">A journey through practice, purpose and community.</p>
   </div>
 </section>
@@ -544,22 +639,22 @@ p.lede:last-child{ margin-bottom:0; }
      SECTION 3 — FINDING A HOME
      ========================================================= -->
 <section class="story-section on-dark" id="finding-a-home">
-  <div class="story-img-wrap size-lg reveal">
+  <div class="retreat-feature-media reveal">
     <img src="images/about-03-nam-yang-thailand.webp" alt="Aerial sunrise view of the Nam Yang Kung Fu Retreat in Pai, Thailand, overlooking the surrounding mountains">
-  </div>
-  <p class="story-caption reveal">Nam Yang Kung Fu Retreat, Pai, Thailand</p>
-
-  <div class="story-body reveal">
-    <h2 class="section-heading">Finding A Home</h2>
-    <p class="lede">When I arrived at Nam Yang, I had no idea how important that place would become in my life.</p>
-    <p class="lede">I had originally signed up for a month of training. Long enough to experience the school properly, meet the people and see what this Kung Fu lifestyle was all about.</p>
-    <p class="lede">From the moment I arrived, something felt different.</p>
-    <p class="lede">One of the teachers, Leefa, welcomed me and showed me around the retreat grounds. There was a large covered training hall where most of the classes took place, a circular platform overlooking the mountains where the morning practices were held, and communal dining areas where students and teachers shared meals together.</p>
-    <p class="lede">But it wasn&rsquo;t the buildings that left the deepest impression on me.</p>
-    <p class="lede">It was the atmosphere.</p>
-    <p class="lede">There was a genuine sense of community, a feeling that everyone was walking the same path while supporting each other along the way. Students, teachers and long-term practitioners all lived, trained and shared daily life together.</p>
-    <p class="lede">For the first time, I wasn&rsquo;t just visiting a martial arts school.</p>
-    <p class="lede">I felt like I had found a home.</p>
+    <div class="retreat-feature-scrim" aria-hidden="true"></div>
+    <div class="retreat-feature-content">
+      <span class="story-eyebrow cascade-line">Nam Yang Kung Fu Retreat, Pai, Thailand</span>
+      <h2 class="section-heading cascade-line">Finding A Home</h2>
+      <p class="lede cascade-line">When I arrived at Nam Yang, I had no idea how important that place would become in my life.</p>
+      <p class="lede cascade-line">I had originally signed up for a month of training. Long enough to experience the school properly, meet the people and see what this Kung Fu lifestyle was all about.</p>
+      <p class="lede cascade-line">From the moment I arrived, something felt different.</p>
+      <p class="lede cascade-line">One of the teachers, Leefa, welcomed me and showed me around the retreat grounds. There was a large covered training hall where most of the classes took place, a circular platform overlooking the mountains where the morning practices were held, and communal dining areas where students and teachers shared meals together.</p>
+      <p class="lede cascade-line">But it wasn&rsquo;t the buildings that left the deepest impression on me.</p>
+      <p class="lede cascade-line">It was the atmosphere.</p>
+      <p class="lede cascade-line">There was a genuine sense of community, a feeling that everyone was walking the same path while supporting each other along the way. Students, teachers and long-term practitioners all lived, trained and shared daily life together.</p>
+      <p class="lede cascade-line">For the first time, I wasn&rsquo;t just visiting a martial arts school.</p>
+      <p class="lede cascade-line">I felt like I had found a home.</p>
+    </div>
   </div>
 </section>
 
@@ -567,13 +662,16 @@ p.lede:last-child{ margin-bottom:0; }
      SECTION 4 — THE YEARS OF PRACTICE
      ========================================================= -->
 <section class="story-section" id="years-of-practice">
-  <div class="story-img-wrap size-lg reveal">
+  <div class="story-body reveal">
+    <h2 class="section-heading">The Years of Practice</h2>
+  </div>
+
+  <div class="story-img-wrap size-lg reveal" style="margin-top:24px;">
     <img src="images/about-04-hero-shuang-yang-thailand.webp" alt="Thomas training with fellow students during morning practice on a rooftop at the Nam Yang Kung Fu Retreat">
   </div>
   <p class="story-caption reveal">Rooftop practice in Pai, Thailand (2017&ndash;2018)</p>
 
-  <div class="story-body reveal">
-    <h2 class="section-heading">The Years of Practice</h2>
+  <div class="story-body reveal" style="margin-top:48px;">
     <p class="lede">What was supposed to be a one-month stay eventually became several years of my life.</p>
     <p class="lede">During that time, I immersed myself fully in the practice. Life at Nam Yang followed a simple rhythm: waking up at sunrise, training throughout the day, sharing meals with the community and repeating the process again and again.</p>
     <p class="lede">The days were structured around a balance of Yin and Yang practices. Chi Kung, meditation, Kung Fu forms, partner training and theory all supported one another. Rather than learning isolated techniques, I was discovering a complete system for cultivating body and mind together.</p>
@@ -782,7 +880,7 @@ p.lede:last-child{ margin-bottom:0; }
   });
 
   // Scroll reveal
-  var revealEls = document.querySelectorAll('.reveal, .story-img-wrap, .support-figure');
+  var revealEls = document.querySelectorAll('.reveal, .story-img-wrap, .support-figure, .retreat-feature-media');
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -795,6 +893,28 @@ p.lede:last-child{ margin-bottom:0; }
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // Cascade reveal for the Finding A Home overlay text — lines fade in
+  // one after another rather than all at once
+  var cascadeHost = document.querySelector('.retreat-feature-media');
+  if(cascadeHost){
+    var cascadeLines = cascadeHost.querySelectorAll('.cascade-line');
+    if('IntersectionObserver' in window){
+      var cascadeIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            cascadeLines.forEach(function(line, i){
+              setTimeout(function(){ line.classList.add('in-view'); }, i * 110);
+            });
+            cascadeIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      cascadeIO.observe(cascadeHost);
+    } else {
+      cascadeLines.forEach(function(line){ line.classList.add('in-view'); });
+    }
   }
 })();
 </script>
