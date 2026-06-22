@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arts | Nam Yang Greece</title>
+<meta name="description" content="Explore the traditional martial and healing arts of the Nam Yang system — Tiger-Crane Kung Fu, Shuang Yang, Chi Kung and more. Taught by Thomas Croc in Corfu, Greece.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+:root{
+  --ink:        #100F0E;
+  --charcoal:   #2A2724;
+  --charcoal-2: #3A3632;
+  --gold:       #FBBA3A;
+  --gold-light: #FCCD6B;
+  --bone:       #E8DFC9;
+  --white:      #FFFFFF;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-label: 'Barlow Condensed', sans-serif;
+
+  --container: 1180px;
+  --gutter: clamp(24px, 6vw, 64px);
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--bone);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img{ display:block; max-width:100%; height:auto; }
+
+a{ color:inherit; text-decoration:none; }
+
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.container{
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+section{ position: relative; }
+
+h2.section-heading{
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  margin-bottom: 22px;
+  color: var(--gold);
+}
+
+.section-intro{ max-width: 640px; }
+.section-intro.centered{ margin: 0 auto; text-align:center; }
+
+p.lede{ font-size: 1.05rem; color: var(--charcoal); opacity:.92; margin-bottom: 16px; }
+p.lede:last-child{ margin-bottom:0; }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 34px;
+  display: inline-block;
+  border: 1.5px solid var(--gold);
+  background: var(--ink);
+  color: var(--gold-light);
+  border-radius: 999px;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .25s var(--ease);
+  cursor: pointer;
+  text-align:center;
+}
+.btn:hover{
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+.btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-ghost{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--gold);
+  display: inline-block;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.btn-ghost:hover{ color: var(--gold); }
+.btn-ghost.on-dark{ color: var(--white); }
+.btn-ghost.on-dark:hover{ color: var(--gold-light); }
+
+.btn-row{ display:flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; }
+
+/* =========================================================
+   LOGO MARK
+   ========================================================= */
+.logo-mark{
+  display: inline-block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.logo-mark.size-sm{ width: 52px; height: 52px; }
+.logo-mark.size-lg{ width: clamp(220px, 30vw, 260px); height: clamp(220px, 30vw, 260px); }
+
+.logo-lockup{ display:flex; align-items:center; gap: 14px; }
+.logo-wordmark{
+  font-family: var(--font-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HEADER / NAVIGATION
+   ========================================================= */
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 22px 0;
+  background: transparent;
+  transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+}
+.site-header.scrolled{
+  background: rgba(16,15,14,0.96);
+  padding: 14px 0;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.site-header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.main-nav{ display:flex; align-items:center; gap: 16px; }
+.main-nav a{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  padding: 4px 0;
+  white-space: nowrap;
+  transition: color .3s var(--ease);
+}
+.main-nav a::after{
+  content:"";
+  position:absolute; left:0; bottom:-2px;
+  width:0; height:1.5px; background: var(--gold);
+  transition: width .3s var(--ease);
+}
+.main-nav a:hover, .main-nav a.is-active{ color: var(--gold); }
+.main-nav a:hover::after, .main-nav a.is-active::after{ width:100%; }
+
+.header-actions{ display:flex; align-items:center; gap: 22px; }
+.header-actions .btn{ padding: 10px 18px; font-size:.68rem; white-space: nowrap; }
+
+.nav-toggle{
+  display:none;
+  width: 44px; height: 44px;
+  border: none; background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100;
+}
+.nav-toggle span{
+  position:absolute; left:8px; right:8px; height:2px; background: var(--white);
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+.nav-toggle span:nth-child(1){ top:15px; }
+.nav-toggle span:nth-child(2){ top:23px; }
+.nav-toggle span:nth-child(3){ top:31px; }
+.nav-toggle.is-open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2){ opacity:0; }
+.nav-toggle.is-open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+.mobile-overlay{
+  position: fixed; inset:0;
+  background: var(--ink);
+  z-index: 1050;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap: 36px;
+  opacity:0; visibility:hidden;
+  transition: opacity .4s var(--ease), visibility .4s var(--ease);
+}
+.mobile-overlay.is-open{ opacity:1; visibility:visible; }
+.mobile-overlay .main-nav{ display:flex; flex-direction:column; gap: 28px; }
+.mobile-overlay .main-nav a{ font-size:1.1rem; }
+.mobile-overlay .logo-lockup{ position:absolute; top:28px; left:0; right:0; justify-content:center; }
+
+/* =========================================================
+   ARTS HERO
+   ========================================================= */
+.hero-arts{
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: #ede3ce;
+  background-image:
+    radial-gradient(ellipse at 25% 75%, rgba(160,130,80,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 25%, rgba(180,150,90,0.14) 0%, transparent 55%);
+}
+.hero-arts-watermark{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(320px, 55vw, 620px);
+  height: auto;
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-arts-content{
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 110px var(--gutter) 80px;
+}
+.hero-arts-content h1{
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.hero-arts-content p.sub{
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--charcoal);
+  opacity: 0.78;
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   SPLIT SECTIONS (image + text)
+   ========================================================= */
+.split{
+  padding: 110px 0;
+  background: var(--bone);
+}
+.split .container{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items:center;
+}
+.split.reverse .container{ grid-template-columns: 0.95fr 1.05fr; }
+.split.reverse{ background:#f2ead8; }
+.split.reverse .split-media{ order:2; }
+.split.reverse .split-text{ order:1; }
+
+.split-bg-alt{ background: #f2ead8; }
+
+.split-media{
+  position:relative;
+  overflow:hidden;
+  border-radius: 4px;
+  aspect-ratio: 5/6;
+}
+.split-media figure{
+  width: 100%;
+  height: 100%;
+}
+.split-media figure img{
+  width:100%; height:100%; object-fit:cover;
+  transition: transform 1.2s var(--ease);
+}
+.split-media:hover figure img{ transform: scale(1.03); }
+
+figcaption{
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+  margin-top: 10px;
+  font-style: italic;
+  text-align: center;
+  padding: 0 4px;
+  position: absolute;
+  bottom: -28px;
+  left: 0; right: 0;
+}
+
+.split-media-wrap{
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.split-media.reveal-left{ transform: translateX(-40px); opacity:0; transition: transform .9s var(--ease), opacity .9s var(--ease); }
+.split-media.reveal-left.in-view{ transform: translateX(0); opacity:1; }
+
+.split-text.reveal-right{ transform: translateX(40px); opacity:0; transition: transform .9s var(--ease) .15s, opacity .9s var(--ease) .15s; }
+.split-text.reveal-right.in-view{ transform: translateX(0); opacity:1; }
+
+.split-text.reveal-left{ transform: translateX(-40px); opacity:0; transition: transform .9s var(--ease) .15s, opacity .9s var(--ease) .15s; }
+.split-text.reveal-left.in-view{ transform: translateX(0); opacity:1; }
+
+.split-media.reveal-right{ transform: translateX(40px); opacity:0; transition: transform .9s var(--ease), opacity .9s var(--ease); }
+.split-media.reveal-right.in-view{ transform: translateX(0); opacity:1; }
+
+.split-text h2{ margin-bottom: 8px; }
+.split-text h3.art-subtitle{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   QUOTE BLOCK
+   ========================================================= */
+.quote-block{
+  padding: 100px 0;
+  background: var(--ink);
+  text-align: center;
+}
+.quote-block-inner{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.quote-block blockquote{
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+.quote-block cite{
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* =========================================================
+   ART TRANSITION BLOCKS
+   ========================================================= */
+.art-transition{
+  padding: 72px 0;
+  background: var(--charcoal);
+  text-align: center;
+}
+.art-transition-inner{
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.art-transition h3{
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.art-transition p{
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+}
+
+/* =========================================================
+   ARTS CLOSING SECTION
+   ========================================================= */
+.arts-closing{
+  padding: 130px 0;
+  background: var(--bone);
+  text-align: center;
+}
+.arts-closing-inner{
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.arts-closing h2{
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.arts-closing p.lede{
+  color: var(--charcoal);
+  text-align: left;
+}
+.arts-closing .btn-row{
+  justify-content: center;
+  margin-top: 42px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{ background: var(--ink); color: rgba(255,255,255,.7); padding: 80px 0 0; }
+
+.footer-newsletter{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-bottom: 52px;
+  margin-bottom: 52px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.footer-newsletter h3{
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+.newsletter-text p{
+  font-size: .95rem;
+  color: rgba(255,255,255,.62);
+  max-width: 420px;
+}
+.newsletter-form{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.newsletter-form input{
+  font-family: var(--font-body);
+  font-size: .95rem;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.06);
+  color: var(--white);
+  min-width: 260px;
+  transition: border-color .3s var(--ease);
+}
+.newsletter-form input::placeholder{ color: rgba(255,255,255,.45); }
+.newsletter-form input:focus{ outline:none; border-color: var(--gold); }
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: clamp(30px, 4vw, 60px);
+  padding-bottom: 56px;
+}
+.footer-col h4{
+  font-family: var(--font-label); color: var(--white); font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; font-size:.82rem; margin-bottom: 22px;
+}
+.footer-col p{ font-size: .92rem; line-height:1.7; color: rgba(255,255,255,.62); }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap: 12px; }
+.footer-col ul a{ font-size:.92rem; color: rgba(255,255,255,.72); transition: color .3s var(--ease); }
+.footer-col ul a:hover{ color: var(--gold); }
+.footer-brand .logo-lockup{ margin-bottom: 18px; }
+.footer-brand .logo-wordmark{ color: var(--white); }
+
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding: 26px 0;
+  text-align:center;
+  font-size: .82rem;
+  letter-spacing:.04em;
+  color: rgba(255,255,255,.5);
+}
+
+/* =========================================================
+   SCROLL REVEAL (generic)
+   ========================================================= */
+.reveal{ opacity:0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1199px){
+  .main-nav{ display:none; }
+  .header-actions .btn{ display:none; }
+  .nav-toggle{ display:block; }
+}
+
+@media (max-width: 980px){
+  .split .container{ grid-template-columns: 1fr; }
+  .split.reverse .split-media, .split.reverse .split-text{ order:initial; }
+  .split-media{ aspect-ratio: 4/3; }
+}
+
+@media (max-width: 600px){
+  .split{ padding: 80px 0; }
+  .hero-arts-content h1{ font-size: 2.2rem; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .footer-newsletter{ flex-direction:column; align-items:flex-start; }
+  .newsletter-form{ width:100%; flex-direction:column; align-items:stretch; }
+  .newsletter-form input{ flex:1; min-width:0; }
+  .arts-closing{ padding: 80px 0; }
+  .art-transition{ padding: 52px 0; }
+  .quote-block{ padding: 72px 0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
+      <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+      <span class="logo-wordmark">Nam Yang Greece</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="retreats.html">Retreats</a>
+      <a href="classes.html">Classes</a>
+      <a href="private-training.html">Private Training</a>
+      <a href="arts.html" class="is-active">The Arts</a>
+      <a href="about.html">About Thomas</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="retreats.html" class="btn">Upcoming Retreats</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile full-screen overlay menu -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
+    <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+    <span class="logo-wordmark">Nam Yang Greece</span>
+  </a>
+  <nav class="main-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="retreats.html">Retreats</a>
+    <a href="classes.html">Classes</a>
+    <a href="private-training.html">Private Training</a>
+    <a href="arts.html" class="is-active">The Arts</a>
+    <a href="about.html">About Thomas</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="retreats.html" class="btn">Upcoming Retreats</a>
+</div>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="hero-arts" aria-label="Page hero">
+  <img
+    src="images/arts-01-hero-nam-yang-logo.webp"
+    class="hero-arts-watermark"
+    alt=""
+    aria-hidden="true"
+  >
+  <div class="hero-arts-content reveal">
+    <h1>The Arts of Nam Yang</h1>
+    <p class="sub">Traditional training methods for strength, health and personal development.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 1 — WHAT IS NAM YANG?
+     ========================================================= -->
+<section class="split" id="what-is-nam-yang" style="background: var(--bone);">
+  <div class="container">
+
+    <div class="split-media-wrap reveal-left">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-02-history-nam-yang-demonstration.webp"
+            alt="Historical Nam Yang demonstration with banner and traditional audience visible"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Historical Nam Yang demonstration.</figcaption>
+    </div>
+
+    <div class="split-text reveal-right">
+      <h2 class="section-heading">What is Nam Yang?</h2>
+      <p class="lede">Nam Yang Pugilistic Association was founded in Singapore in 1954 by Master Ang Lian Huat.</p>
+      <p class="lede">Having studied several martial and healing arts throughout his life, Master Ang brought them together into a single system where they could be preserved, practised and passed on to future generations. Among these were Tiger-Crane Kung Fu, Shuang Yang, traditional Shaolin weapons, Chi Kung and methods of external medicine.</p>
+      <p class="lede">Rather than focusing on a single style, Nam Yang developed as a complete training system, combining hard and soft practice, external and internal development, health cultivation and martial skill.</p>
+      <p class="lede">Over the decades, these arts have been passed from teacher to student, preserving both the techniques and the spirit of the tradition. Today, the school continues under the guidance of Master Iain Armstrong in Thailand, where students from around the world come to train and immerse themselves in the arts.</p>
+      <p class="lede">The practices presented on this page are some of the arts that have been taught within the Nam Yang tradition for generations and continue to be practised today.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 2 — TONG LING CHI KUNG
+     ========================================================= -->
+<section class="split reverse" id="tong-ling-chi-kung" style="background: #f2ead8;">
+  <div class="container">
+
+    <div class="split-text reveal-left">
+      <h2 class="section-heading">Tong Ling Chi Kung</h2>
+      <p class="lede">Tong Ling Chi Kung is often the first art introduced to students entering the Nam Yang system and remains one of its most widely practised methods of training.</p>
+      <p class="lede">Combining breathing, gentle movement and focused awareness, it was developed as a complete system for improving health, vitality and overall well-being. Unlike many forms of exercise, the emphasis is not on force or exertion but on learning to move with greater relaxation, efficiency and balance.</p>
+      <p class="lede">The practice consists of a series of simple exercises designed to mobilise the joints, improve posture, encourage healthy circulation and release unnecessary tension from the body. Over time, students develop a greater awareness of how they move, breathe and respond to stress, both during practice and in everyday life.</p>
+      <p class="lede">One of the reasons Tong Ling Chi Kung has remained so popular is its accessibility. It can be practised by people of almost any age or fitness level and requires very little space or equipment. What appears simple at first gradually reveals increasing depth as coordination, relaxation and internal awareness begin to develop.</p>
+      <p class="lede">Within the Nam Yang tradition, Tong Ling Chi Kung is valued not only as a health practice but also as a foundation for the other arts. The principles learned here — relaxation, posture, breathing and efficient movement — continue to reappear throughout the wider system.</p>
+      <p class="lede">For many practitioners, Tong Ling Chi Kung becomes a daily practice that supports both physical health and mental clarity, providing a simple and effective way to maintain balance in an increasingly busy world.</p>
+    </div>
+
+    <div class="split-media-wrap reveal-right">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-03-tong-ling-chi-kung-class-corfu.webp"
+            alt="Thomas teaching the opening posture of Tong Ling Chi Kung during a training session in Corfu, students following the movement"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Teaching Tong Ling Chi Kung during a training session in Corfu.</figcaption>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     QUOTE BLOCK — Master Tan Soh Tin
+     ========================================================= -->
+<div class="quote-block">
+  <div class="quote-block-inner reveal">
+    <blockquote>
+      &ldquo;Be relaxed, take your time, be consistent and enjoy the benefit you will get in the training.&rdquo;
+    </blockquote>
+    <cite>— Master Tan Soh Tin</cite>
+  </div>
+</div>
+
+<!-- =========================================================
+     SECTION 3 — SHUANG YANG
+     ========================================================= -->
+<section class="split" id="shuang-yang" style="background: var(--bone);">
+  <div class="container">
+
+    <div class="split-media-wrap reveal-left">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-04-shuang-yang-practice-thailand.webp"
+            alt="Two practitioners performing Shuang Yang beside the water at sunrise in Thailand, calm and flowing atmosphere"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Practising Shuang Yang at sunrise in Thailand.</figcaption>
+    </div>
+
+    <div class="split-text reveal-right">
+      <h2 class="section-heading">Shuang Yang</h2>
+      <h3 class="art-subtitle">The Soft and Gentle Art</h3>
+      <p class="lede">Shuang Yang is one of the most distinctive arts preserved within the Nam Yang tradition. Originating from the White Crane system of Fukien Province, it combines elements of Chi Kung, meditation and martial movement into a continuous flowing practice.</p>
+      <p class="lede">Unlike systems that rely on strength or speed, Shuang Yang encourages practitioners to develop relaxation, balance and awareness. Movements are performed slowly and without interruption, creating a rhythm that links breath, posture and intention into a single coordinated action.</p>
+      <p class="lede">As students progress, what first appears to be a sequence of graceful movements gradually reveals increasing depth. The practice develops concentration, coordination and sensitivity while encouraging a calmer and more focused state of mind. For this reason it is often described as a form of meditation in movement.</p>
+      <p class="lede">Within Nam Yang, Shuang Yang is considered a lifelong practice. The same exercises can benefit a beginner taking their first lesson and an experienced practitioner who has spent decades exploring the art. Rather than pursuing complexity, students continually return to the same principles of relaxation, balance and flow, discovering new layers of understanding over time.</p>
+      <p class="lede">For many practitioners, Shuang Yang becomes more than a training method. It offers a way to slow down, reconnect with the body and cultivate a quality of calm attention that extends beyond practice into everyday life.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     TRANSITION — STRETCHING & MOBILITY
+     ========================================================= -->
+<div class="art-transition">
+  <div class="art-transition-inner reveal">
+    <h3>Stretching &amp; Mobility</h3>
+    <p>Building flexibility, resilience and freedom of movement through traditional training methods.</p>
+  </div>
+</div>
+
+<!-- =========================================================
+     SECTION 4 — STRETCHING & MOBILITY
+     ========================================================= -->
+<section class="split reverse" id="stretching-mobility" style="background: #f2ead8;">
+  <div class="container">
+
+    <div class="split-text reveal-left">
+      <h2 class="section-heading">Stretching &amp; Mobility</h2>
+      <h3 class="art-subtitle">Building Freedom of Movement</h3>
+      <p class="lede">Within the Nam Yang tradition, stretching has always been regarded as an important part of training. Long before mobility became a popular topic in modern fitness, practitioners understood that strength, balance and longevity all depend upon maintaining freedom of movement throughout the body.</p>
+      <p class="lede">Rather than pursuing flexibility as an end in itself, the aim is to develop a body that moves naturally, efficiently and without unnecessary tension. Through a combination of dynamic and static exercises, students gradually improve mobility in the joints, length in the muscles and a greater awareness of posture and alignment.</p>
+      <p class="lede">These exercises support every other aspect of practice. A more mobile body allows movements to be performed with greater ease, improves balance and coordination, and helps reduce the risk of injury during training. Whether practising Chi Kung, Shuang Yang or the more demanding martial arts of the system, flexibility and mobility provide an important foundation upon which further skills can be developed.</p>
+      <p class="lede">Many students also find that the benefits extend well beyond training. Improved posture, reduced stiffness and greater comfort in everyday movement are often among the first changes people notice. For those who spend long hours sitting, working at a desk or carrying the physical demands of daily life, regular stretching can become a simple yet powerful way to maintain health and wellbeing.</p>
+      <p class="lede">As with all traditional training, progress is approached patiently and consistently. Flexibility is not measured by dramatic positions or quick results, but by the gradual development of a healthier, more resilient and more capable body.</p>
+      <p class="lede">Whether someone is seeking better health, improved athletic performance or simply the ability to move more freely through life, stretching and mobility remain an essential part of the Nam Yang system.</p>
+    </div>
+
+    <div class="split-media-wrap reveal-right">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-05-stretching-mobility-class-arillas.webp"
+            alt="Thomas demonstrating a side stretch during a training session in Arillas, students following the exercise"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Stretching class during a training session in Arillas.</figcaption>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     TRANSITION — VEIN & TENDON CHI KUNG
+     ========================================================= -->
+<div class="art-transition">
+  <div class="art-transition-inner reveal">
+    <h3>Vein &amp; Tendon Chi Kung</h3>
+    <p>A specialised system designed to strengthen the body's connective tissues while developing structure, resilience and internal power.</p>
+  </div>
+</div>
+
+<!-- =========================================================
+     SECTION 5 — VEIN & TENDON CHI KUNG
+     ========================================================= -->
+<section class="split" id="vein-tendon-chi-kung" style="background: var(--bone);">
+  <div class="container">
+
+    <div class="split-media-wrap reveal-left">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-06-vein-tendon-chi-kung-thailand.webp"
+            alt="Students practising Vein and Tendon Chi Kung in the Nam Yang training hall in Thailand, showing demanding postures and structural alignment"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Vein &amp; Tendon Chi Kung practice in the Nam Yang training hall, Thailand.</figcaption>
+    </div>
+
+    <div class="split-text reveal-right">
+      <h2 class="section-heading">Vein &amp; Tendon Chi Kung</h2>
+      <h3 class="art-subtitle">Developing Strength Through Structure</h3>
+      <p class="lede">Vein &amp; Tendon Chi Kung is a specialised training system designed to strengthen the body's connective tissues while developing structure, stability and resilience. Rather than relying on muscular force alone, the practice focuses on creating strength through the coordinated use of the entire body.</p>
+      <p class="lede">Through a series of carefully structured postures and movements, practitioners learn to stretch and strengthen the tendons, fascia and supporting tissues that connect the body together. Over time this develops greater stability in the joints, improved posture and a stronger physical foundation for both daily life and martial arts practice.</p>
+      <p class="lede">The training is performed with deliberate attention to alignment, breathing and relaxation. While the exercises can be physically demanding, the aim is not to create unnecessary tension. Instead, students learn to generate strength while maintaining awareness and control, allowing the body to work as a connected whole.</p>
+      <p class="lede">Many practitioners find that regular training improves joint health, balance and overall resilience. The development of elastic, spring-like power throughout the body also provides an important bridge between the health-focused arts of Chi Kung and the more martial practices that follow within the Nam Yang system.</p>
+      <p class="lede">Like all traditional training, progress is built gradually through consistency rather than force. The goal is not simply to become stronger, but to cultivate a body that is balanced, connected and capable of expressing power efficiently.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     TRANSITION — SUM CHIEN
+     ========================================================= -->
+<div class="art-transition">
+  <div class="art-transition-inner reveal">
+    <h3>Sum Chien</h3>
+    <p>A foundational martial art that teaches practitioners how to unite structure, movement, breathing and intention into a single coordinated expression of power.</p>
+  </div>
+</div>
+
+<!-- =========================================================
+     SECTION 6 — SUM CHIEN
+     ========================================================= -->
+<section class="split" id="sum-chien" style="background: #f2ead8;">
+  <div class="container">
+
+    <div class="split-media-wrap reveal-left">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-07-sum-chien-foundation-form.webp"
+            alt="Thomas demonstrating a core Sum Chien posture with students practising the form behind him"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Sum Chien practice with Thomas and students.</figcaption>
+    </div>
+
+    <div class="split-text reveal-right">
+      <h2 class="section-heading">Sum Chien</h2>
+      <h3 class="art-subtitle">The Foundation of Internal Power</h3>
+      <p class="lede">Sum Chien is one of the core training routines of the Nam Yang tradition and forms the foundation upon which much of the martial system is built. Although relatively short in appearance, it is a practice of remarkable depth that reveals new layers of understanding throughout a lifetime of study.</p>
+      <p class="lede">Through the form, practitioners learn how to unite structure, breathing, intention and movement into a single coordinated action. Rather than relying on isolated muscular force, Sum Chien teaches the body to work as one connected unit, allowing power to be transmitted efficiently from the ground through the entire body.</p>
+      <p class="lede">The practice develops balance, posture, concentration and body awareness while cultivating the qualities of stability, rootedness and internal power that underpin the wider martial system. For this reason, Sum Chien remains a central part of training at every stage of development, from beginner to master.</p>
+      <p class="lede">The principles cultivated within the form provide the foundation for the Tiger-Crane martial art, where these qualities find expression through a broader range of techniques, applications and training methods.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     TRANSITION — TIGER-CRANE COMBINATION
+     ========================================================= -->
+<div class="art-transition">
+  <div class="art-transition-inner reveal">
+    <h3>Tiger-Crane Combination</h3>
+    <p>The wider martial art of the Nam Yang tradition, where the principles cultivated through Sum Chien are expressed through a complete system of movement, strategy, power generation and self-defence.</p>
+  </div>
+</div>
+
+<!-- =========================================================
+     SECTION 7 — TIGER-CRANE COMBINATION
+     ========================================================= -->
+<section class="split" id="tiger-crane" style="background: var(--bone);">
+  <div class="container">
+
+    <div class="split-media-wrap reveal-left">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-08-tiger-crane-combination-artwork.webp"
+            alt="Tiger-Crane artwork in traditional East Asian ink-painting style, showing the tiger and crane in balance"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Tiger and Crane — the complementary qualities at the heart of the art.</figcaption>
+    </div>
+
+    <div class="split-text reveal-right">
+      <h2 class="section-heading">Tiger-Crane Combination</h2>
+      <h3 class="art-subtitle">The Art of Power, Timing and Strategy</h3>
+      <p class="lede">The Tiger-Crane Combination is the principal martial art of the Nam Yang tradition. More than a collection of techniques, it is a system of principles that teaches how to move, think and respond under pressure.</p>
+      <p class="lede">Training develops a body that is relaxed yet powerful. The old teachings describe a practitioner as being &ldquo;soft as cotton outside, but hard as iron inside.&rdquo; Through rooted stances, coordinated movement and correct body mechanics, power can be generated efficiently and delivered with precision.</p>
+      <p class="lede">Tiger-Crane places great importance on timing, positioning and awareness. Students learn to control distance, build and follow bridges, and recognise opportunities as they arise. Defence is valued above reckless aggression, reflected in the traditional saying:</p>
+      <p class="lede" style="font-style:italic; padding-left: 20px; border-left: 2px solid var(--gold);">&ldquo;Ten attacks, nine failures. Ten defences, nine successes.&rdquo;</p>
+      <p class="lede">The art teaches adaptability rather than rigidity. Above all, Tiger-Crane reminds us that true martial skill is inseparable from character. Strength alone is never enough; the highest level of practice combines confidence with humility, determination with restraint and power with wisdom.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 8 — PUSHING & STICKY HANDS
+     ========================================================= -->
+<section class="split" id="pushing-sticky-hands" style="background: #f2ead8;">
+  <div class="container">
+
+    <div class="split-media-wrap reveal-left">
+      <div class="split-media">
+        <figure>
+          <img
+            src="images/arts-09-pushing-sticky-hands-training.webp"
+            alt="Close-up of two practitioners maintaining contact through the arms and hands during Pushing and Sticky Hands training"
+          >
+        </figure>
+      </div>
+      <figcaption style="position:static; margin-top:12px;">Pushing &amp; Sticky Hands — connection, sensitivity and awareness.</figcaption>
+    </div>
+
+    <div class="split-text reveal-right">
+      <h2 class="section-heading">Pushing &amp; Sticky Hands</h2>
+      <h3 class="art-subtitle">Sensitivity Through Contact</h3>
+      <p class="lede">Pushing and Sticky Hands are partner-training methods used to develop sensitivity, timing and adaptability. Rather than relying on strength alone, practitioners learn to feel pressure, balance and intention through continuous contact with another person.</p>
+      <p class="lede">Through structured exercises, students develop the ability to remain relaxed under pressure while maintaining awareness of their own position and that of their partner. Small changes in tension, direction or balance become easier to recognise, allowing responses to emerge naturally rather than through force.</p>
+      <p class="lede">This practice brings many of the principles of Tiger-Crane to life. Concepts such as yielding, following the bridge and controlling distance can only be fully understood through direct interaction with another practitioner. Over time, students learn to become more responsive, more connected and less dependent on strength or speed.</p>
+      <p class="lede">Beyond its martial applications, Pushing and Sticky Hands develops concentration, patience and the ability to remain calm in challenging situations. It teaches us to listen before we react and to respond with awareness rather than instinct.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     FINAL SECTION — THE ARTS LIVE ON
+     ========================================================= -->
+<section class="arts-closing" id="arts-live-on">
+  <div class="arts-closing-inner reveal">
+    <h2>The Arts Live On</h2>
+    <p class="lede">The arts of Nam Yang are not destinations to be reached but practices to be lived.</p>
+    <p class="lede">Through generations of teachers and students, these traditions have continued not through books alone, but through practice, experience and shared learning.</p>
+    <p class="lede">Today, that journey continues in Arillas, Corfu, where these arts are still explored, practised and shared with those who wish to learn.</p>
+    <div class="btn-row">
+      <a href="retreats.html" class="btn">Experience The Arts</a>
+      <a href="contact.html" class="btn-ghost">Talk with Thomas</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-newsletter">
+      <div class="newsletter-text">
+        <h3>Stay Connected</h3>
+        <p>Sign up for retreat dates, class updates and stories from the mat.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="logo-lockup">
+          <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+          <span class="logo-wordmark">Nam Yang Greece</span>
+        </div>
+        <p>Traditional Shaolin Kung Fu &amp; Chi Kung training in Corfu, Greece.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="private-training.html">Private Training</a></li>
+          <li><a href="arts.html">The Arts</a></li>
+          <li><a href="about.html">About Thomas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Training</h4>
+        <ul>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="private-training.html">Private Training</a></li>
+          <li><a href="arts.html">The Arts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:crockungfu@gmail.com">crockungfu@gmail.com</a></li>
+          <li><a href="tel:+33749085814">+33 7 49 08 58 14</a></li>
+          <li><a href="https://instagram.com/crockungfu" target="_blank" rel="noopener">@crockungfu on Instagram</a></li>
+          <li><a href="https://facebook.com/crockungfu" target="_blank" rel="noopener">@crockungfu on Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; CrocKungFu
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Header scroll state
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var overlay = document.getElementById('mobileOverlay');
+  toggle.addEventListener('click', function(){
+    var open = overlay.classList.toggle('is-open');
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  overlay.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      overlay.classList.remove('is-open');
+      toggle.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal, .split-media, .split-text, .split-media-wrap');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+})();
+</script>
+
+</body>
+</html>
