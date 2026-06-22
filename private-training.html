@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Training | Nam Yang Greece — Personal Kung Fu & Chi Kung Instruction in Corfu</title>
+<meta name="description" content="Personal Kung Fu and Chi Kung instruction tailored to your goals, experience and interests. Private training with Thomas Croc in Arillas, Corfu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+:root{
+  --ink:        #100F0E;
+  --charcoal:   #2A2724;
+  --charcoal-2: #3A3632;
+  --gold:       #FBBA3A;
+  --gold-light: #FCCD6B;
+  --bone:       #E8DFC9;
+  --white:      #FFFFFF;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-label: 'Barlow Condensed', sans-serif;
+
+  --container: 1180px;
+  --gutter: clamp(24px, 6vw, 64px);
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--bone);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.container{
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+section{ position: relative; }
+
+h2.section-heading{
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  margin-bottom: 22px;
+  color: var(--gold);
+}
+.section-intro{ max-width: 640px; }
+.section-intro.centered{ margin: 0 auto; text-align:center; }
+p.lede{ font-size: 1.05rem; color: var(--charcoal); opacity:.92; margin-bottom: 16px; }
+p.lede:last-child{ margin-bottom:0; }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 34px;
+  display: inline-block;
+  border: 1.5px solid var(--gold);
+  background: var(--ink);
+  color: var(--gold-light);
+  border-radius: 999px;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .25s var(--ease);
+  cursor: pointer;
+  text-align:center;
+}
+.btn:hover{
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+.btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-ghost{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--gold);
+  display: inline-block;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.btn-ghost:hover{ color: var(--gold); }
+.btn-ghost.on-dark{ color: var(--white); }
+.btn-ghost.on-dark:hover{ color: var(--gold-light); }
+
+.btn-row{ display:flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; }
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+.logo-mark{
+  display: inline-block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.logo-mark.size-sm{ width: 52px; height: 52px; }
+.logo-mark.size-lg{ width: clamp(220px, 30vw, 260px); height: clamp(220px, 30vw, 260px); }
+
+.logo-lockup{ display:flex; align-items:center; gap: 14px; }
+.logo-wordmark{
+  font-family: var(--font-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HEADER / NAVIGATION
+   ========================================================= */
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 22px 0;
+  background: transparent;
+  transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+}
+.site-header.scrolled{
+  background: rgba(16,15,14,0.96);
+  padding: 14px 0;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.site-header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.main-nav{ display:flex; align-items:center; gap: 16px; }
+.main-nav a{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  padding: 4px 0;
+  white-space: nowrap;
+  transition: color .3s var(--ease);
+}
+.main-nav a::after{
+  content:"";
+  position:absolute; left:0; bottom:-2px;
+  width:0; height:1.5px; background: var(--gold);
+  transition: width .3s var(--ease);
+}
+.main-nav a:hover, .main-nav a.is-active{ color: var(--gold); }
+.main-nav a:hover::after, .main-nav a.is-active::after{ width:100%; }
+
+.header-actions{ display:flex; align-items:center; gap: 22px; }
+.header-actions .btn{ padding: 10px 18px; font-size:.68rem; white-space: nowrap; }
+
+.nav-toggle{
+  display:none;
+  width: 44px; height: 44px;
+  border: none; background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100;
+}
+.nav-toggle span{
+  position:absolute; left:8px; right:8px; height:2px; background: var(--white);
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+.nav-toggle span:nth-child(1){ top:15px; }
+.nav-toggle span:nth-child(2){ top:23px; }
+.nav-toggle span:nth-child(3){ top:31px; }
+.nav-toggle.is-open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2){ opacity:0; }
+.nav-toggle.is-open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+.mobile-overlay{
+  position: fixed; inset:0;
+  background: var(--ink);
+  z-index: 1050;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap: 36px;
+  opacity:0; visibility:hidden;
+  transition: opacity .4s var(--ease), visibility .4s var(--ease);
+}
+.mobile-overlay.is-open{ opacity:1; visibility:visible; }
+.mobile-overlay .main-nav{ display:flex; flex-direction:column; gap: 28px; }
+.mobile-overlay .main-nav a{ font-size:1.1rem; }
+.mobile-overlay .logo-lockup{ position:absolute; top:28px; left:0; right:0; justify-content:center; }
+
+.mobile-close{
+  position: absolute;
+  top: 28px; right: var(--gutter);
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1200;
+  transition: color .3s var(--ease);
+}
+.mobile-close:hover{ color: var(--gold); }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.hero-media{
+  position:absolute; inset:0;
+  overflow:hidden;
+}
+.hero-media img{
+  width:100%; height:100%;
+  object-fit: cover;
+  object-position: center 38%;
+  animation: heroZoom 22s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{
+  from{ transform: scale(1); }
+  to{ transform: scale(1.08); }
+}
+.hero-media::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(16,15,14,.55) 0%, rgba(16,15,14,.32) 38%, rgba(16,15,14,.82) 100%);
+}
+.hero-content{
+  position:relative; z-index:2;
+  color: var(--white);
+  max-width: 780px;
+  padding-top: 90px;
+}
+.hero h1{
+  color: var(--white);
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  margin-bottom: 24px;
+  text-shadow: 0 2px 16px rgba(0,0,0,.45), 0 1px 3px rgba(0,0,0,.4);
+}
+.hero p.sub{
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(255,255,255,.88);
+  max-width: 540px;
+  margin-bottom: 12px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   WHY CHOOSE — three text cards on dark
+   ========================================================= */
+.why-choose{
+  padding: 110px 0;
+  background: var(--ink);
+}
+.why-choose h2{ color: var(--gold); margin-bottom: 56px; }
+
+.why-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 36px);
+}
+.why-card{
+  border: 1px solid var(--charcoal-2);
+  border-radius: 4px;
+  padding: clamp(32px, 4vw, 48px) clamp(28px, 3vw, 40px);
+  background: var(--charcoal);
+  opacity:0; transform: translateY(30px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.why-card.in-view{ opacity:1; transform:translateY(0); }
+.why-card:nth-child(2){ transition-delay: .15s; }
+.why-card:nth-child(3){ transition-delay: .3s; }
+
+.why-card h3{
+  color: var(--gold);
+  font-size: 1.35rem;
+  margin-bottom: 16px;
+}
+.why-card p{
+  color: rgba(255,255,255,.75);
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   WHAT MAKES IT DIFFERENT — three image cards
+   ========================================================= */
+.different{
+  padding: 110px 0;
+  background: var(--bone);
+}
+.different h2{ color: var(--gold); margin-bottom: 16px; }
+.different .section-intro-text{
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  opacity:.88;
+  max-width: 600px;
+  margin-bottom: 60px;
+}
+
+.different-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 36px);
+}
+.different-card{
+  background: var(--white);
+  border: 1px solid #E0D8C6;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity:0; transform: translateY(30px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.different-card.in-view{ opacity:1; transform:translateY(0); }
+.different-card:nth-child(2){ transition-delay: .15s; }
+.different-card:nth-child(3){ transition-delay: .3s; }
+
+.different-card .card-media{
+  height: clamp(220px, 22vw, 300px);
+  overflow: hidden;
+}
+.different-card .card-media img{
+  width:100%; height:100%;
+  object-fit: cover;
+  transition: transform .7s var(--ease);
+}
+.different-card:hover .card-media img{ transform: scale(1.05); }
+
+.different-card .card-body{
+  padding: clamp(24px, 3vw, 36px);
+}
+.different-card h3{
+  color: var(--ink);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+.different-card p{
+  color: var(--charcoal);
+  opacity:.85;
+  font-size: .96rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   WHO IS IT FOR — four reassurance blocks
+   ========================================================= */
+.who-for{
+  padding: 110px 0;
+  background: var(--ink);
+}
+.who-for h2{ color: var(--gold); margin-bottom: 56px; }
+
+.who-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+}
+.who-block{
+  border-top: 2px solid var(--gold);
+  padding-top: 28px;
+  opacity:0; transform: translateY(26px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.who-block.in-view{ opacity:1; transform:translateY(0); }
+.who-block:nth-child(2){ transition-delay: .1s; }
+.who-block:nth-child(3){ transition-delay: .2s; }
+.who-block:nth-child(4){ transition-delay: .3s; }
+
+.who-block h3{
+  color: var(--gold-light);
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+}
+.who-block p{
+  color: rgba(255,255,255,.72);
+  font-size: .95rem;
+  line-height: 1.75;
+}
+
+.who-arts-link{
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--charcoal-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  opacity:0; transform: translateY(20px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.who-arts-link.in-view{ opacity:1; transform:translateY(0); }
+
+.who-arts-link p{
+  color: rgba(255,255,255,.8);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  max-width: 460px;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+.final-cta{
+  padding: 120px 0;
+  background: var(--charcoal);
+  text-align: center;
+}
+.final-cta-inner{
+  max-width: 580px;
+  margin: 0 auto;
+}
+.final-cta h2{
+  color: var(--gold);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  margin-bottom: 22px;
+}
+.final-cta p{
+  color: rgba(255,255,255,.82);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{ background: var(--ink); color: rgba(255,255,255,.7); padding: 80px 0 0; }
+
+.footer-newsletter{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-bottom: 52px;
+  margin-bottom: 52px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.footer-newsletter h3{
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+.newsletter-text p{
+  font-size: .95rem;
+  color: rgba(255,255,255,.62);
+  max-width: 420px;
+}
+.newsletter-form{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.newsletter-form input{
+  font-family: var(--font-body);
+  font-size: .95rem;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.06);
+  color: var(--white);
+  min-width: 260px;
+  transition: border-color .3s var(--ease);
+}
+.newsletter-form input::placeholder{ color: rgba(255,255,255,.45); }
+.newsletter-form input:focus{ outline:none; border-color: var(--gold); }
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: clamp(30px, 4vw, 60px);
+  padding-bottom: 56px;
+}
+.footer-col h4{
+  font-family: var(--font-label); color: var(--white); font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; font-size:.82rem; margin-bottom: 22px;
+}
+.footer-col p{ font-size: .92rem; line-height:1.7; color: rgba(255,255,255,.62); }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap: 12px; }
+.footer-col ul a{ font-size:.92rem; color: rgba(255,255,255,.72); transition: color .3s var(--ease); }
+.footer-col ul a:hover{ color: var(--gold); }
+.footer-brand .logo-lockup{ margin-bottom: 18px; }
+.footer-brand .logo-wordmark{ color: var(--white); }
+
+.social-icons{
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+.social-icons a{
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.25);
+  display: flex; align-items:center; justify-content:center;
+  color: rgba(255,255,255,.72);
+  transition: border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
+}
+.social-icons a:hover{
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(251,186,58,.08);
+}
+.social-icons svg{ width:16px; height:16px; fill:currentColor; }
+
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding: 26px 0;
+  text-align:center;
+  font-size: .82rem;
+  letter-spacing:.04em;
+  color: rgba(255,255,255,.5);
+}
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+.reveal{ opacity:0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1199px){
+  .main-nav{ display:none; }
+  .header-actions .btn{ display:none; }
+  .nav-toggle{ display:block; }
+}
+
+@media (max-width: 980px){
+  .why-grid{ grid-template-columns: 1fr; }
+  .different-grid{ grid-template-columns: 1fr; }
+  .who-grid{ grid-template-columns: 1fr 1fr; }
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px){
+  .why-choose, .different, .who-for, .final-cta{ padding: 80px 0; }
+  .hero h1{ font-size: 2.4rem; }
+  .who-grid{ grid-template-columns: 1fr; }
+  .who-arts-link{ flex-direction: column; align-items: flex-start; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .footer-newsletter{ flex-direction:column; align-items:flex-start; }
+  .newsletter-form{ width:100%; flex-direction:column; align-items:stretch; }
+  .newsletter-form input{ flex:1; min-width:0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  .hero-media img{ animation:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
+      <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+      <span class="logo-wordmark">Nam Yang Greece</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="retreats.html">Retreats</a>
+      <a href="classes.html">Classes</a>
+      <a href="private-training.html" class="is-active">Private Training</a>
+      <a href="arts.html">The Arts</a>
+      <a href="about.html">About Thomas</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="retreats.html" class="btn">Upcoming Retreats</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile full-screen overlay menu -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
+    <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+    <span class="logo-wordmark">Nam Yang Greece</span>
+  </a>
+  <nav class="main-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="retreats.html">Retreats</a>
+    <a href="classes.html">Classes</a>
+    <a href="private-training.html">Private Training</a>
+    <a href="arts.html">The Arts</a>
+    <a href="about.html">About Thomas</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="retreats.html" class="btn">Upcoming Retreats</a>
+</div>
+
+<!-- =========================================================
+     SECTION 1 — HERO
+     ========================================================= -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <img src="images/private-training-00-hero-personal-guidance-beach.webp" alt="Thomas observing and guiding a student during practice on Arillas beach">
+  </div>
+  <div class="container hero-content">
+    <h1>Private Training</h1>
+    <p class="sub">Personal instruction tailored to your goals, experience and interests.</p>
+    <p class="sub">Whether you&rsquo;re seeking health and wellbeing, martial arts training, or a deeper understanding of the arts, private sessions provide dedicated guidance and individual attention.</p>
+    <p class="sub">Train at your own pace and explore the aspects of practice that matter most to you.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 2 — WHY CHOOSE PRIVATE TRAINING?
+     ========================================================= -->
+<section class="why-choose" id="why-choose">
+  <div class="container">
+    <h2 class="section-heading reveal">Why Choose Private Training?</h2>
+    <div class="why-grid">
+
+      <div class="why-card">
+        <h3>Personal Guidance</h3>
+        <p>Receive individual instruction tailored to your goals, experience and interests. Whether you&rsquo;re completely new to the arts or looking to refine existing skills, training is adapted to your needs.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Learn At Your Own Pace</h3>
+        <p>Private sessions allow you to progress without the pace or structure of a group class. Take the time to explore movements, techniques and principles with focused attention and clear guidance.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Go Deeper</h3>
+        <p>Explore specific aspects of Kung Fu, Chi Kung or Shuang Yang in greater depth. Private training creates space for questions, refinement and a more personal learning experience.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 3 — WHAT MAKES PRIVATE TRAINING DIFFERENT?
+     ========================================================= -->
+<section class="different" id="different">
+  <div class="container">
+    <h2 class="section-heading reveal">What Makes Private Training Different?</h2>
+    <div class="different-grid">
+
+      <article class="different-card">
+        <div class="card-media">
+          <img src="images/private-training-03-focused-attention-hand-correction.webp" alt="Thomas guiding a student's hand position during practice">
+        </div>
+        <div class="card-body">
+          <h3>Personal Guidance</h3>
+          <p>Receive individual instruction tailored to your needs, experience and goals. Whether you&rsquo;re completely new to the arts or looking to refine existing skills, training is adapted to support your personal development.</p>
+        </div>
+      </article>
+
+      <article class="different-card">
+        <div class="card-media">
+          <img src="images/private-training-03-training-tailored-partner-guidance.webp" alt="Thomas working directly with a student during partner practice">
+        </div>
+        <div class="card-body">
+          <h3>Flexible Scheduling</h3>
+          <p>Private sessions can be arranged around your availability and individual circumstances. This creates greater flexibility for those whose schedule, travel plans or commitments make regular classes difficult to attend.</p>
+        </div>
+      </article>
+
+      <article class="different-card">
+        <div class="card-media">
+          <img src="images/private-training-03-flexible-personal-shuang-yang-beach.webp" alt="Thomas practising Shuang Yang with a student on Arillas beach">
+        </div>
+        <div class="card-body">
+          <h3>Faster Progress</h3>
+          <p>With direct feedback and focused attention throughout the session, private training often provides the quickest path to improvement. Every session is designed to help you make the most of your training time.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 4 — WHO IS IT FOR?
+     ========================================================= -->
+<section class="who-for" id="who-for">
+  <div class="container">
+    <h2 class="section-heading reveal">Who Is It For?</h2>
+    <div class="who-grid">
+
+      <div class="who-block">
+        <h3>Complete Beginners</h3>
+        <p>No previous experience is required. Private training provides a comfortable environment to learn at your own pace, ask questions and build confidence without the pressure of keeping up with a group.</p>
+      </div>
+
+      <div class="who-block">
+        <h3>Existing Students</h3>
+        <p>For those already training, private sessions provide the opportunity to refine techniques, improve forms and explore specific areas of practice in greater detail.</p>
+      </div>
+
+      <div class="who-block">
+        <h3>Visitors To Corfu</h3>
+        <p>Many visitors use private sessions as a way to experience the arts during their stay on the island. Whether you&rsquo;re here for a few days or a few weeks, training can be arranged around your schedule and interests.</p>
+      </div>
+
+      <div class="who-block">
+        <h3>Couples, Families &amp; Small Groups</h3>
+        <p>Private sessions can also be arranged for couples, families and small groups. The first question is always the same: what do you want people to experience? From there, the session is built around the people, the venue and the purpose of the gathering.</p>
+      </div>
+
+    </div>
+
+    <div class="who-arts-link">
+      <p>Interested in learning more about the arts that form the foundation of Nam Yang training?</p>
+      <a href="arts.html" class="btn">Discover The Arts &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 5 — FINAL CTA
+     ========================================================= -->
+<section class="final-cta" id="final-cta">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <h2>Ready to Train?</h2>
+      <p>Every student follows a different path. Private training creates the space to explore that path with focused guidance, individual attention and a practice tailored to your needs.</p>
+      <p style="margin-bottom: 36px;">If you&rsquo;d like to discuss your goals, ask a question or arrange a session, I&rsquo;d be happy to hear from you.</p>
+      <a href="contact.html" class="btn">Talk With Thomas</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-newsletter">
+      <div class="newsletter-text">
+        <h3>Stay Connected</h3>
+        <p>Sign up for retreat dates, class updates and stories from the mat.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="logo-lockup">
+          <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+          <span class="logo-wordmark">Nam Yang Greece</span>
+        </div>
+        <p>Traditional Shaolin Kung Fu &amp; Chi Kung training in Corfu, Greece.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/crockungfu" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/crockungfu" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="private-training.html">Private Training</a></li>
+          <li><a href="arts.html">The Arts</a></li>
+          <li><a href="about.html">About Thomas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Training</h4>
+        <ul>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="private-training.html">Private Training</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="arts.html">Nam Yang Tradition</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:crockungfu@gmail.com">crockungfu@gmail.com</a></li>
+          <li><a href="tel:+33749085814">+33 7 49 08 58 14</a></li>
+          <li>Arillas, Corfu, Greece</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; Nam Yang Greece
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Header scroll state
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileClose');
+
+  function openMenu(){
+    overlay.classList.add('is-open');
+    toggle.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    overlay.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', function(){
+    overlay.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal, .why-card, .different-card, .who-block, .who-arts-link');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+})();
+</script>
+
+</body>
+</html>
