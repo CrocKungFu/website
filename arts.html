@@ -232,23 +232,20 @@ p.lede:last-child{ margin-bottom:0; }
    ========================================================= */
 .hero-arts{
   position: relative;
-  min-height: 72vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: #ede3ce;
-  background-image:
-    radial-gradient(ellipse at 25% 75%, rgba(160,130,80,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 25%, rgba(180,150,90,0.14) 0%, transparent 55%);
+  background: var(--bone);
 }
 .hero-arts-watermark{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(320px, 55vw, 620px);
+  width: clamp(340px, 58vw, 680px);
   height: auto;
   opacity: 0.1;
   pointer-events: none;
@@ -258,17 +255,18 @@ p.lede:last-child{ margin-bottom:0; }
   position: relative;
   z-index: 2;
   max-width: 720px;
-  padding: 110px var(--gutter) 80px;
+  padding: 120px var(--gutter) 90px;
 }
 .hero-arts-content h1{
   font-size: clamp(2.4rem, 5vw, 4rem);
-  color: var(--ink);
+  color: var(--gold);
+  text-shadow: 0 2px 18px rgba(16,15,14,0.18);
   margin-bottom: 20px;
 }
 .hero-arts-content p.sub{
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   color: var(--charcoal);
-  opacity: 0.78;
+  opacity: 0.72;
   font-weight: 300;
   max-width: 540px;
   margin: 0 auto;
@@ -288,11 +286,18 @@ p.lede:last-child{ margin-bottom:0; }
   align-items:center;
 }
 .split.reverse .container{ grid-template-columns: 0.95fr 1.05fr; }
-.split.reverse{ background:#f2ead8; }
 .split.reverse .split-media{ order:2; }
 .split.reverse .split-text{ order:1; }
 
-.split-bg-alt{ background: #f2ead8; }
+/* Dark variant */
+.split.on-dark{ background: var(--ink); }
+.split.on-dark p.lede{ color: rgba(255,255,255,0.85); opacity:1; }
+.split.on-dark figcaption{ color: rgba(255,255,255,0.48); }
+.split.on-dark h3.art-subtitle{ color: var(--gold-light); }
+.split.on-dark .quote-inline{
+  border-left-color: var(--gold);
+  color: rgba(255,255,255,0.82);
+}
 
 .split-media{
   position:relative;
@@ -315,18 +320,14 @@ figcaption{
   font-size: 0.8rem;
   color: var(--charcoal);
   opacity: 0.6;
-  margin-top: 10px;
+  margin-top: 12px;
   font-style: italic;
   text-align: center;
-  padding: 0 4px;
-  position: absolute;
-  bottom: -28px;
-  left: 0; right: 0;
 }
 
 .split-media-wrap{
-  position: relative;
-  padding-bottom: 36px;
+  display: flex;
+  flex-direction: column;
 }
 
 .split-media.reveal-left{ transform: translateX(-40px); opacity:0; transition: transform .9s var(--ease), opacity .9s var(--ease); }
@@ -341,7 +342,6 @@ figcaption{
 .split-media.reveal-right{ transform: translateX(40px); opacity:0; transition: transform .9s var(--ease), opacity .9s var(--ease); }
 .split-media.reveal-right.in-view{ transform: translateX(0); opacity:1; }
 
-.split-text h2{ margin-bottom: 8px; }
 .split-text h3.art-subtitle{
   font-family: var(--font-label);
   font-weight: 600;
@@ -350,6 +350,14 @@ figcaption{
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
+}
+
+.quote-inline{
+  font-style: italic;
+  padding-left: 20px;
+  border-left: 2px solid var(--gold);
+  color: var(--charcoal);
+  margin-bottom: 16px !important;
 }
 
 /* =========================================================
@@ -384,31 +392,6 @@ figcaption{
 }
 
 /* =========================================================
-   ART TRANSITION BLOCKS
-   ========================================================= */
-.art-transition{
-  padding: 72px 0;
-  background: var(--charcoal);
-  text-align: center;
-}
-.art-transition-inner{
-  max-width: 580px;
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-.art-transition h3{
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  color: var(--gold);
-  margin-bottom: 14px;
-}
-.art-transition p{
-  font-size: 1rem;
-  color: rgba(255,255,255,0.72);
-  line-height: 1.65;
-}
-
-/* =========================================================
    ARTS CLOSING SECTION
    ========================================================= */
 .arts-closing{
@@ -427,12 +410,23 @@ figcaption{
   margin-bottom: 30px;
 }
 .arts-closing p.lede{
-  color: var(--charcoal);
   text-align: left;
 }
-.arts-closing .btn-row{
+.arts-closing-cta{
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
   margin-top: 42px;
+}
+.arts-closing-cta-title{
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 /* =========================================================
@@ -522,19 +516,20 @@ figcaption{
 
 @media (max-width: 980px){
   .split .container{ grid-template-columns: 1fr; }
-  .split.reverse .split-media, .split.reverse .split-text{ order:initial; }
+  .split.reverse .split-media,
+  .split.reverse .split-text{ order:initial; }
   .split-media{ aspect-ratio: 4/3; }
 }
 
 @media (max-width: 600px){
   .split{ padding: 80px 0; }
+  .hero-arts{ min-height: 80vh; }
   .hero-arts-content h1{ font-size: 2.2rem; }
   .footer-grid{ grid-template-columns: 1fr; gap: 40px; }
   .footer-newsletter{ flex-direction:column; align-items:flex-start; }
   .newsletter-form{ width:100%; flex-direction:column; align-items:stretch; }
   .newsletter-form input{ flex:1; min-width:0; }
   .arts-closing{ padding: 80px 0; }
-  .art-transition{ padding: 52px 0; }
   .quote-block{ padding: 72px 0; }
 }
 
@@ -611,12 +606,13 @@ figcaption{
 
 <!-- =========================================================
      SECTION 1 — WHAT IS NAM YANG?
+     Image left · Text right · Bone background
      ========================================================= -->
-<section class="split" id="what-is-nam-yang" style="background: var(--bone);">
+<section class="split" id="what-is-nam-yang">
   <div class="container">
 
-    <div class="split-media-wrap reveal-left">
-      <div class="split-media">
+    <div class="split-media-wrap">
+      <div class="split-media reveal-left">
         <figure>
           <img
             src="images/arts-02-history-nam-yang-demonstration.jpg.webp"
@@ -624,7 +620,7 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption style="position:static; margin-top:12px;">Historical Nam Yang demonstration.</figcaption>
+      <figcaption>Historical Nam Yang demonstration.</figcaption>
     </div>
 
     <div class="split-text reveal-right">
@@ -641,9 +637,23 @@ figcaption{
 
 <!-- =========================================================
      SECTION 2 — TONG LING CHI KUNG
+     Text left · Image right · Dark background
      ========================================================= -->
-<section class="split reverse" id="tong-ling-chi-kung" style="background: #f2ead8;">
+<section class="split reverse on-dark" id="tong-ling-chi-kung">
   <div class="container">
+
+    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-media-wrap">
+      <div class="split-media reveal-right">
+        <figure>
+          <img
+            src="images/arts-03-tong-ling-chi-kung-class-corfu.jpg.webp"
+            alt="Thomas teaching the opening posture of Tong Ling Chi Kung during a training session in Corfu, students following the movement"
+          >
+        </figure>
+      </div>
+      <figcaption>Teaching Tong Ling Chi Kung during a training session in Corfu.</figcaption>
+    </div>
 
     <div class="split-text reveal-left">
       <h2 class="section-heading">Tong Ling Chi Kung</h2>
@@ -653,18 +663,6 @@ figcaption{
       <p class="lede">One of the reasons Tong Ling Chi Kung has remained so popular is its accessibility. It can be practised by people of almost any age or fitness level and requires very little space or equipment. What appears simple at first gradually reveals increasing depth as coordination, relaxation and internal awareness begin to develop.</p>
       <p class="lede">Within the Nam Yang tradition, Tong Ling Chi Kung is valued not only as a health practice but also as a foundation for the other arts. The principles learned here — relaxation, posture, breathing and efficient movement — continue to reappear throughout the wider system.</p>
       <p class="lede">For many practitioners, Tong Ling Chi Kung becomes a daily practice that supports both physical health and mental clarity, providing a simple and effective way to maintain balance in an increasingly busy world.</p>
-    </div>
-
-    <div class="split-media-wrap reveal-right">
-      <div class="split-media">
-        <figure>
-          <img
-            src="images/arts-03-tong-ling-chi-kung-class-corfu.jpg.webp"
-            alt="Thomas teaching the opening posture of Tong Ling Chi Kung during a training session in Corfu, students following the movement"
-          >
-        </figure>
-      </div>
-      <figcaption style="position:static; margin-top:12px;">Teaching Tong Ling Chi Kung during a training session in Corfu.</figcaption>
     </div>
 
   </div>
@@ -684,12 +682,13 @@ figcaption{
 
 <!-- =========================================================
      SECTION 3 — SHUANG YANG
+     Image left · Text right · Bone background
      ========================================================= -->
-<section class="split" id="shuang-yang" style="background: var(--bone);">
+<section class="split" id="shuang-yang">
   <div class="container">
 
-    <div class="split-media-wrap reveal-left">
-      <div class="split-media">
+    <div class="split-media-wrap">
+      <div class="split-media reveal-left">
         <figure>
           <img
             src="images/arts-04-shuang-yang-practice-thailand.jpg.webp"
@@ -697,7 +696,7 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption style="position:static; margin-top:12px;">Practising Shuang Yang at sunrise in Thailand.</figcaption>
+      <figcaption>Practising Shuang Yang at sunrise in Thailand.</figcaption>
     </div>
 
     <div class="split-text reveal-right">
@@ -714,20 +713,24 @@ figcaption{
 </section>
 
 <!-- =========================================================
-     TRANSITION — STRETCHING & MOBILITY
-     ========================================================= -->
-<div class="art-transition">
-  <div class="art-transition-inner reveal">
-    <h3>Stretching &amp; Mobility</h3>
-    <p>Building flexibility, resilience and freedom of movement through traditional training methods.</p>
-  </div>
-</div>
-
-<!-- =========================================================
      SECTION 4 — STRETCHING & MOBILITY
+     Text left · Image right · Dark background
      ========================================================= -->
-<section class="split reverse" id="stretching-mobility" style="background: #f2ead8;">
+<section class="split reverse on-dark" id="stretching-mobility">
   <div class="container">
+
+    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-media-wrap">
+      <div class="split-media reveal-right">
+        <figure>
+          <img
+            src="images/arts-05-stretching-mobility-class-arillas.jpg.webp"
+            alt="Thomas demonstrating a side stretch during a training session in Arillas, students following the exercise"
+          >
+        </figure>
+      </div>
+      <figcaption>Stretching class during a training session in Arillas.</figcaption>
+    </div>
 
     <div class="split-text reveal-left">
       <h2 class="section-heading">Stretching &amp; Mobility</h2>
@@ -740,39 +743,18 @@ figcaption{
       <p class="lede">Whether someone is seeking better health, improved athletic performance or simply the ability to move more freely through life, stretching and mobility remain an essential part of the Nam Yang system.</p>
     </div>
 
-    <div class="split-media-wrap reveal-right">
-      <div class="split-media">
-        <figure>
-          <img
-            src="images/arts-05-stretching-mobility-class-arillas.jpg.webp"
-            alt="Thomas demonstrating a side stretch during a training session in Arillas, students following the exercise"
-          >
-        </figure>
-      </div>
-      <figcaption style="position:static; margin-top:12px;">Stretching class during a training session in Arillas.</figcaption>
-    </div>
-
   </div>
 </section>
 
 <!-- =========================================================
-     TRANSITION — VEIN & TENDON CHI KUNG
-     ========================================================= -->
-<div class="art-transition">
-  <div class="art-transition-inner reveal">
-    <h3>Vein &amp; Tendon Chi Kung</h3>
-    <p>A specialised system designed to strengthen the body's connective tissues while developing structure, resilience and internal power.</p>
-  </div>
-</div>
-
-<!-- =========================================================
      SECTION 5 — VEIN & TENDON CHI KUNG
+     Image left · Text right · Bone background
      ========================================================= -->
-<section class="split" id="vein-tendon-chi-kung" style="background: var(--bone);">
+<section class="split" id="vein-tendon-chi-kung">
   <div class="container">
 
-    <div class="split-media-wrap reveal-left">
-      <div class="split-media">
+    <div class="split-media-wrap">
+      <div class="split-media reveal-left">
         <figure>
           <img
             src="images/arts-06-vein-tendon-chi-kung-thailand.jpg.webp"
@@ -780,7 +762,7 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption style="position:static; margin-top:12px;">Vein &amp; Tendon Chi Kung practice in the Nam Yang training hall, Thailand.</figcaption>
+      <figcaption>Vein &amp; Tendon Chi Kung practice in the Nam Yang training hall, Thailand.</figcaption>
     </div>
 
     <div class="split-text reveal-right">
@@ -797,23 +779,15 @@ figcaption{
 </section>
 
 <!-- =========================================================
-     TRANSITION — SUM CHIEN
-     ========================================================= -->
-<div class="art-transition">
-  <div class="art-transition-inner reveal">
-    <h3>Sum Chien</h3>
-    <p>A foundational martial art that teaches practitioners how to unite structure, movement, breathing and intention into a single coordinated expression of power.</p>
-  </div>
-</div>
-
-<!-- =========================================================
      SECTION 6 — SUM CHIEN
+     Text left · Image right · Dark background
      ========================================================= -->
-<section class="split" id="sum-chien" style="background: #f2ead8;">
+<section class="split reverse on-dark" id="sum-chien">
   <div class="container">
 
-    <div class="split-media-wrap reveal-left">
-      <div class="split-media">
+    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-media-wrap">
+      <div class="split-media reveal-right">
         <figure>
           <img
             src="images/arts-07-sum-chien-foundation-form.jpg.webp"
@@ -821,10 +795,10 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption style="position:static; margin-top:12px;">Sum Chien practice with Thomas and students.</figcaption>
+      <figcaption>Sum Chien practice with Thomas and students.</figcaption>
     </div>
 
-    <div class="split-text reveal-right">
+    <div class="split-text reveal-left">
       <h2 class="section-heading">Sum Chien</h2>
       <h3 class="art-subtitle">The Foundation of Internal Power</h3>
       <p class="lede">Sum Chien is one of the core training routines of the Nam Yang tradition and forms the foundation upon which much of the martial system is built. Although relatively short in appearance, it is a practice of remarkable depth that reveals new layers of understanding throughout a lifetime of study.</p>
@@ -837,23 +811,14 @@ figcaption{
 </section>
 
 <!-- =========================================================
-     TRANSITION — TIGER-CRANE COMBINATION
-     ========================================================= -->
-<div class="art-transition">
-  <div class="art-transition-inner reveal">
-    <h3>Tiger-Crane Combination</h3>
-    <p>The wider martial art of the Nam Yang tradition, where the principles cultivated through Sum Chien are expressed through a complete system of movement, strategy, power generation and self-defence.</p>
-  </div>
-</div>
-
-<!-- =========================================================
      SECTION 7 — TIGER-CRANE COMBINATION
+     Image left · Text right · Bone background
      ========================================================= -->
-<section class="split" id="tiger-crane" style="background: var(--bone);">
+<section class="split" id="tiger-crane">
   <div class="container">
 
-    <div class="split-media-wrap reveal-left">
-      <div class="split-media">
+    <div class="split-media-wrap">
+      <div class="split-media reveal-left">
         <figure>
           <img
             src="images/arts-08-tiger-crane-combination-artwork.jpg.webp"
@@ -861,7 +826,7 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption style="position:static; margin-top:12px;">Tiger and Crane — the complementary qualities at the heart of the art.</figcaption>
+      <figcaption>Tiger and Crane — the complementary qualities at the heart of the art.</figcaption>
     </div>
 
     <div class="split-text reveal-right">
@@ -870,7 +835,7 @@ figcaption{
       <p class="lede">The Tiger-Crane Combination is the principal martial art of the Nam Yang tradition. More than a collection of techniques, it is a system of principles that teaches how to move, think and respond under pressure.</p>
       <p class="lede">Training develops a body that is relaxed yet powerful. The old teachings describe a practitioner as being &ldquo;soft as cotton outside, but hard as iron inside.&rdquo; Through rooted stances, coordinated movement and correct body mechanics, power can be generated efficiently and delivered with precision.</p>
       <p class="lede">Tiger-Crane places great importance on timing, positioning and awareness. Students learn to control distance, build and follow bridges, and recognise opportunities as they arise. Defence is valued above reckless aggression, reflected in the traditional saying:</p>
-      <p class="lede" style="font-style:italic; padding-left: 20px; border-left: 2px solid var(--gold);">&ldquo;Ten attacks, nine failures. Ten defences, nine successes.&rdquo;</p>
+      <p class="lede quote-inline">&ldquo;Ten attacks, nine failures. Ten defences, nine successes.&rdquo;</p>
       <p class="lede">The art teaches adaptability rather than rigidity. Above all, Tiger-Crane reminds us that true martial skill is inseparable from character. Strength alone is never enough; the highest level of practice combines confidence with humility, determination with restraint and power with wisdom.</p>
     </div>
 
@@ -879,12 +844,14 @@ figcaption{
 
 <!-- =========================================================
      SECTION 8 — PUSHING & STICKY HANDS
+     Text left · Image right · Dark background
      ========================================================= -->
-<section class="split" id="pushing-sticky-hands" style="background: #f2ead8;">
+<section class="split reverse on-dark" id="pushing-sticky-hands">
   <div class="container">
 
-    <div class="split-media-wrap reveal-left">
-      <div class="split-media">
+    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-media-wrap">
+      <div class="split-media reveal-right">
         <figure>
           <img
             src="images/arts-09-pushing-sticky-hands-training.jpg.webp"
@@ -892,10 +859,10 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption style="position:static; margin-top:12px;">Pushing &amp; Sticky Hands — connection, sensitivity and awareness.</figcaption>
+      <figcaption>Pushing &amp; Sticky Hands — connection, sensitivity and awareness.</figcaption>
     </div>
 
-    <div class="split-text reveal-right">
+    <div class="split-text reveal-left">
       <h2 class="section-heading">Pushing &amp; Sticky Hands</h2>
       <h3 class="art-subtitle">Sensitivity Through Contact</h3>
       <p class="lede">Pushing and Sticky Hands are partner-training methods used to develop sensitivity, timing and adaptability. Rather than relying on strength alone, practitioners learn to feel pressure, balance and intention through continuous contact with another person.</p>
@@ -916,9 +883,9 @@ figcaption{
     <p class="lede">The arts of Nam Yang are not destinations to be reached but practices to be lived.</p>
     <p class="lede">Through generations of teachers and students, these traditions have continued not through books alone, but through practice, experience and shared learning.</p>
     <p class="lede">Today, that journey continues in Arillas, Corfu, where these arts are still explored, practised and shared with those who wish to learn.</p>
-    <div class="btn-row">
-      <a href="retreats.html" class="btn">Experience The Arts</a>
-      <a href="contact.html" class="btn-ghost">Talk with Thomas</a>
+    <div class="arts-closing-cta">
+      <h3 class="arts-closing-cta-title">Experience The Arts</h3>
+      <a href="contact.html" class="btn">Talk with Thomas</a>
     </div>
   </div>
 </section>
