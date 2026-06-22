@@ -238,7 +238,7 @@ p.lede:last-child{ margin-bottom:0; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: var(--bone);
+  background: #1e1914;
 }
 .hero-arts-watermark{
   position: absolute;
@@ -259,14 +259,14 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .hero-arts-content h1{
   font-size: clamp(2.4rem, 5vw, 4rem);
-  color: var(--gold);
-  text-shadow: 0 2px 18px rgba(16,15,14,0.18);
+  color: var(--white);
+  text-shadow: 0 2px 18px rgba(0,0,0,0.45);
   margin-bottom: 20px;
 }
+.hero-arts-content h1 .accent{ color: var(--gold); }
 .hero-arts-content p.sub{
   font-size: clamp(1rem, 1.6vw, 1.2rem);
-  color: var(--charcoal);
-  opacity: 0.72;
+  color: rgba(255,255,255,0.78);
   font-weight: 300;
   max-width: 540px;
   margin: 0 auto;
@@ -286,8 +286,6 @@ p.lede:last-child{ margin-bottom:0; }
   align-items:center;
 }
 .split.reverse .container{ grid-template-columns: 0.95fr 1.05fr; }
-.split.reverse .split-media{ order:2; }
-.split.reverse .split-text{ order:1; }
 
 /* Dark variant */
 .split.on-dark{ background: var(--ink); }
@@ -365,9 +363,13 @@ figcaption{
    ========================================================= */
 .quote-block{
   padding: 100px 0;
-  background: var(--ink);
+  background: var(--bone);
   text-align: center;
+  border-top: 1px solid rgba(251,186,58,0.35);
+  border-bottom: 1px solid rgba(251,186,58,0.35);
 }
+.quote-block blockquote{ color: var(--ink) !important; }
+.quote-block cite{ color: var(--gold) !important; }
 .quote-block-inner{
   max-width: 720px;
   margin: 0 auto;
@@ -516,9 +518,9 @@ figcaption{
 
 @media (max-width: 980px){
   .split .container{ grid-template-columns: 1fr; }
-  .split.reverse .split-media,
-  .split.reverse .split-text{ order:initial; }
   .split-media{ aspect-ratio: 4/3; }
+  /* On mobile, image always stacks above text for reverse sections */
+  .split.reverse .split-media-wrap{ order: -1; }
 }
 
 @media (max-width: 600px){
@@ -599,7 +601,7 @@ figcaption{
     aria-hidden="true"
   >
   <div class="hero-arts-content reveal">
-    <h1>The Arts of Nam Yang</h1>
+    <h1>The Arts of <span class="accent">Nam Yang</span></h1>
     <p class="sub">Traditional training methods for strength, health and personal development.</p>
   </div>
 </section>
@@ -642,7 +644,16 @@ figcaption{
 <section class="split reverse on-dark" id="tong-ling-chi-kung">
   <div class="container">
 
-    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-text reveal-left">
+      <h2 class="section-heading">Tong Ling Chi Kung</h2>
+      <p class="lede">Tong Ling Chi Kung is often the first art introduced to students entering the Nam Yang system and remains one of its most widely practised methods of training.</p>
+      <p class="lede">Combining breathing, gentle movement and focused awareness, it was developed as a complete system for improving health, vitality and overall well-being. Unlike many forms of exercise, the emphasis is not on force or exertion but on learning to move with greater relaxation, efficiency and balance.</p>
+      <p class="lede">The practice consists of a series of simple exercises designed to mobilise the joints, improve posture, encourage healthy circulation and release unnecessary tension from the body. Over time, students develop a greater awareness of how they move, breathe and respond to stress, both during practice and in everyday life.</p>
+      <p class="lede">One of the reasons Tong Ling Chi Kung has remained so popular is its accessibility. It can be practised by people of almost any age or fitness level and requires very little space or equipment. What appears simple at first gradually reveals increasing depth as coordination, relaxation and internal awareness begin to develop.</p>
+      <p class="lede">Within the Nam Yang tradition, Tong Ling Chi Kung is valued not only as a health practice but also as a foundation for the other arts. The principles learned here — relaxation, posture, breathing and efficient movement — continue to reappear throughout the wider system.</p>
+      <p class="lede">For many practitioners, Tong Ling Chi Kung becomes a daily practice that supports both physical health and mental clarity, providing a simple and effective way to maintain balance in an increasingly busy world.</p>
+    </div>
+
     <div class="split-media-wrap">
       <div class="split-media reveal-right">
         <figure>
@@ -653,16 +664,6 @@ figcaption{
         </figure>
       </div>
       <figcaption>Teaching Tong Ling Chi Kung during a training session in Corfu.</figcaption>
-    </div>
-
-    <div class="split-text reveal-left">
-      <h2 class="section-heading">Tong Ling Chi Kung</h2>
-      <p class="lede">Tong Ling Chi Kung is often the first art introduced to students entering the Nam Yang system and remains one of its most widely practised methods of training.</p>
-      <p class="lede">Combining breathing, gentle movement and focused awareness, it was developed as a complete system for improving health, vitality and overall well-being. Unlike many forms of exercise, the emphasis is not on force or exertion but on learning to move with greater relaxation, efficiency and balance.</p>
-      <p class="lede">The practice consists of a series of simple exercises designed to mobilise the joints, improve posture, encourage healthy circulation and release unnecessary tension from the body. Over time, students develop a greater awareness of how they move, breathe and respond to stress, both during practice and in everyday life.</p>
-      <p class="lede">One of the reasons Tong Ling Chi Kung has remained so popular is its accessibility. It can be practised by people of almost any age or fitness level and requires very little space or equipment. What appears simple at first gradually reveals increasing depth as coordination, relaxation and internal awareness begin to develop.</p>
-      <p class="lede">Within the Nam Yang tradition, Tong Ling Chi Kung is valued not only as a health practice but also as a foundation for the other arts. The principles learned here — relaxation, posture, breathing and efficient movement — continue to reappear throughout the wider system.</p>
-      <p class="lede">For many practitioners, Tong Ling Chi Kung becomes a daily practice that supports both physical health and mental clarity, providing a simple and effective way to maintain balance in an increasingly busy world.</p>
     </div>
 
   </div>
@@ -719,7 +720,17 @@ figcaption{
 <section class="split reverse on-dark" id="stretching-mobility">
   <div class="container">
 
-    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-text reveal-left">
+      <h2 class="section-heading">Stretching &amp; Mobility</h2>
+      <h3 class="art-subtitle">Building Freedom of Movement</h3>
+      <p class="lede">Within the Nam Yang tradition, stretching has always been regarded as an important part of training. Long before mobility became a popular topic in modern fitness, practitioners understood that strength, balance and longevity all depend upon maintaining freedom of movement throughout the body.</p>
+      <p class="lede">Rather than pursuing flexibility as an end in itself, the aim is to develop a body that moves naturally, efficiently and without unnecessary tension. Through a combination of dynamic and static exercises, students gradually improve mobility in the joints, length in the muscles and a greater awareness of posture and alignment.</p>
+      <p class="lede">These exercises support every other aspect of practice. A more mobile body allows movements to be performed with greater ease, improves balance and coordination, and helps reduce the risk of injury during training. Whether practising Chi Kung, Shuang Yang or the more demanding martial arts of the system, flexibility and mobility provide an important foundation upon which further skills can be developed.</p>
+      <p class="lede">Many students also find that the benefits extend well beyond training. Improved posture, reduced stiffness and greater comfort in everyday movement are often among the first changes people notice. For those who spend long hours sitting, working at a desk or carrying the physical demands of daily life, regular stretching can become a simple yet powerful way to maintain health and wellbeing.</p>
+      <p class="lede">As with all traditional training, progress is approached patiently and consistently. Flexibility is not measured by dramatic positions or quick results, but by the gradual development of a healthier, more resilient and more capable body.</p>
+      <p class="lede">Whether someone is seeking better health, improved athletic performance or simply the ability to move more freely through life, stretching and mobility remain an essential part of the Nam Yang system.</p>
+    </div>
+
     <div class="split-media-wrap">
       <div class="split-media reveal-right">
         <figure>
@@ -730,17 +741,6 @@ figcaption{
         </figure>
       </div>
       <figcaption>Stretching class during a training session in Arillas.</figcaption>
-    </div>
-
-    <div class="split-text reveal-left">
-      <h2 class="section-heading">Stretching &amp; Mobility</h2>
-      <h3 class="art-subtitle">Building Freedom of Movement</h3>
-      <p class="lede">Within the Nam Yang tradition, stretching has always been regarded as an important part of training. Long before mobility became a popular topic in modern fitness, practitioners understood that strength, balance and longevity all depend upon maintaining freedom of movement throughout the body.</p>
-      <p class="lede">Rather than pursuing flexibility as an end in itself, the aim is to develop a body that moves naturally, efficiently and without unnecessary tension. Through a combination of dynamic and static exercises, students gradually improve mobility in the joints, length in the muscles and a greater awareness of posture and alignment.</p>
-      <p class="lede">These exercises support every other aspect of practice. A more mobile body allows movements to be performed with greater ease, improves balance and coordination, and helps reduce the risk of injury during training. Whether practising Chi Kung, Shuang Yang or the more demanding martial arts of the system, flexibility and mobility provide an important foundation upon which further skills can be developed.</p>
-      <p class="lede">Many students also find that the benefits extend well beyond training. Improved posture, reduced stiffness and greater comfort in everyday movement are often among the first changes people notice. For those who spend long hours sitting, working at a desk or carrying the physical demands of daily life, regular stretching can become a simple yet powerful way to maintain health and wellbeing.</p>
-      <p class="lede">As with all traditional training, progress is approached patiently and consistently. Flexibility is not measured by dramatic positions or quick results, but by the gradual development of a healthier, more resilient and more capable body.</p>
-      <p class="lede">Whether someone is seeking better health, improved athletic performance or simply the ability to move more freely through life, stretching and mobility remain an essential part of the Nam Yang system.</p>
     </div>
 
   </div>
@@ -785,7 +785,15 @@ figcaption{
 <section class="split reverse on-dark" id="sum-chien">
   <div class="container">
 
-    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-text reveal-left">
+      <h2 class="section-heading">Sum Chien</h2>
+      <h3 class="art-subtitle">The Foundation of Internal Power</h3>
+      <p class="lede">Sum Chien is one of the core training routines of the Nam Yang tradition and forms the foundation upon which much of the martial system is built. Although relatively short in appearance, it is a practice of remarkable depth that reveals new layers of understanding throughout a lifetime of study.</p>
+      <p class="lede">Through the form, practitioners learn how to unite structure, breathing, intention and movement into a single coordinated action. Rather than relying on isolated muscular force, Sum Chien teaches the body to work as one connected unit, allowing power to be transmitted efficiently from the ground through the entire body.</p>
+      <p class="lede">The practice develops balance, posture, concentration and body awareness while cultivating the qualities of stability, rootedness and internal power that underpin the wider martial system. For this reason, Sum Chien remains a central part of training at every stage of development, from beginner to master.</p>
+      <p class="lede">The principles cultivated within the form provide the foundation for the Tiger-Crane martial art, where these qualities find expression through a broader range of techniques, applications and training methods.</p>
+    </div>
+
     <div class="split-media-wrap">
       <div class="split-media reveal-right">
         <figure>
@@ -796,15 +804,6 @@ figcaption{
         </figure>
       </div>
       <figcaption>Sum Chien practice with Thomas and students.</figcaption>
-    </div>
-
-    <div class="split-text reveal-left">
-      <h2 class="section-heading">Sum Chien</h2>
-      <h3 class="art-subtitle">The Foundation of Internal Power</h3>
-      <p class="lede">Sum Chien is one of the core training routines of the Nam Yang tradition and forms the foundation upon which much of the martial system is built. Although relatively short in appearance, it is a practice of remarkable depth that reveals new layers of understanding throughout a lifetime of study.</p>
-      <p class="lede">Through the form, practitioners learn how to unite structure, breathing, intention and movement into a single coordinated action. Rather than relying on isolated muscular force, Sum Chien teaches the body to work as one connected unit, allowing power to be transmitted efficiently from the ground through the entire body.</p>
-      <p class="lede">The practice develops balance, posture, concentration and body awareness while cultivating the qualities of stability, rootedness and internal power that underpin the wider martial system. For this reason, Sum Chien remains a central part of training at every stage of development, from beginner to master.</p>
-      <p class="lede">The principles cultivated within the form provide the foundation for the Tiger-Crane martial art, where these qualities find expression through a broader range of techniques, applications and training methods.</p>
     </div>
 
   </div>
@@ -849,7 +848,15 @@ figcaption{
 <section class="split reverse on-dark" id="pushing-sticky-hands">
   <div class="container">
 
-    <!-- Image first in DOM → appears first on mobile, right on desktop via order:2 -->
+    <div class="split-text reveal-left">
+      <h2 class="section-heading">Pushing &amp; Sticky Hands</h2>
+      <h3 class="art-subtitle">Sensitivity Through Contact</h3>
+      <p class="lede">Pushing and Sticky Hands are partner-training methods used to develop sensitivity, timing and adaptability. Rather than relying on strength alone, practitioners learn to feel pressure, balance and intention through continuous contact with another person.</p>
+      <p class="lede">Through structured exercises, students develop the ability to remain relaxed under pressure while maintaining awareness of their own position and that of their partner. Small changes in tension, direction or balance become easier to recognise, allowing responses to emerge naturally rather than through force.</p>
+      <p class="lede">This practice brings many of the principles of Tiger-Crane to life. Concepts such as yielding, following the bridge and controlling distance can only be fully understood through direct interaction with another practitioner. Over time, students learn to become more responsive, more connected and less dependent on strength or speed.</p>
+      <p class="lede">Beyond its martial applications, Pushing and Sticky Hands develops concentration, patience and the ability to remain calm in challenging situations. It teaches us to listen before we react and to respond with awareness rather than instinct.</p>
+    </div>
+
     <div class="split-media-wrap">
       <div class="split-media reveal-right">
         <figure>
@@ -860,15 +867,6 @@ figcaption{
         </figure>
       </div>
       <figcaption>Pushing &amp; Sticky Hands — connection, sensitivity and awareness.</figcaption>
-    </div>
-
-    <div class="split-text reveal-left">
-      <h2 class="section-heading">Pushing &amp; Sticky Hands</h2>
-      <h3 class="art-subtitle">Sensitivity Through Contact</h3>
-      <p class="lede">Pushing and Sticky Hands are partner-training methods used to develop sensitivity, timing and adaptability. Rather than relying on strength alone, practitioners learn to feel pressure, balance and intention through continuous contact with another person.</p>
-      <p class="lede">Through structured exercises, students develop the ability to remain relaxed under pressure while maintaining awareness of their own position and that of their partner. Small changes in tension, direction or balance become easier to recognise, allowing responses to emerge naturally rather than through force.</p>
-      <p class="lede">This practice brings many of the principles of Tiger-Crane to life. Concepts such as yielding, following the bridge and controlling distance can only be fully understood through direct interaction with another practitioner. Over time, students learn to become more responsive, more connected and less dependent on strength or speed.</p>
-      <p class="lede">Beyond its martial applications, Pushing and Sticky Hands develops concentration, patience and the ability to remain calm in challenging situations. It teaches us to listen before we react and to respond with awareness rather than instinct.</p>
     </div>
 
   </div>
