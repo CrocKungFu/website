@@ -313,8 +313,9 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .practice-card.in-view{ opacity:1; transform:translateY(0); }
 .practice-card.children-card{
-  max-width: 580px;
+  max-width: 435px;
   width: 100%;
+  font-size: 0.95em;
 }
 .practice-card .card-media{
   aspect-ratio: 4/3;
@@ -394,8 +395,8 @@ p.lede:last-child{ margin-bottom:0; }
   margin-bottom: 52px;
 }
 .schedule-block{
-  background: var(--charcoal);
-  border: 1px solid var(--charcoal-2);
+  background: var(--bone);
+  border: 1px solid #D8CFBB;
   border-radius: 4px;
   padding: 38px clamp(24px,3vw,38px) 42px;
   opacity:0; transform: translateY(30px);
@@ -406,10 +407,10 @@ p.lede:last-child{ margin-bottom:0; }
   font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--ink);
   margin-bottom: 28px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--charcoal-2);
+  border-bottom: 1px solid #D8CFBB;
 }
 .schedule-row{
   margin-bottom: 20px;
@@ -421,13 +422,14 @@ p.lede:last-child{ margin-bottom:0; }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.45);
+  color: var(--charcoal);
+  opacity: 0.55;
   margin-bottom: 4px;
 }
 .schedule-value{
   font-family: var(--font-body);
   font-size: .97rem;
-  color: rgba(255,255,255,.88);
+  color: var(--ink);
   line-height: 1.5;
 }
 .schedule-includes{
@@ -436,7 +438,7 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .schedule-includes li{
   font-size: .93rem;
-  color: rgba(255,255,255,.72);
+  color: var(--charcoal);
   padding: 4px 0;
   padding-left: 16px;
   position: relative;
@@ -544,16 +546,18 @@ p.lede:last-child{ margin-bottom:0; }
   font-size: 1.05rem;
   color: var(--charcoal);
   opacity: .9;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
   line-height: 1.7;
 }
-.why-intro em{
+.why-quote{
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.0rem;
-  display: block;
-  margin-top: 12px;
-  color: var(--ink);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  color: var(--gold);
+  line-height: 1.45;
+  margin: 28px 0 36px;
+  padding-left: 22px;
+  border-left: 2.5px solid var(--gold);
 }
 
 .pillar{
@@ -1037,7 +1041,8 @@ p.lede:last-child{ margin-bottom:0; }
     </div>
     <div class="why-text">
       <h2 class="section-heading">Why People Keep Coming Back</h2>
-      <p class="why-intro">Many people begin training for health, fitness or curiosity. Over time, they discover that the real value lies in something deeper: showing up, week after week, and allowing the practice to shape them.<em>After all, if you don&rsquo;t keep coming back, it&rsquo;s not really Kung Fu.</em></p>
+      <p class="why-intro">Many people begin training for health, fitness or curiosity. Over time, they discover that the real value lies in something deeper: showing up, week after week, and allowing the practice to shape them.</p>
+      <p class="why-quote">After all, if you don&rsquo;t keep coming back, it&rsquo;s not really Kung Fu.</p>
 
       <div class="pillar">
         <h3>Health &amp; Wellbeing</h3>
@@ -1124,12 +1129,10 @@ p.lede:last-child{ margin-bottom:0; }
         <h4>Contact</h4>
         <ul>
           <li>
-            <a href="mailto:hello@crockkungfu.com">hello@crockkungfu.com</a>
-            <span class="contact-note">sample address — replace with real contact</span>
+            <a href="mailto:crockungfu@gmail.com">crockungfu@gmail.com</a>
           </li>
           <li>
-            <a href="tel:+306912345678">+30 691 234 5678</a>
-            <span class="contact-note">sample number — replace with real contact</span>
+            <a href="tel:+33749085814">+33 7 49 08 58 14</a>
           </li>
           <li>Arillas, Corfu, Greece</li>
         </ul>
