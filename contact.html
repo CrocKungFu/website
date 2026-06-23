@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Nam Yang Greece</title>
+<meta name="description" content="Get in touch with Thomas Croc about retreats, classes, private training or the arts. Based in Arillas, Corfu, Greece.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+:root{
+  --ink:        #100F0E;
+  --charcoal:   #2A2724;
+  --charcoal-2: #3A3632;
+  --gold:       #FBBA3A;
+  --gold-light: #FCCD6B;
+  --bone:       #E8DFC9;
+  --white:      #FFFFFF;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-label: 'Barlow Condensed', sans-serif;
+
+  --container: 1180px;
+  --gutter: clamp(24px, 6vw, 64px);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--bone);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.container{
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+section{ position: relative; }
+
+h2.section-heading{
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  margin-bottom: 22px;
+  color: var(--gold);
+}
+p.lede{ font-size: 1.05rem; color: var(--charcoal); opacity:.92; margin-bottom: 16px; }
+p.lede:last-child{ margin-bottom:0; }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 34px;
+  display: inline-block;
+  border: 1.5px solid var(--gold);
+  background: var(--ink);
+  color: var(--gold-light);
+  border-radius: 999px;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .25s var(--ease);
+  cursor: pointer;
+  text-align:center;
+}
+.btn:hover{
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+.btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-ghost{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--gold);
+  display: inline-block;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.btn-ghost:hover{ color: var(--gold); }
+.btn-ghost.on-dark{ color: var(--white); }
+.btn-ghost.on-dark:hover{ color: var(--gold-light); }
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+.logo-mark{ display:inline-block; flex-shrink:0; object-fit:contain; }
+.logo-mark.size-sm{ width:52px; height:52px; }
+.logo-lockup{ display:flex; align-items:center; gap:14px; }
+.logo-wordmark{
+  font-family: var(--font-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.site-header{
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 1000;
+  padding: 22px 0;
+  background: transparent;
+  transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+}
+.site-header.scrolled{
+  background: rgba(16,15,14,0.96);
+  padding: 14px 0;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.main-nav{ display:flex; align-items:center; gap:16px; }
+.main-nav a{
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  padding: 4px 0;
+  white-space: nowrap;
+  transition: color .3s var(--ease);
+}
+.main-nav a::after{
+  content:"";
+  position:absolute; left:0; bottom:-2px;
+  width:0; height:1.5px; background:var(--gold);
+  transition: width .3s var(--ease);
+}
+.main-nav a:hover, .main-nav a.is-active{ color:var(--gold); }
+.main-nav a:hover::after, .main-nav a.is-active::after{ width:100%; }
+
+.header-actions{ display:flex; align-items:center; gap:22px; }
+.header-actions .btn{ padding:10px 18px; font-size:.68rem; white-space:nowrap; }
+
+.nav-toggle{
+  display:none;
+  width:44px; height:44px;
+  border:none; background:transparent;
+  cursor:pointer;
+  position:relative; z-index:1100;
+}
+.nav-toggle span{
+  position:absolute; left:8px; right:8px; height:2px; background:var(--white);
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+.nav-toggle span:nth-child(1){ top:15px; }
+.nav-toggle span:nth-child(2){ top:23px; }
+.nav-toggle span:nth-child(3){ top:31px; }
+.nav-toggle.is-open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2){ opacity:0; }
+.nav-toggle.is-open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+.mobile-overlay{
+  position:fixed; inset:0;
+  background: var(--ink);
+  z-index: 1050;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:36px;
+  opacity:0; visibility:hidden;
+  transition: opacity .4s var(--ease), visibility .4s var(--ease);
+}
+.mobile-overlay.is-open{ opacity:1; visibility:visible; }
+.mobile-overlay .main-nav{ display:flex; flex-direction:column; gap:28px; }
+.mobile-overlay .main-nav a{ font-size:1.1rem; }
+.mobile-overlay .logo-lockup{ position:absolute; top:28px; left:0; right:0; justify-content:center; }
+.mobile-close{
+  position:absolute; top:28px; right:var(--gutter);
+  width:44px; height:44px;
+  background:transparent; border:none;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color: var(--white);
+  font-size:1.6rem;
+  line-height:1;
+  z-index:1100;
+  transition: color .3s var(--ease);
+}
+.mobile-close:hover{ color:var(--gold); }
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+.reveal{ opacity:0; transform:translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   SECTION 1 — HERO (split layout)
+   ========================================================= */
+.contact-hero{
+  padding-top: 120px;
+  padding-bottom: 100px;
+  background: var(--bone);
+}
+.contact-hero .container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+.contact-hero-media{
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 4/5;
+}
+.contact-hero-media img{
+  width:100%; height:100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.contact-hero-text{ }
+.contact-hero-text h1{
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  color: var(--ink);
+  margin-bottom: 28px;
+  line-height: 1.1;
+}
+.contact-hero-text h1 .accent{ color: var(--gold); }
+.contact-hero-text p.lede{
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  opacity: .9;
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   SECTION 2 — WAYS TO CONNECT
+   ========================================================= */
+.ways-to-connect{
+  padding: 80px 0 110px;
+  background: var(--bone);
+}
+.ways-to-connect h2{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Featured WhatsApp card */
+.contact-featured{
+  margin-bottom: 32px;
+}
+.whatsapp-card{
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  background: var(--ink);
+  border: 1.5px solid var(--gold);
+  border-radius: 4px;
+  padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 56px);
+  text-decoration: none;
+  transition: background .35s var(--ease), border-color .35s var(--ease), transform .25s var(--ease);
+  max-width: 680px;
+  margin: 0 auto;
+}
+.whatsapp-card:hover{
+  background: var(--charcoal);
+  border-color: var(--gold-light);
+  transform: translateY(-3px);
+}
+.whatsapp-icon{
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.whatsapp-icon svg{ width:28px; height:28px; fill: var(--ink); }
+.whatsapp-card-text{ flex:1; }
+.whatsapp-label{
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.whatsapp-number{
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--white);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+.whatsapp-sub{
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,.55);
+}
+.whatsapp-arrow{
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.whatsapp-card:hover .whatsapp-arrow{
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Supporting cards row */
+.contact-cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  max-width: 680px;
+  margin: 0 auto;
+}
+.contact-card{
+  background: var(--white);
+  border: 1px solid #E0D9C8;
+  border-radius: 4px;
+  padding: clamp(22px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact-card-icon{
+  width: 36px; height: 36px;
+  background: var(--bone);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+.contact-card-icon svg{ width:18px; height:18px; fill:none; stroke:var(--charcoal); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.contact-card-label{
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+}
+.contact-card-value{
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  display: block;
+  line-height: 1.4;
+  font-weight: 500;
+  word-break: break-word;
+}
+a.contact-card{ text-decoration:none; transition: border-color .3s var(--ease), transform .25s var(--ease); }
+a.contact-card:hover{ border-color: var(--gold); transform: translateY(-2px); }
+
+/* Closing note */
+.contact-closing{
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 52px;
+  border-top: 1px solid #D8D0BC;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-closing p{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  color: var(--charcoal);
+  opacity: .82;
+  line-height: 1.65;
+  margin-top: 52px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{ background: var(--ink); color: rgba(255,255,255,.7); padding: 80px 0 0; }
+
+.footer-newsletter{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  flex-wrap:wrap;
+  padding-bottom:52px;
+  margin-bottom:52px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.footer-newsletter h3{ color:var(--white); font-size:1.5rem; margin-bottom:6px; }
+.newsletter-text p{ font-size:.95rem; color:rgba(255,255,255,.62); max-width:420px; }
+.newsletter-form{ display:flex; gap:14px; flex-wrap:wrap; }
+.newsletter-form input{
+  font-family:var(--font-body);
+  font-size:.95rem;
+  padding:14px 24px;
+  border-radius:999px;
+  border:1.5px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.06);
+  color:var(--white);
+  min-width:260px;
+  transition: border-color .3s var(--ease);
+}
+.newsletter-form input::placeholder{ color:rgba(255,255,255,.45); }
+.newsletter-form input:focus{ outline:none; border-color:var(--gold); }
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:clamp(30px,4vw,60px);
+  padding-bottom:56px;
+}
+.footer-col h4{
+  font-family:var(--font-label); color:var(--white); font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; font-size:.82rem; margin-bottom:22px;
+}
+.footer-col p{ font-size:.92rem; line-height:1.7; color:rgba(255,255,255,.62); }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-col ul a{ font-size:.92rem; color:rgba(255,255,255,.72); transition:color .3s var(--ease); }
+.footer-col ul a:hover{ color:var(--gold); }
+.footer-brand .logo-lockup{ margin-bottom:18px; }
+.footer-brand .logo-wordmark{ color:var(--white); }
+
+.footer-socials{
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+}
+.footer-socials a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.6);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+  flex-shrink: 0;
+}
+.footer-socials a svg{ width:16px; height:16px; }
+.footer-socials a:hover{ color: var(--gold); border-color: var(--gold); }
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:26px 0;
+  text-align:center;
+  font-size:.82rem;
+  letter-spacing:.04em;
+  color:rgba(255,255,255,.5);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:1199px){
+  .main-nav{ display:none; }
+  .header-actions .btn{ display:none; }
+  .nav-toggle{ display:block; }
+}
+
+@media (max-width:860px){
+  .contact-hero .container{ grid-template-columns:1fr; }
+  .contact-hero-media{ aspect-ratio:4/3; max-width:520px; margin:0 auto; }
+  .contact-hero{ padding-top:100px; padding-bottom:70px; }
+
+  .contact-cards{ grid-template-columns:1fr; }
+  .whatsapp-card{ flex-wrap:wrap; }
+}
+
+@media (max-width:600px){
+  .footer-grid{ grid-template-columns:1fr; gap:40px; }
+  .footer-newsletter{ flex-direction:column; align-items:flex-start; }
+  .newsletter-form{ width:100%; flex-direction:column; align-items:stretch; }
+  .newsletter-form input{ flex:1; min-width:0; }
+  .whatsapp-arrow{ display:none; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
+      <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+      <span class="logo-wordmark">Nam Yang Greece</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="retreats.html">Retreats</a>
+      <a href="classes.html">Classes</a>
+      <a href="private-training.html">Private Training</a>
+      <a href="arts.html">The Arts</a>
+      <a href="about.html">About Thomas</a>
+      <a href="contact.html" class="is-active">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="retreats.html" class="btn">Upcoming Retreats</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
+    <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+    <span class="logo-wordmark">Nam Yang Greece</span>
+  </a>
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&#x2715;</button>
+  <nav class="main-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="retreats.html">Retreats</a>
+    <a href="classes.html">Classes</a>
+    <a href="private-training.html">Private Training</a>
+    <a href="arts.html">The Arts</a>
+    <a href="about.html">About Thomas</a>
+    <a href="contact.html" class="is-active">Contact</a>
+  </nav>
+  <a href="retreats.html" class="btn">Upcoming Retreats</a>
+</div>
+
+<!-- =========================================================
+     SECTION 1 — HERO
+     ========================================================= -->
+<section class="contact-hero">
+  <div class="container">
+
+    <div class="contact-hero-media reveal">
+      <img src="images/contact-00-hero-lets-talk.webp" alt="Thomas Croc standing on Arillas beach in his Nam Yang training top">
+    </div>
+
+    <div class="contact-hero-text reveal">
+      <h1>Let&rsquo;s <span class="accent">Talk</span></h1>
+      <p class="lede">Whether you have a question about classes, private training, retreats or the arts, I&rsquo;d be happy to hear from you.</p>
+      <p class="lede" style="margin-top:16px;">Every journey begins with a conversation.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 2 — WAYS TO CONNECT
+     ========================================================= -->
+<section class="ways-to-connect">
+  <div class="container">
+
+    <h2 class="section-heading reveal">Ways to Connect</h2>
+
+    <!-- Featured: WhatsApp -->
+    <div class="contact-featured reveal">
+      <a href="https://wa.me/33749085814" target="_blank" rel="noopener noreferrer" class="whatsapp-card" aria-label="Message Thomas on WhatsApp">
+        <div class="whatsapp-icon">
+          <!-- WhatsApp icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ink)">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <div class="whatsapp-card-text">
+          <span class="whatsapp-label">WhatsApp — Preferred</span>
+          <span class="whatsapp-number">+33 7 49 08 58 14</span>
+          <span class="whatsapp-sub">Message me directly — I usually respond the same day</span>
+        </div>
+        <div class="whatsapp-arrow" aria-hidden="true">&#x2192;</div>
+      </a>
+    </div>
+
+    <!-- Supporting cards: Email, Phone, Location -->
+    <div class="contact-cards reveal">
+
+      <a href="mailto:crockungfu@gmail.com" class="contact-card" aria-label="Send Thomas an email">
+        <div class="contact-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value">crockungfu@gmail.com</span>
+      </a>
+
+      <a href="tel:+33749085814" class="contact-card" aria-label="Call Thomas">
+        <div class="contact-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.07 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <span class="contact-card-label">Phone</span>
+        <span class="contact-card-value">+33 7 49 08 58 14</span>
+      </a>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <span class="contact-card-label">Location</span>
+        <span class="contact-card-value">Arillas, Corfu, Greece</span>
+      </div>
+
+    </div>
+
+    <!-- Closing note -->
+    <div class="contact-closing reveal">
+      <p>If you&rsquo;re not sure where to start, that&rsquo;s perfectly okay.<br>Send me a message and we&rsquo;ll find the right path for you.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-newsletter">
+      <div class="newsletter-text">
+        <h3>Stay Connected</h3>
+        <p>Sign up for retreat dates, class updates and stories from the mat.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="logo-lockup">
+          <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
+          <span class="logo-wordmark">Nam Yang Greece</span>
+        </div>
+        <p>Traditional Shaolin Kung Fu &amp; Chi Kung training in Corfu, Greece.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="private-training.html">Private Training</a></li>
+          <li><a href="arts.html">The Arts</a></li>
+          <li><a href="about.html">About Thomas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Training</h4>
+        <ul>
+          <li><a href="retreats.html">Retreats</a></li>
+          <li><a href="private-training.html">Private Training</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="arts.html">The Arts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:crockungfu@gmail.com">crockungfu@gmail.com</a></li>
+          <li><a href="tel:+33749085814">+33 7 49 08 58 14</a></li>
+          <li>Arillas, Corfu, Greece</li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/crockungfu" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/crockungfu" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; Nam Yang Greece
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Header scroll state
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileClose');
+
+  function openMenu(){
+    overlay.classList.add('is-open');
+    toggle.classList.add('is-open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    overlay.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', function(){
+    overlay.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+})();
+</script>
+
+</body>
+</html>
