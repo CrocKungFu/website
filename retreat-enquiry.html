@@ -779,21 +779,52 @@ p.lede:last-child{ margin-bottom:0; }
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
   }
 
-  // Form submission — show confirmation, hide form
+  // Form submission — AJAX so page doesn't reload or scroll
   var form = document.getElementById('enquiryForm');
   var confirmation = document.getElementById('confirmation');
+  var formWrapper = document.getElementById('formWrapper');
 
-  // If arriving back from formsubmit with ?submitted=true, show confirmation
-  if(window.location.search.indexOf('submitted=true') !== -1){
-    form.style.display = 'none';
+  function showConfirmation(){
+    // Hide the form header/intro/form, show confirmation
+    formWrapper.querySelectorAll('h2, .enquiry-intro, .enquiry-reassurance, .enquiry-form').forEach(function(el){
+      el.style.display = 'none';
+    });
     confirmation.classList.add('is-visible');
+    // Smooth-scroll to keep the confirmation centred in view
+    confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // Set the _next value to current page with ?submitted=true
-  var nextInput = form.querySelector('input[name="_next"]');
-  if(nextInput){
-    nextInput.value = window.location.href.split('?')[0] + '?submitted=true';
+  // If arriving back from formsubmit with ?submitted=true (fallback), show confirmation
+  if(window.location.search.indexOf('submitted=true') !== -1){
+    showConfirmation();
   }
+
+  // Intercept submit and send via fetch (AJAX) so no page reload
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    var formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response){
+      // formsubmit.co returns a redirect; any non-error response means success
+      showConfirmation();
+    })
+    .catch(function(){
+      // On network error, fall back to normal submission
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Enquiry';
+      form.submit();
+    });
+  });
 
 })();
 </script>
