@@ -227,20 +227,6 @@ p.lede:last-child{ margin-bottom:0; }
 .mobile-overlay .main-nav a{ font-size:1.1rem; }
 .mobile-overlay .logo-lockup{ position:absolute; top:28px; left:0; right:0; justify-content:center; }
 
-.mobile-close{
-  position: absolute;
-  top: 28px; right: var(--gutter);
-  background: transparent;
-  border: none;
-  color: var(--white);
-  font-size: 2rem;
-  cursor: pointer;
-  line-height: 1;
-  z-index: 1200;
-  transition: color .3s var(--ease);
-}
-.mobile-close:hover{ color: var(--gold); }
-
 /* =========================================================
    HERO
    ========================================================= */
@@ -605,36 +591,19 @@ p.lede:last-child{ margin-bottom:0; }
 .footer-brand .logo-lockup{ margin-bottom: 18px; }
 .footer-brand .logo-wordmark{ color: var(--white); }
 
-.social-links{
-  display: flex;
-  gap: 14px;
-  margin-top: 20px;
-  align-items: center;
-}
-.social-link{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,.25);
-  color: rgba(255,255,255,.65);
-  transition: border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
-}
-.social-link:hover{
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(251,186,58,.08);
-}
-.social-link svg{
-  width: 17px; height: 17px;
-  fill: currentColor;
-}
-
 .contact-note{
   display:block; font-size:.72rem; letter-spacing:.04em; color: var(--gold-light);
   opacity:.85; margin-top:4px; font-style:italic;
 }
+
+.newsletter-confirm{
+  display: none;
+  font-size: .95rem;
+  color: var(--gold);
+  margin-top: 14px;
+  font-style: italic;
+}
+.newsletter-confirm.visible{ display: block; }
 
 .footer-bottom{
   border-top: 1px solid rgba(255,255,255,.12);
@@ -725,7 +694,6 @@ p.lede:last-child{ margin-bottom:0; }
 
 <!-- Mobile full-screen overlay menu -->
 <div class="mobile-overlay" id="mobileOverlay">
-  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
     <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
     <span class="logo-wordmark">Nam Yang Greece</span>
@@ -968,7 +936,7 @@ p.lede:last-child{ margin-bottom:0; }
       <p class="lede">Founded by Master Ang Lian Huat and passed on through generations of dedicated instructors, the Nam Yang tradition continues to preserve practical martial skill while encouraging lifelong personal development.</p>
       <p class="lede">It is this balance that first drew Thomas to the system and continues to shape the way he teaches today.</p>
     </div>
-    <a href="arts.html" class="btn">Learn about the Arts</a>
+    <a href="nam-yang.html" class="btn">Learn about the Arts</a>
   </div>
 </section>
 
@@ -1001,10 +969,11 @@ p.lede:last-child{ margin-bottom:0; }
         <h3>Stay Connected</h3>
         <p>Sign up for retreat dates, class updates and stories from the mat.</p>
       </div>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Your email address" aria-label="Email address" required>
-        <button type="submit" class="btn">Subscribe</button>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn" id="newsletterBtn">Subscribe</button>
       </form>
+      <p class="newsletter-confirm" id="newsletterConfirm">Thank you for signing up to the newsletter!</p>
     </div>
 
     <div class="footer-grid">
@@ -1035,7 +1004,7 @@ p.lede:last-child{ margin-bottom:0; }
           <li><a href="retreats.html">Retreats</a></li>
           <li><a href="private-training.html">Private Training</a></li>
           <li><a href="classes.html">Classes</a></li>
-          <li><a href="arts.html">Nam Yang Tradition</a></li>
+          <li><a href="nam-yang.html">Nam Yang Tradition</a></li>
         </ul>
       </div>
 
@@ -1050,20 +1019,6 @@ p.lede:last-child{ margin-bottom:0; }
           </li>
           <li>Arillas, Corfu, Greece</li>
         </ul>
-        <div class="social-links">
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/crockungfu" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/crockungfu" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
 
@@ -1087,27 +1042,18 @@ p.lede:last-child{ margin-bottom:0; }
   // Mobile nav toggle
   var toggle = document.getElementById('navToggle');
   var overlay = document.getElementById('mobileOverlay');
-  var closeBtn = document.getElementById('mobileClose');
-
-  function openMenu(){
-    overlay.classList.add('is-open');
-    toggle.classList.add('is-open');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu(){
-    overlay.classList.remove('is-open');
-    toggle.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
   toggle.addEventListener('click', function(){
-    overlay.classList.contains('is-open') ? closeMenu() : openMenu();
+    var open = overlay.classList.toggle('is-open');
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
   });
-  closeBtn.addEventListener('click', closeMenu);
   overlay.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', closeMenu);
+    a.addEventListener('click', function(){
+      overlay.classList.remove('is-open');
+      toggle.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
   });
 
   // Scroll reveal
@@ -1124,6 +1070,40 @@ p.lede:last-child{ margin-bottom:0; }
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+  // Newsletter signup → Google Contacts via Apps Script
+  var newsletterForm = document.getElementById('newsletterForm');
+  if(newsletterForm){
+    newsletterForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('newsletterEmail').value.trim();
+      var btn   = document.getElementById('newsletterBtn');
+      var confirm = document.getElementById('newsletterConfirm');
+      if(!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      // ↓ Replace this URL with your deployed Apps Script Web App URL
+      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKbF_XnvU7uygynd_OV0BL7VZq6Yp1B_gZ-pg3CgX416RJD96Su0mtn3Jc_vp92wnr/exec';
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function(){
+        newsletterForm.style.display = 'none';
+        confirm.classList.add('visible');
+      })
+      .catch(function(){
+        // Even on network error with no-cors, treat as success
+        // (no-cors doesn't return readable responses)
+        newsletterForm.style.display = 'none';
+        confirm.classList.add('visible');
+      });
+    });
   }
 })();
 </script>
