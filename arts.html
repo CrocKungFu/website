@@ -564,6 +564,14 @@ figcaption{
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+.newsletter-confirm{
+  display: none;
+  font-size: .95rem;
+  color: var(--gold);
+  margin-top: 14px;
+  font-style: italic;
+}
+.newsletter-confirm.visible{ display: block; }
 </style>
 </head>
 <body>
@@ -924,10 +932,11 @@ figcaption{
         <h3>Stay Connected</h3>
         <p>Sign up for retreat dates, class updates and stories from the mat.</p>
       </div>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Your email address" aria-label="Email address" required>
-        <button type="submit" class="btn">Subscribe</button>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn" id="newsletterBtn">Subscribe</button>
       </form>
+      <p class="newsletter-confirm" id="newsletterConfirm">Thank you for signing up to the newsletter!</p>
     </div>
 
     <div class="footer-grid">
@@ -1034,6 +1043,31 @@ figcaption{
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+  // Newsletter signup → Mailchimp via Apps Script
+  var newsletterForm = document.getElementById('newsletterForm');
+  if(newsletterForm){
+    newsletterForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email   = document.getElementById('newsletterEmail').value.trim();
+      var btn     = document.getElementById('newsletterBtn');
+      var confirm = document.getElementById('newsletterConfirm');
+      if(!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch('https://script.google.com/macros/s/AKfycbxLivBMsFfK4jd0Hr5BzsXQ1y8GC_l2QXN-joEHPoRgOYA9rtltaUTIBRIzk8Bn1THt/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .finally(function(){
+        newsletterForm.style.display = 'none';
+        confirm.classList.add('visible');
+      });
+    });
   }
 })();
 </script>
