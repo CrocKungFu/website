@@ -1101,35 +1101,26 @@ p.lede:last-child{ margin-bottom:0; }
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
   }
-  // Newsletter signup → Google Contacts via Apps Script
+  // Newsletter signup → Mailchimp via Apps Script
   var newsletterForm = document.getElementById('newsletterForm');
   if(newsletterForm){
     newsletterForm.addEventListener('submit', function(e){
       e.preventDefault();
-      var email = document.getElementById('newsletterEmail').value.trim();
-      var btn   = document.getElementById('newsletterBtn');
+      var email   = document.getElementById('newsletterEmail').value.trim();
+      var btn     = document.getElementById('newsletterBtn');
       var confirm = document.getElementById('newsletterConfirm');
       if(!email) return;
 
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
-      // ↓ Replace this URL with your deployed Apps Script Web App URL
-      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKbF_XnvU7uygynd_OV0BL7VZq6Yp1B_gZ-pg3CgX416RJD96Su0mtn3Jc_vp92wnr/exec';
-
-      fetch(SCRIPT_URL, {
+      fetch('https://script.google.com/macros/s/AKfycbxLivBMsFfK4jd0Hr5BzsXQ1y8GC_l2QXN-joEHPoRgOYA9rtltaUTIBRIzk8Bn1THt/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email })
       })
-      .then(function(){
-        newsletterForm.style.display = 'none';
-        confirm.classList.add('visible');
-      })
-      .catch(function(){
-        // Even on network error with no-cors, treat as success
-        // (no-cors doesn't return readable responses)
+      .finally(function(){
         newsletterForm.style.display = 'none';
         confirm.classList.add('visible');
       });
