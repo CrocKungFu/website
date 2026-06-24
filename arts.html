@@ -245,11 +245,12 @@ p.lede:last-child{ margin-bottom:0; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(340px, 58vw, 680px);
-  height: auto;
-  opacity: 0.1;
+  width: auto;
+  height: clamp(500px, 80vh, 900px);
+  opacity: 0.09;
   pointer-events: none;
   user-select: none;
+  display: block;
 }
 .hero-arts-content{
   position: relative;
@@ -629,7 +630,7 @@ figcaption{
      ========================================================= -->
 <section class="hero-arts" aria-label="Page hero">
   <img
-    src="images/arts-01-hero-nam-yang-logo.webp"
+    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO8AAAHuCAYAAAB3W1uoAAATjElEQVR4nO3dXXLjSg6E0fJEe1NegBftBXhTfvA8+CqsVktikawqZALfeZqIudEmC0iCf5JaAwAAAAAAAAAAAAA4eYneAPT7+nj7fvb/v75/Us9CKLaJreDeIsj5UWADe4N7iyDn9L/oDcB8Z8MPTRyRxY0OHlM4DyavsBkTkymcB+Et6Ovj7ZsQ+yO8olaEiwB7I7zFEWBfhFfQ6kARYE+EFzBFeNFaY/o6IryAKcILmCK8Yjh9Ra8/0RsA9Hh2UKv6yifhhazes5Dr/65SkAkvZIy4ZKgUZK55IYEPYezH5EWIVcG6/J2MU5jJi6WiPtGUcQozeTGVUmiyTeEUO5FFdKOPauro/eiRIcBMXpzmENZbXx9v3+4B5poXh7l/I4fztrfGabMU92Zy5TqBmbyAKcKL8lzPeAivCNcGysJx/QkvYIrwAqYIrwDHU7aM3OpAeAFThBcwRXiDuZ2qZedUD8IbyKlRoIfwAqYs3+l0x8TV5fSeM5N3MYKLUWyOMq4Iqw+nqdsa4Z2CwPpxC25rhHcYAuvJMbQXthuugtB6cg7thf0ORCCwPjKE9JG0OzYagdWXOaj3lNrZvQjsGtVCNwqLdoPAzkNIx2IxG4EdhXCuVXaxCew5BDVeqQIQ2GMIqqb0RSGwxxBYfWkLRGj3Iax+0hSMsO5HYL3ZF4/Q7kNg87AtJKHtR2Bzsisqoe1HaHOzKS6h7UNg65AvNKHtQ2jrkf4OK4Lbh+DW9Cd6A3Acoa1NdvIydZ8juJBuAAL8L0KLC06bTRBa3JI9bcYvgot7pMNL07IGeEw6vNURXDwjH96qDVx1v9FPPryt1WvkavuLYyzC21qdho7eTx7P+bALRObmigpuz5pGH1TwL8uCZAywcnCvEWIdtoWYGeBHDTrrb7oE9xZBjmVzzXtrRuO8vn++PPt3ada/ZTwDcpKiGc800d5Ajm5Y16l7iwPbeqkWvLchzzTayKaPbPgZU5MAr5XqgwmX5rnXmGqNlS24WC9VeC/UggrMYHvDylnWgwsTfS3Cu1h0cGcHjACvQ3gXig7uKl8fb9+EeD7Cu8PKR1IZEOC5Ut6wgo6VAa52gCy1s2cdbUSVpqo6CVXWfzQmb6eqjZ+Bw3P/I+x3YBWmbl4qNdrLcqMjHGl+laYguP1UataDu83JEdx9nB5z2RxlIrlOXZcmVKdQy3u4YZUQoR3rsp5qIZbaGEUOU5ewrqUSYiavKQIbR2USSxxBVCk9HiKsmiIDzOQVRmD1fX28fUcFmMn7QNSHEAisr9Uh5jmvCKfni7hvdf2YvDdGFKDnCExQc1sxhQnvDUKFUWYHmNPmKwQXI83uJ8L7H4KLGWb2FeFtBBdzzeqv8uEluFhhRp+VDi/BxUqj+61seAkuIozsu5KPigiujtf3z5dRrxg61XXE/pYKr1Nxs4j+5M0tpR44uzZSCzuTUtGyUgtqr8jeOLNmlou9F8EdzzWojzgGOFUB7iG442QL7K2oXiG8dxDcMbKH9ppTgFMWhdCeVymwt1wCnO6bNAjucZUD6yjVSxoE95jX988XgvvLZS3ShJfg7kdoteztYfvw8vUxxxDa5xzWxza8hPY4h8asak9P292wIrDnENw8rCYvwT2H4Hro7XOLyZs5tPcCNXp/CW1O8pM3a3Cf3eklbBrU6yA7eTOGdk8zXD7nuvJvwovc5M16F3lviAhubT31l5m8GQN7EREigptfaHgzBxaYbXl4KwY28mcgkdeS8FYMLDDbqfASyjlYV7S2fcZ26G5z1jvCM7Fe2GvrUkvmbvNorr9OP+pvb/07XIPr25q8qcI7qiFHvSCh7Hr/CLKnQ0WLbuxVzTZjP59te/S6tkaQb0XXJMXkjXrRIbp4q132lxDrk5u8ik2z4lM+qgcJxXqsolATi8lbuUmUMYl1hd+RdWkKhaOwApd6jRBd8621Dv1UUaVGAEaT+0igKg40P6KnEX6FhdcxDI7bPAMB1sDkxSEEeK6eQUF4AVOHw8spJDJPX4d9Y/LiMA7gsQgvYIrw4hCmbjzCi90I7ly960t4d3C4iTFbheC61JnwdnIpKOqQ+VSRKkL7q8LUdUJ47yCw/yK4a+xZ57DTZsWA8K2Y9xFcTeUnL2H9RUi9+qFkeJ0KNAtB9VcuvJWDS2BzKRfeaghsXodvWLlOsErNXGlfR3Dr6ZKTN/P3MRPYOkLfsIoMEE0Od6VfjyTAuHA8Eysd3tYIMHyVD29rBBiewsOrcrpCgOEmPLxKCDCcEN4b7gFWOZPBfCWf825xfw48YtvdD2KO9q55+K8EXqg2i3OIZ1Ct01kKdd67tpw2b8jarEddPvOs0OyjuO7LodNm1509yv00epZHa8IBbw0mbycasl+2yayKG1Y7HAlw5Sb++nj75qA3j8zkrdzkmVHXeWTCC2AfwguYIrwTccqImQjvJAQXsxFewBThnYCpixV4zjsAYX2M57zzMHlPIriPEdx+R9aKybsTYc3FuZ6Ed4NzcSMxdecjvHcQ2HMI7hqE9z8Eth73mpcOr3vxFDF119kd3gwNn2EfFBHctUpNXkI7h2NoM/SC1HPemQuaoViKHIOr5ugapp+8hPYHIcsnbXirh5awPpalN1KGN0txjiC0dey+5qU5dFGbWqRuWI1QdeoSXE9n6iYX3rPho4nxTKaDu1x4RyDAcHC2T1OGt7VaAa60r/iVNryt0dTILXV4W/sJMCGGmhE9mT68F4QYmW5WtVYovBfZApxtfyoYVbNy4W2NKYwcJMO76vSGAMPZ4eadHbCVwRqxL4+2N9M6OVO53h1Zr5QfTNjrekH3FLmnEK/vny8qjYNcJE+bW4s7UvZeD+85gjId0dr4PmDyPkDgoO7w5KW592G94ihctsyov+xpc2saiw5vmXtIOrzZMH1rmlX3U+GlGaFMYerOzIj85FUoAKBIPrzZcLayRoWD/unwrmjGCoXAOCr9MjsbPOdFGiqhXWXIaTPTdx9Oncf6+nj7VuuPFTVm8sKWWmBXG3bDimmCVRQn7bVVWRh6t5kA92OtjlNeu5XbxqMiY8pNjPmGh5eGQlWre3/K5J2xExwUoCyiP6edNhO2bawRzph6zTuqOWnyf7EmOqJqMf2G1dmvWaVJoSyyP5fdbT6ykxWCW2Efs4qu3dI3rHq+pTF6QRywRmgt8PVIGhDOFPqXlzSAnRSC2xrhlcB3QO8T+V6z0voTXiNKjVOR2voTXliJ/CWNiL/7DOEVsdUcis1TheraE14Dqs1TgfLaE14hyo1SkXo9pDeuquvrOvUGisBvHv9g8gq6NI9LE602c12c1txmQ4Fro6evU2gvmLywNDJsjsFtjckLc0cnsGtgrzF5Ya3yR01T7ARwcW8SZwkrAAAAAAAAAAAAAAAAAABAcrzziVQq/YxOuh1CLZU/Emi/A6hn5LdoOIfYdsNRz8wvnnMMsd0Go55Vv5LgFmCrjUU9ET9v4hJivgYHsiJ/DdAB4YWkyOC6HDQIL+QohEdhG7YQXkhxCI0KwgsZasFV255bhBcS1IOiaMot8Z5CuNyOx1wOoVXt1eGTt7cYDkXDXPTAOcOPKJVfFEc/l+Aq96XMNa9LMXEetR4j7Jp3i/IRD8c5BVe9B2Um7y2nImPb18fbNzUdSza8rVHwLBxrqD51W5sU3tE77lh8/HCsnUNwWxOfvNeYwljBJbitGYX3ggBjFqfgtjYxvDMXggD7cAmEy3Zemzp5CTAcOAa3tdb+RG8AEMU1tBfW4f36ePt2L8Az984uMu/vShnW0e6G1a2Mp8/P7qxn3N/VMgS3tQXhzbJQK/Q+DiPAx7y+f75k6sclO7Ki2dyLkvXTWAoHGvU1Osr+tPlCoUmOOrPtzvu9QtbgtpYovK5GhE81wNHblTm4rS0Kb/ZFPGpkc0cH5Vb09lTouVSTN7ph9nDaVifZbko9Y/2cF3/rPSDMbu6oA1OV0F4sm7yrFpaJFivqh8GqBbe1ZKfNLrIeYLLul6qU4aWJHps1oZi466UML+7LFtzVf1MN4cUpBDcO4S1iRsMT3Fg8KoIFQvsvJm8B7lOX4N6XMrzqxVbfvi0EV8PS8FIIfwRXR7rJ61Jwl+28xvNzLanC6xgI3Ectt9nfbXYu8uv754vLNHPZzkosw+scWGAUqfBWDKXD9FXfvqokrnmrv2CuvO9RweWAsW3p5L0tiHLTIj5AW3+/ev/wnFcEa7Nf9MElWthpM826zpEmdwmGy3bOEBJegnsf63JM1R9eXx5eGvQ5hfVxDYLrdh8lcbcZf4u8++4eAPft3yP8KI9toxpy64CQqfEVzmBmY/IaWDGJMwW3CsJrZFaIMwY34z7dIryGRoY4c5Nn3rfWuOa1l71BR8h6/cvkNZe1MbGN8CK9rGcnhBcwRXhRQsbpS3gBU4QXZWSbvoTXXLaGRD+p77BCHwKL1pi8dgjuOZnWjwf8BjI1XLRML7Vw2iyM0OKZ6R8zy3SkW4HAzpOtF6dd89KE+7Fm2GPKaTNNuI01wlnDw0tTPsf6xMh2ytza4PDSmI+xNnEyBre1geGlOaEma2gvTu1cb2CzL+IWDmxjVO+jW4cmL82I2Qjqtt0LdDS41YvBAe9H9T4YaddCnm3AyoWrGN7K9V5haXgvqhY1e4Cr1jVK9xtWIxsvexNXRHDXC/tIYNWfZcyI4MYI/zxvpQDT5BgpPLytEWDgiK7wrghXpQBnwsEoTld4VxWIAPuhZnEkTpuvVWgGphVGkAtvawQY6CEZ3tYIMLClO7w02hwZ1rXCgVaR7ORtjaZwwks364W827xXhum0JWvjV6hdlGUfCTyrQhNkDfA9Feo5G+EVUynAz1Sp9xmHFogAz9ezxo/WI9sBoFLd9yC8SRHg/A7dbY5ayGwNOVO2Zqf2/zr8qChbcwBuTj3njQgwR+C6qP3fpF/SAPDY6fBy+qwp65TKul9HDJm8BBhYz+60mQPFNqZTDcPCuyJUBHcbwa1j6OSdGS6C+xyf6qln+I9rj0ZotxHamiTDS2D7ENrapoRkT1MR1P2qh5ae+RE2eSnAftVDi7+FhFc9uF8fb98q20hg8cjy8KqE4p7roFz+N5+ggirJG1YRVMKish3QN+UNK+Xpeo9KYFS2Q5lbb81k93rkaFuBWRUogou9loZX7ahJYLyo9U+0ste8SsFV2hZFhPa+suFVQXDvI7DbSoaXwGggoOeUCy/BXY+QzlEqvEeCS+Mdw7rNtyy80cVk4s4XXeNqSjznPRpcvh2kX5b9cJI+vEzc+QhujCXhdXy5f+U2Oze/87a7Sz95XRAC7JU2vC5TV+HvwlPK8DoGV+Xvw0e68Ga4QUWA0SNVeM8GVyk0StsCTVNe0oiYfhkm7q3rAGfcvxGUn+HPluL1yBGNrV7M1/fPl8oBHr3vt/+eev3vWfK9zTMXZlRR3YqnFOQRa5dtf1awDm/V4F5TafreNVTZ3l7KvWEb3pFNoFygXm6hcKPYI5Z3mwkuVlP8FUa78KotIGpR6j+78I7E1MURKgEeHt6ZO6ayaIBCL9pM3tGLlWnqKjRSRdHrbhHe6EVSxtrEilx/i/COlmXqElwNUXWQfj2S5ryPdUFrBSev89RVfNaIHxF1GTp5R+4ATfqDdcAjkpN3VsM6TV2mrJ/V9ZK+5h1JPbgEFXvJhbdKE1fZz2q+Pt6+Vw0KqfBmPl0mrBhNJrzZmjvb/kDPsIn0rFm3Jt/MRl85dQksLlb0XfjkdW54522Hv9Dwzm5+9a/fQU6pblhdmt35GxBdtxt5LX1JY2UARh79CC4UhV/zqiKwUCf5euRZCs91UdPK3hsW3iyB4Z1iuEg3ebMcROBnde+luuY9u3hM3Ll4dDdWqvCeUbUBZlg9gfb8vUzvz6cJL6fL8Rxq8Ggbz4Q6ar/ThPcMpu55DsF95nb7e3sicr9T3LBybxx3Gdf/9f3zZWu/ovfbfvJGLyByu/TX9Su+sVv0yz68iKXUzDMp7qf1abPiggKrWId3FA4CcGQbXgKH6izDOyO4HAzgxjK8sxBgOLH7wPqKgKm+tBH5RX6PcMCLY/WoaFWj3D7bi0Q48IjNaXNEE/e8ZaP0twl6LUMmr8KEmuk6FCv2lRCih9Vps4KZQR4RWudv6MQ+p8NbeRKNujZW3T9ok7/mdWjsM9vosH/QdGrycnr2a+8UJrQ4S3ryOjZ4zzbP3i/HdcN+hycvU/exe1OYQGE02bvNGZo9wz5A16HTZqYuEE/6mhfAY7vDW/m5LqCEyQuY2hVernV9cPaSn9zkpemAPt3hZeoCWuQmL4A+XeFl6gJ6pCYv17tAP6nwAui3GV5OmQFNTF7AFOEFTBFewBThBUwR3sR49JYb4QVMSYWXx1JAP6nwAui3GV6um7xRv7zkJi+nzkAfufAC6EN4AVNd4V193cSp81hc9+bE5MVhHBRidYeX6QtoYfICpnaFl9MkQAeTFzC1O7wrpy/XveNw1pTPoclLI4AeiCd92kyDAI8dDi/BAmKdmrwEuCbqruH0aTOF9EGtchlyzTujKWg04LlhN6wIWw3UWcfQu82jCkuDANuGPyp6ff98ORM+gquL2miZXozet6RojHWOvrlGjbQsL8Z149AMMY6El1rpoSAF7Q0vwdUk/Xok5tgTRoKri8IU9mwCE1p9FAj/hJjgAgAAAAAAAAAAANL+D6kXv+/0E1x2AAAAAElFTkSuQmCC"
     class="hero-arts-watermark"
     alt=""
     aria-hidden="true"
@@ -883,12 +884,12 @@ figcaption{
   <div class="container">
 
     <div class="split-text reveal-left">
-      <h2 class="section-heading">Pushing &amp; Sticky Hands</h2>
+      <h2 class="section-heading">Pushing &amp; Sticking Hands</h2>
       <h3 class="art-subtitle">Sensitivity Through Contact</h3>
-      <p class="lede">Pushing and Sticky Hands are partner-training methods used to develop sensitivity, timing and adaptability. Rather than relying on strength alone, practitioners learn to feel pressure, balance and intention through continuous contact with another person.</p>
+      <p class="lede">Pushing and Sticking Hands are partner-training methods used to develop sensitivity, timing and adaptability. Rather than relying on strength alone, practitioners learn to feel pressure, balance and intention through continuous contact with another person.</p>
       <p class="lede">Through structured exercises, students develop the ability to remain relaxed under pressure while maintaining awareness of their own position and that of their partner. Small changes in tension, direction or balance become easier to recognise, allowing responses to emerge naturally rather than through force.</p>
       <p class="lede">This practice brings many of the principles of Tiger-Crane to life. Concepts such as yielding, following the bridge and controlling distance can only be fully understood through direct interaction with another practitioner. Over time, students learn to become more responsive, more connected and less dependent on strength or speed.</p>
-      <p class="lede">Beyond its martial applications, Pushing and Sticky Hands develops concentration, patience and the ability to remain calm in challenging situations. It teaches us to listen before we react and to respond with awareness rather than instinct.</p>
+      <p class="lede">Beyond its martial applications, Pushing and Sticking Hands develops concentration, patience and the ability to remain calm in challenging situations. It teaches us to listen before we react and to respond with awareness rather than instinct.</p>
     </div>
 
     <div class="split-media-wrap">
@@ -900,7 +901,7 @@ figcaption{
           >
         </figure>
       </div>
-      <figcaption>Pushing &amp; Sticky Hands — connection, sensitivity and awareness.</figcaption>
+      <figcaption>Pushing &amp; Sticking Hands — connection, sensitivity and awareness.</figcaption>
     </div>
 
   </div>
