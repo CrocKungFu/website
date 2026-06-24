@@ -1030,6 +1030,14 @@ p.lede:last-child{ margin-bottom:0; }
   .newsletter-form input{ min-width:0; width:100%; }
   .retreat-card-img{ height:200px; }
 }
+.newsletter-confirm{
+  display: none;
+  font-size: .95rem;
+  color: var(--gold);
+  margin-top: 14px;
+  font-style: italic;
+}
+.newsletter-confirm.visible{ display: block; }
 </style>
 </head>
 <body>
@@ -1443,10 +1451,11 @@ p.lede:last-child{ margin-bottom:0; }
         <h3>Stay Connected</h3>
         <p>Receive updates on upcoming retreats, training insights and news from Arillas.</p>
       </div>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Your email address" aria-label="Email address">
-        <button type="submit" class="btn">Subscribe</button>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Email address" required>
+        <button type="submit" class="btn" id="newsletterBtn">Subscribe</button>
       </form>
+      <p class="newsletter-confirm" id="newsletterConfirm">Thank you for signing up to the newsletter!</p>
     </div>
     <div class="footer-grid">
       <div class="footer-col footer-brand">
@@ -1541,6 +1550,31 @@ p.lede:last-child{ margin-bottom:0; }
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+  // Newsletter signup -> Mailchimp via Apps Script
+  var newsletterForm = document.getElementById('newsletterForm');
+  if(newsletterForm){
+    newsletterForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email   = document.getElementById('newsletterEmail').value.trim();
+      var btn     = document.getElementById('newsletterBtn');
+      var confirm = document.getElementById('newsletterConfirm');
+      if(!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch('https://script.google.com/macros/s/AKfycbxLivBMsFfK4jd0Hr5BzsXQ1y8GC_l2QXN-joEHPoRgOYA9rtltaUTIBRIzk8Bn1THt/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .finally(function(){
+        newsletterForm.style.display = 'none';
+        confirm.classList.add('visible');
+      });
+    });
   }
 })();
 </script>
