@@ -217,21 +217,33 @@ p.lede:last-child{ margin-bottom:0; }
 .page-hero-image::after{
   content:'';
   position:absolute; inset:0;
-  background: linear-gradient(to bottom, rgba(16,15,14,0.38) 0%, rgba(16,15,14,0.12) 100%);
+  background: linear-gradient(to bottom, rgba(16,15,14,0.18) 0%, rgba(16,15,14,0.55) 50%, rgba(16,15,14,0.22) 100%);
   pointer-events:none;
 }
+.page-hero-title{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0; right: 0;
+  z-index: 2;
+}
+.page-hero-title h1{
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: var(--white);
+  text-align: left;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.45);
+  line-height: 1.12;
+}
 .page-hero-text{
-  padding: 72px 0 64px;
-  text-align: center;
+  padding: 48px 0 56px;
+  text-align: left;
 }
 .page-hero-text h1{
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  color: var(--ink);
-  margin-bottom: 24px;
+  display: none;
 }
 .page-hero-text .hero-lede{
   max-width: 620px;
-  margin: 0 auto;
+  margin: 0;
 }
 .page-hero-text .hero-lede p{
   font-size: 1.05rem;
@@ -583,11 +595,15 @@ p.lede:last-child{ margin-bottom:0; }
       src="images/retreat-enquiry-00-hero-retreat-welcome.webp"
       alt="Participants arriving for a Nam Yang Greece retreat in Corfu"
     >
+    <div class="page-hero-title">
+      <div class="container">
+        <h1>Interested in Joining a Retreat?</h1>
+      </div>
+    </div>
   </div>
 
   <div class="page-hero-text">
     <div class="container">
-      <h1 class="reveal">Interested in Joining a Retreat?</h1>
       <div class="hero-lede reveal">
         <p>Every retreat begins with a conversation.</p>
         <p>Whether you&rsquo;re ready to book or simply exploring the possibility, feel free to get in touch. I&rsquo;d be happy to answer any questions about the retreat experience, accommodation, travel arrangements or whether the retreat is the right fit for you.</p>
