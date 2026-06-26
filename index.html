@@ -227,6 +227,30 @@ p.lede:last-child{ margin-bottom:0; }
 .mobile-overlay .main-nav a{ font-size:1.1rem; }
 .mobile-overlay .logo-lockup{ position:absolute; top:28px; left:0; right:0; justify-content:center; }
 
+.mobile-close{
+  position: absolute;
+  top: 18px; right: 20px;
+  width: 44px; height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1100;
+}
+.mobile-close::before,
+.mobile-close::after{
+  content: "";
+  position: absolute;
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: background .3s var(--ease);
+}
+.mobile-close::before{ transform: rotate(45deg); }
+.mobile-close::after{ transform: rotate(-45deg); }
+.mobile-close:hover::before,
+.mobile-close:hover::after{ background: var(--gold); }
+
 /* =========================================================
    HERO
    ========================================================= */
@@ -723,6 +747,7 @@ p.lede:last-child{ margin-bottom:0; }
 
 <!-- Mobile full-screen overlay menu -->
 <div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu"></button>
   <a href="index.html" class="logo-lockup" aria-label="Nam Yang Greece — Home">
     <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
     <span class="logo-wordmark">Nam Yang Greece</span>
@@ -1078,11 +1103,18 @@ p.lede:last-child{ margin-bottom:0; }
   // Mobile nav toggle
   var toggle = document.getElementById('navToggle');
   var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileClose');
   toggle.addEventListener('click', function(){
     var open = overlay.classList.toggle('is-open');
     toggle.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
+  });
+  closeBtn.addEventListener('click', function(){
+    overlay.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   });
   overlay.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){
