@@ -1,0 +1,12 @@
+# robots.txt — crockungfu.com
+# Generated for Nam Yang Greece
+
+User-agent: *
+Allow: /
+
+# Block access to any utility or admin paths if added in future
+Disallow: /admin/
+Disallow: /cgi-bin/
+
+# Sitemap location
+Sitemap: https://crockungfu.com/sitemap.xml
