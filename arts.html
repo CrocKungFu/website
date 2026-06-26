@@ -552,6 +552,22 @@ figcaption{
   /* Ensure all grid children go full width */
   .split-media-wrap,
   .split-text{ width: 100%; max-width: 100%; }
+  /* Override horizontal reveal animations with simple vertical fade on mobile
+     — horizontal translates break after flex/grid reordering */
+  .split-media.reveal-left,
+  .split-media.reveal-right,
+  .split-text.reveal-left,
+  .split-text.reveal-right{
+    transform: translateY(26px);
+    opacity: 0;
+  }
+  .split-media.reveal-left.in-view,
+  .split-media.reveal-right.in-view,
+  .split-text.reveal-left.in-view,
+  .split-text.reveal-right.in-view{
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 600px){
