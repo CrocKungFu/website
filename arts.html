@@ -544,22 +544,28 @@ figcaption{
 }
 
 @media (max-width: 980px){
-  .split .container{ grid-template-columns: 1fr; gap: 36px; }
+  /* Switch from grid to flex-column so order property works for reordering */
+  .split .container{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
   .split-media{ aspect-ratio: 4/3; }
-  /* On mobile, image always stacks above text for reverse sections */
-  .split.reverse .split-media-wrap{ order: -1; }
-  .split.reverse .split-text{ order: 0; }
-  /* Ensure all grid children go full width */
+  /* All children fill full width */
   .split-media-wrap,
   .split-text{ width: 100%; max-width: 100%; }
-  /* Override horizontal reveal animations with simple vertical fade on mobile
-     — horizontal translates break after flex/grid reordering */
+  /* On reverse sections, move image above text */
+  .split.reverse .split-media-wrap{ order: -1; }
+  .split.reverse .split-text{ order: 0; }
+  /* Override horizontal slide animations with vertical fade — horizontal
+     translates cause off-screen elements to get stuck when reordered */
   .split-media.reveal-left,
   .split-media.reveal-right,
   .split-text.reveal-left,
   .split-text.reveal-right{
     transform: translateY(26px);
     opacity: 0;
+    transition: transform .9s cubic-bezier(.22,.61,.36,1), opacity .9s cubic-bezier(.22,.61,.36,1);
   }
   .split-media.reveal-left.in-view,
   .split-media.reveal-right.in-view,
