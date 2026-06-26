@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Thomas | Nam Yang Greece</title>
-<meta name="description" content="The story of Thomas Croc &mdash; his search for meaning, his years training and teaching in Thailand, and the path that led to creating Nam Yang Greece in Corfu.">
+<meta name="description" content="The story of Thomas Croc — his search for meaning, his years training and teaching in Thailand, and the path that led to creating Nam Yang Greece in Corfu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
   --bone:       #E8DFC9;
   --parchment:  #F2EAD8;
   --cream:      #F5EEDC;
+  --warm-white: #FAF9F6;
   --white:      #FFFFFF;
 
   --font-display: 'Fraunces', serif;
@@ -35,9 +36,7 @@
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
-
 html{ scroll-behavior:smooth; }
-
 body{
   font-family: var(--font-body);
   color: var(--charcoal);
@@ -47,10 +46,8 @@ body{
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
 img{ display:block; max-width:100%; height:auto; }
 a{ color:inherit; text-decoration:none; }
-
 h1,h2,h3,h4{
   font-family: var(--font-display);
   font-weight: 600;
@@ -58,24 +55,13 @@ h1,h2,h3,h4{
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
-
 .container{
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
-
 section{ position: relative; }
-
-h2.section-heading{
-  font-size: clamp(2rem, 3.4vw, 2.85rem);
-  margin-bottom: 22px;
-  color: var(--gold);
-}
-
-p.lede{ font-size: 1.05rem; color: var(--charcoal); opacity:.92; margin-bottom: 18px; }
-p.lede:last-child{ margin-bottom:0; }
 
 /* =========================================================
    BUTTONS
@@ -94,26 +80,10 @@ p.lede:last-child{ margin-bottom:0; }
   border-radius: 999px;
   transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .25s var(--ease);
   cursor: pointer;
-  text-align:center;
+  text-align: center;
 }
 .btn:hover{ background: var(--gold); color: var(--ink); transform: translateY(-2px); }
 .btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
-
-.btn-ghost{
-  font-family: var(--font-label);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  padding-bottom: 4px;
-  border-bottom: 1.5px solid var(--gold);
-  display: inline-block;
-  transition: color .3s var(--ease), border-color .3s var(--ease);
-}
-.btn-ghost:hover{ color: var(--gold); }
-.btn-ghost.on-dark{ color: var(--white); }
-.btn-ghost.on-dark:hover{ color: var(--gold-light); }
 
 /* =========================================================
    LOGO MARK
@@ -148,7 +118,6 @@ p.lede:last-child{ margin-bottom:0; }
   box-shadow: 0 6px 24px rgba(0,0,0,.25);
 }
 .site-header .container{ display:flex; align-items:center; justify-content:space-between; gap:28px; }
-
 .main-nav{ display:flex; align-items:center; gap:16px; }
 .main-nav a{
   font-family: var(--font-label);
@@ -169,10 +138,8 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .main-nav a:hover, .main-nav a.is-active{ color: var(--gold); }
 .main-nav a:hover::after, .main-nav a.is-active::after{ width:100%; }
-
 .header-actions{ display:flex; align-items:center; gap:22px; }
 .header-actions .btn{ padding: 10px 18px; font-size:.68rem; white-space:nowrap; }
-
 .nav-toggle{
   display:none; width:44px; height:44px; border:none; background:transparent;
   cursor:pointer; position:relative; z-index:1100;
@@ -187,7 +154,6 @@ p.lede:last-child{ margin-bottom:0; }
 .nav-toggle.is-open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
 .nav-toggle.is-open span:nth-child(2){ opacity:0; }
 .nav-toggle.is-open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
-
 .mobile-overlay{
   position:fixed; inset:0; background:var(--ink); z-index:1050;
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:36px;
@@ -209,16 +175,16 @@ p.lede:last-child{ margin-bottom:0; }
 .mobile-overlay-close span:nth-child(2){ transform: rotate(-45deg); }
 
 /* =========================================================
-   ABOUT HERO — full-bleed spear silhouette + portrait
+   SECTION 1 — HERO
    ========================================================= */
 .about-hero{
   position: relative;
   min-height: 100vh;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  overflow:hidden;
-  text-align:center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
   padding-bottom: clamp(56px, 9vh, 110px);
 }
 .about-hero-media{ position:absolute; inset:0; overflow:hidden; }
@@ -281,300 +247,576 @@ p.lede:last-child{ margin-bottom:0; }
 }
 
 /* =========================================================
-   JOURNEY TIMELINE — Section 2
+   SECTION 2 — TIMELINE
    ========================================================= */
-.journey-section{
+.timeline-section{
   background: var(--cream);
-  padding: 110px 0 100px;
+  padding: 120px 0 110px;
   text-align: center;
 }
-.journey-section h2.section-heading{
-  margin-bottom: 64px;
+.timeline-section h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 72px;
 }
-.journey-timeline{
+.timeline{
   position: relative;
-  max-width: 560px;
+  max-width: 480px;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
-.journey-timeline::before{
+/* the vertical gold line */
+.timeline::before{
   content: '';
   position: absolute;
   left: 50%;
-  top: 0; bottom: 0;
+  top: 0;
+  bottom: 0;
   width: 1px;
   background: var(--gold);
-  opacity: 0.45;
+  opacity: 0.35;
   transform: translateX(-50%);
 }
 .timeline-item{
   position: relative;
-  padding: 0 0 52px 0;
+  padding-bottom: 56px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .8s var(--ease), transform .8s var(--ease);
+  transform: translateY(18px);
+  transition: opacity .75s var(--ease), transform .75s var(--ease);
 }
+.timeline-item:last-child{ padding-bottom: 0; }
 .timeline-item.in-view{ opacity: 1; transform: translateY(0); }
-.timeline-item:last-of-type{ padding-bottom: 0; }
+/* gold dot on the line */
 .timeline-dot{
   position: absolute;
   left: 50%;
-  top: 6px;
-  width: 9px; height: 9px;
+  top: 7px;
+  width: 8px; height: 8px;
   background: var(--gold);
   border-radius: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 .timeline-year{
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.05rem;
   color: var(--gold);
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
+  margin-bottom: 5px;
+  letter-spacing: 0.01em;
 }
 .timeline-title{
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--charcoal);
   margin-bottom: 8px;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 .timeline-desc{
-  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   color: var(--charcoal);
-  opacity: 0.6;
-  max-width: 340px;
-  margin: 0 auto;
+  opacity: 0.55;
   line-height: 1.65;
+  max-width: 300px;
+  margin: 0 auto;
 }
-.journey-closing{
-  margin-top: 64px;
+.timeline-closing{
+  margin-top: 72px;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   color: var(--charcoal);
-  opacity: 0.72;
-  max-width: 480px;
+  opacity: 0.65;
+  max-width: 420px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 var(--gutter);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 /* =========================================================
-   STORY SECTIONS — image-led chapters
+   SHARED SECTION UTILITY
    ========================================================= */
-.story-section{ padding: 100px 0; background: var(--bone); }
-.story-section.on-dark{ background: var(--ink); }
-.story-section.on-parchment{ background: var(--parchment); }
-.story-section.on-cream{ background: var(--cream); }
+.reveal{ opacity:0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
 
-.story-img-wrap{
-  width:100%;
-  overflow:hidden;
-  opacity:0; transform: translateY(24px);
+/* =========================================================
+   SECTION 3 — LOOKING FOR SOMETHING
+   Image Left / Text Right, dark background
+   ========================================================= */
+.s-looking{
+  background: var(--ink);
+  padding: 120px 0;
+}
+.s-looking .inner{
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: clamp(48px, 6vw, 96px);
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.s-looking .img-col{ display: flex; flex-direction: column; }
+.s-looking .img-wrap{
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
-.story-img-wrap.in-view{ opacity:1; transform:translateY(0); }
-.story-img-wrap img{ width:100%; height:100%; object-fit:cover; }
-
-.story-img-wrap.size-xl{ aspect-ratio: 4/3; }
-.story-img-wrap.size-lg{ aspect-ratio: 16/9; }
-
-.story-caption{
-  text-align:center;
+.s-looking .img-wrap.in-view{ opacity: 1; transform: translateY(0); }
+.s-looking .img-wrap img{ width:100%; height:100%; object-fit:cover; }
+.s-looking .img-caption{
   font-family: var(--font-body);
   font-style: italic;
-  font-size: .85rem;
-  letter-spacing:.02em;
-  color: var(--charcoal);
-  opacity:.6;
-  max-width: 640px;
-  margin: 16px auto 0;
-  padding: 0 var(--gutter);
+  font-size: .82rem;
+  color: rgba(250,249,246,.5);
+  margin-top: 14px;
+  text-align: left;
 }
-.on-dark .story-caption{ color: var(--bone); opacity:.55; }
-
-.story-caption .cap-label{
-  display:block;
-  font-family: var(--font-label);
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing:.1em;
-  text-transform: uppercase;
-  font-size: .68rem;
-  color: var(--gold);
-  opacity:1;
-  margin-bottom: 6px;
-}
-
-.story-body{
-  max-width: 680px;
-  margin: 56px auto 0;
-  padding: 0 var(--gutter);
-}
-.story-body.align-left{ margin-left:0; }
-.on-dark .story-body h2.section-heading{ color: var(--gold); }
-.on-dark .story-body p.lede{ color: var(--bone); opacity:.88; }
-
-.story-eyebrow{
-  display:block;
-  font-family: var(--font-label);
-  font-weight:600;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-size:.72rem;
-  color: var(--gold);
-  margin-bottom: 14px;
-}
-
-/* reflective emphasis lines */
-.reflective-lines{ margin: 30px 0; text-align:center; }
-.reflective-lines p{
+.s-looking .text-col{ }
+.s-looking h2{
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
-  color: var(--ink);
-  line-height: 1.6;
-  opacity:.85;
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.1;
 }
-.on-dark .reflective-lines p{ color: var(--bone); }
-
-/* pull quote */
-.pull-quote{
-  margin: 36px 0;
+.s-looking p{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--warm-white);
+  opacity: 0.92;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 56ch;
+}
+.s-looking p:last-child{ margin-bottom: 0; }
+/* Three reflective closing lines */
+.s-looking .closing-lines{
+  margin-top: 44px;
+  padding-top: 44px;
+  border-top: 1px solid rgba(251,186,58,.18);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.s-looking .closing-lines p{
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
   color: var(--gold-light);
-  line-height: 1.55;
+  opacity: 1;
+  line-height: 1.5;
+  margin-bottom: 0;
+  max-width: none;
+}
+.s-looking .closing-lines p.emphasis{
+  font-size: clamp(1.25rem, 1.9vw, 1.55rem);
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-top: 8px;
 }
 
 /* =========================================================
-   RETREAT FEATURE — Finding A Home: image-overlay on desktop,
-   simple stacked layout on mobile
+   SECTION 4 — FINDING A HOME
+   Full-width background image, text over overlay
    ========================================================= */
-.retreat-feature-media{
-  position:relative;
-  width:100%;
-  aspect-ratio: 4/3;
-  overflow:hidden;
-  opacity:0; transform: translateY(24px);
-  transition: opacity .9s var(--ease), transform .9s var(--ease);
+.s-home{
+  position: relative;
+  overflow: hidden;
 }
-.retreat-feature-media.in-view{ opacity:1; transform:translateY(0); }
-.retreat-feature-media img{ width:100%; height:100%; object-fit:cover; display:block; }
-.retreat-feature-scrim{ display:none; }
-
-.retreat-feature-content{
+.s-home .bg-img{
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+}
+.s-home .bg-img img{
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.s-home .overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(16,15,14,0.42);
+}
+.s-home .content{
+  position: relative;
+  z-index: 2;
+  padding: 120px var(--gutter);
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+}
+.s-home .eyebrow{
+  display: block;
+  font-family: var(--font-label);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+.s-home h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 36px;
+  text-shadow: 0 3px 18px rgba(0,0,0,.5);
   max-width: 680px;
-  margin: 32px auto 0;
+}
+.s-home p{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--warm-white);
+  opacity: 0.92;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+.s-home p:last-child{ margin-bottom: 0; }
+.s-home .final-line{
+  margin-top: 48px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  color: var(--gold-light);
+  line-height: 1.5;
+  max-width: 520px;
+  opacity: 1;
+}
+
+/* =========================================================
+   SECTION 5 — YEARS OF PRACTICE
+   Text Left / Image Gallery Right, cream background
+   ========================================================= */
+.s-practice{
+  background: var(--cream);
+  padding: 120px 0;
+}
+.s-practice .inner{
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: clamp(48px, 6vw, 88px);
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
   padding: 0 var(--gutter);
 }
-.retreat-feature-content .story-eyebrow{ margin-bottom: 10px; }
-
-.cascade-line{
-  opacity:0;
-  transform: translateY(14px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
+.s-practice h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.1;
 }
-.cascade-line.in-view{ opacity:1; transform:translateY(0); }
-
-@media (min-width: 981px){
-  .retreat-feature-media{
-    aspect-ratio: auto;
-    min-height: 560px;
-  }
-  .retreat-feature-media img{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover;
-  }
-  .retreat-feature-scrim{
-    display:block;
-    position:absolute; inset:0;
-    background:
-      linear-gradient(115deg, rgba(16,15,14,0) 22%, rgba(16,15,14,.55) 55%, rgba(16,15,14,.86) 100%),
-      linear-gradient(180deg, rgba(16,15,14,.4) 0%, rgba(16,15,14,0) 42%);
-  }
-  .retreat-feature-content{
-    position:relative;
-    z-index:2;
-    width:72%;
-    max-width: 840px;
-    margin: 0 0 0 auto;
-    padding: clamp(28px, 4vw, 64px);
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    text-align:left;
-  }
-  .retreat-feature-content .story-eyebrow{ color: var(--gold-light); }
-  .retreat-feature-content h2.section-heading{
-    color: var(--white);
-    text-shadow: 0 3px 18px rgba(0,0,0,.55);
-  }
-  .retreat-feature-content p.lede{
-    color: rgba(255,255,255,.96);
-    text-shadow: 0 2px 12px rgba(0,0,0,.5);
-    font-size: 1rem;
-  }
-  .retreat-feature-content .pull-quote{
-    color: var(--gold-light);
-    text-shadow: 0 2px 12px rgba(0,0,0,.5);
-  }
+.s-practice p{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
-
-/* supporting two-image grid */
-.support-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 3vw, 32px);
-  margin-top: 52px;
+.s-practice p:last-child{ margin-bottom: 0; }
+.s-practice .pull-quote{
+  margin: 44px 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  color: var(--gold-light);
+  line-height: 1.5;
+  padding: 36px 0;
+  border-top: 1px solid rgba(251,186,58,.25);
+  border-bottom: 1px solid rgba(251,186,58,.25);
 }
-.support-figure{
-  opacity:0; transform: translateY(24px);
+/* Image gallery column */
+.s-practice .gallery-col{
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+}
+.s-practice .gallery-large{
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
-.support-figure.in-view{ opacity:1; transform:translateY(0); }
-.support-figure .story-img-wrap{ aspect-ratio: 4/5; }
-.support-figure .story-caption{ margin-top:14px; text-align:left; padding:0; max-width:none; }
+.s-practice .gallery-large.in-view{ opacity: 1; transform: translateY(0); }
+.s-practice .gallery-large img{ width:100%; height:100%; object-fit:cover; }
+.s-practice .gallery-small-pair{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 1.5vw, 20px);
+}
+.s-practice .gallery-small{
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.s-practice .gallery-small.in-view{ opacity: 1; transform: translateY(0); }
+.s-practice .gallery-small img{ width:100%; height:100%; object-fit:cover; }
 
-/* single supporting figure */
-.support-single{ margin-top: 52px; max-width: 680px; }
-.support-single .story-img-wrap{ aspect-ratio: 4/3; }
-.support-single .story-caption{ text-align:left; padding:0; max-width:none; }
-
-/* full-width lucas photo */
-.lucas-photo-wrap{
+/* =========================================================
+   SECTION 6 — BECOMING A TEACHER
+   Image Left / Text Right, dark background
+   ========================================================= */
+.s-teacher{
+  background: var(--ink);
+  padding: 120px 0;
+}
+.s-teacher .inner{
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: clamp(48px, 6vw, 88px);
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.s-teacher .img-col{
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+}
+.s-teacher .img-primary{
   width: 100%;
-  margin-top: 80px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
-.lucas-photo-wrap .story-img-wrap{
-  aspect-ratio: 16/7;
-  max-width: 100%;
-  border-radius: 0;
+.s-teacher .img-primary.in-view{ opacity: 1; transform: translateY(0); }
+.s-teacher .img-primary img{ width:100%; height:100%; object-fit:cover; }
+.s-teacher .img-secondary{
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay: .15s;
 }
-.lucas-photo-wrap .story-caption{
-  margin-top: 18px;
+.s-teacher .img-secondary.in-view{ opacity: 1; transform: translateY(0); }
+.s-teacher .img-secondary img{ width:100%; height:100%; object-fit:cover; }
+.s-teacher .img-caption{
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .82rem;
+  color: rgba(250,249,246,.45);
+  margin-top: 6px;
+  text-align: left;
+}
+.s-teacher h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.1;
+}
+.s-teacher p{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--warm-white);
+  opacity: 0.92;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 58ch;
+}
+.s-teacher p:last-child{ margin-bottom: 0; }
+.s-teacher .pull-quote{
+  margin: 44px 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  color: var(--gold-light);
+  line-height: 1.55;
+  padding: 36px 0;
+  border-top: 1px solid rgba(251,186,58,.2);
+  border-bottom: 1px solid rgba(251,186,58,.2);
 }
 
 /* =========================================================
-   START A CONVERSATION — final CTA
+   SECTION 7 — BUILDING A NEW CHAPTER
+   Text Left / Image Right, cream background
+   + full-width Lucas photo below
+   ========================================================= */
+.s-newchapter{
+  background: var(--cream);
+  padding: 120px 0 0;
+}
+.s-newchapter .inner{
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: clamp(48px, 6vw, 88px);
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.s-newchapter h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.1;
+}
+.s-newchapter p{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 58ch;
+}
+.s-newchapter p:last-child{ margin-bottom: 0; }
+.s-newchapter .img-col{ }
+.s-newchapter .img-primary{
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.s-newchapter .img-primary.in-view{ opacity: 1; transform: translateY(0); }
+.s-newchapter .img-primary img{ width:100%; height:100%; object-fit:cover; }
+/* Full-width Lucas photo */
+.s-newchapter .lucas-wrap{
+  margin-top: 100px;
+  width: 100%;
+}
+.s-newchapter .lucas-img{
+  width: 100%;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.s-newchapter .lucas-img.in-view{ opacity: 1; transform: translateY(0); }
+.s-newchapter .lucas-img img{ width:100%; height:100%; object-fit:cover; }
+.s-newchapter .lucas-caption{
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--charcoal);
+  opacity: .55;
+  text-align: center;
+  padding: 18px var(--gutter) 120px;
+}
+
+/* =========================================================
+   SECTION 8 — CONTINUING THE JOURNEY
+   Image Right / Text Left, dark background
+   ========================================================= */
+.s-continuing{
+  background: var(--ink);
+  padding: 120px 0;
+}
+.s-continuing .inner{
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: clamp(48px, 6vw, 88px);
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.s-continuing h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.1;
+}
+.s-continuing p{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--warm-white);
+  opacity: 0.92;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 58ch;
+}
+.s-continuing p:last-child{ margin-bottom: 0; }
+.s-continuing .final-line{
+  margin-top: 44px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  color: var(--gold-light);
+  line-height: 1.55;
+  opacity: 1;
+}
+.s-continuing .img-col{ }
+.s-continuing .img-wrap{
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.s-continuing .img-wrap.in-view{ opacity: 1; transform: translateY(0); }
+.s-continuing .img-wrap img{ width:100%; height:100%; object-fit:cover; }
+
+/* =========================================================
+   FINAL CTA — START A CONVERSATION
    ========================================================= */
 .start-conversation{
   padding: 140px 0;
   background: var(--bone);
-  text-align:center;
+  text-align: center;
 }
 .start-conversation .container{ max-width: 620px; }
-.start-conversation h2.section-heading{ margin-bottom: 20px; }
-.start-conversation p.lede{ margin-bottom: 36px; }
+.start-conversation h2{
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.start-conversation p{
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  opacity: .9;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
 
 /* =========================================================
    FOOTER
@@ -594,7 +836,6 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .newsletter-form input::placeholder{ color: rgba(255,255,255,.45); }
 .newsletter-form input:focus{ outline:none; border-color: var(--gold); }
-
 .footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: clamp(30px,4vw,60px); padding-bottom:56px; }
 .footer-col h4{
   font-family: var(--font-label); color: var(--white); font-weight:600;
@@ -606,18 +847,13 @@ p.lede:last-child{ margin-bottom:0; }
 .footer-col ul a:hover{ color: var(--gold); }
 .footer-brand .logo-lockup{ margin-bottom:18px; }
 .footer-brand .logo-wordmark{ color: var(--white); }
-.contact-note{ display:block; font-size:.72rem; letter-spacing:.04em; color: var(--gold-light); opacity:.85; margin-top:4px; font-style:italic; }
 .footer-bottom{ border-top: 1px solid rgba(255,255,255,.12); padding:26px 0; text-align:center; font-size:.82rem; letter-spacing:.04em; color: rgba(255,255,255,.5); }
 .footer-social{ display:flex; align-items:center; gap:12px; margin-top:20px; }
 .footer-social a{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.55); transition:color .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease); }
 .footer-social a:hover{ color:var(--gold); border-color:var(--gold); background:rgba(251,186,58,.08); }
 .footer-social svg{ width:16px; height:16px; fill:currentColor; display:block; }
-
-/* =========================================================
-   SCROLL REVEAL (generic)
-   ========================================================= */
-.reveal{ opacity:0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-.reveal.in-view{ opacity:1; transform:translateY(0); }
+.newsletter-confirm{ display:none; font-size:.95rem; color:var(--gold); margin-top:14px; font-style:italic; }
+.newsletter-confirm.visible{ display:block; }
 
 /* =========================================================
    RESPONSIVE
@@ -628,54 +864,59 @@ p.lede:last-child{ margin-bottom:0; }
   .nav-toggle{ display:block; }
 }
 
-@media (min-width: 981px){
-  .story-img-wrap{
-    max-width: 960px;
-    margin: 0 auto;
-    border-radius: 6px;
+@media (max-width: 900px){
+  .s-looking .inner,
+  .s-practice .inner,
+  .s-teacher .inner,
+  .s-newchapter .inner,
+  .s-continuing .inner{
+    grid-template-columns: 1fr;
   }
-  .story-img-wrap.size-xl{
-    max-width: 600px;
-    aspect-ratio: 1/1;
-  }
-}
+  /* On mobile, image always comes first for Looking/Finding sections */
+  .s-looking .text-col{ order: 2; }
+  .s-looking .img-col{ order: 1; }
+  .s-teacher .text-col{ order: 2; }
+  .s-teacher .img-col{ order: 1; }
+  /* Continuing: image below text on mobile */
+  .s-continuing .img-col{ order: 2; }
+  .s-continuing .text-col{ order: 1; }
+  .s-practice .gallery-col{ order: 2; }
+  .s-practice .text-col{ order: 1; }
+  .s-newchapter .img-col{ order: 2; }
+  .s-newchapter .text-col{ order: 1; }
 
-@media (max-width: 980px){
-  .footer-grid{ grid-template-columns: 1fr 1fr; }
-  .support-grid{ grid-template-columns: 1fr; }
-  .on-dark .retreat-feature-content h2.section-heading{ color: var(--gold); }
-  .on-dark .retreat-feature-content p.lede{ color: var(--bone); opacity:.88; }
-  .journey-timeline::before{ left: 24px; transform: none; }
-  .timeline-dot{ left: 24px; transform: translateX(-50%); }
-  .timeline-year, .timeline-title, .timeline-desc{ text-align: left; padding-left: 48px; }
+  .s-looking .img-wrap{ aspect-ratio: 4/3; }
+  .s-teacher .img-primary{ aspect-ratio: 4/3; }
+  .s-continuing .img-wrap{ aspect-ratio: 4/3; }
+  .s-newchapter .lucas-img{ aspect-ratio: 4/3; }
+
+  .s-home .bg-img{ min-height: 480px; }
+
+  /* Timeline: left-align on mobile */
+  .timeline::before{ left: 16px; transform: none; }
+  .timeline-dot{ left: 16px; transform: translateX(-50%); }
+  .timeline-year, .timeline-title, .timeline-desc{ text-align: left; padding-left: 40px; }
   .timeline-desc{ max-width: none; }
-  .journey-closing{ margin-top: 48px; }
+
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px){
-  .story-section{ padding: 72px 0; }
-  .start-conversation{ padding: 100px 0; }
   .about-hero h1{ font-size: 2rem; }
   .portrait-circle{ width:100px; height:100px; }
+  .s-looking, .s-practice, .s-teacher, .s-newchapter, .s-continuing{ padding: 80px 0; }
+  .timeline-section{ padding: 80px 0; }
+  .start-conversation{ padding: 100px 0; }
   .footer-grid{ grid-template-columns: 1fr; gap:40px; }
   .footer-newsletter{ flex-direction:column; align-items:flex-start; }
   .newsletter-form{ width:100%; flex-direction:column; align-items:stretch; }
   .newsletter-form input{ flex:1; min-width:0; }
-  .lucas-photo-wrap .story-img-wrap{ aspect-ratio: 4/3; }
 }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   .about-hero-media img{ animation:none; }
 }
-.newsletter-confirm{
-  display: none;
-  font-size: .95rem;
-  color: var(--gold);
-  margin-top: 14px;
-  font-style: italic;
-}
-.newsletter-confirm.visible{ display: block; }
 </style>
 </head>
 <body>
@@ -689,7 +930,6 @@ p.lede:last-child{ margin-bottom:0; }
       <img src="images/Nam%20Yang%20Greece%20Black.webp" class="logo-mark size-sm" alt="Nam Yang Greece logo">
       <span class="logo-wordmark">Nam Yang Greece</span>
     </a>
-
     <nav class="main-nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="retreats.html">Retreats</a>
@@ -699,18 +939,16 @@ p.lede:last-child{ margin-bottom:0; }
       <a href="about.html" class="is-active">About Thomas</a>
       <a href="contact.html">Contact</a>
     </nav>
-
     <div class="header-actions">
       <a href="retreats.html" class="btn">Upcoming Retreats</a>
     </div>
-
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Mobile full-screen overlay menu -->
+<!-- Mobile overlay -->
 <div class="mobile-overlay" id="mobileOverlay">
   <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">
     <span></span><span></span>
@@ -732,7 +970,7 @@ p.lede:last-child{ margin-bottom:0; }
 </div>
 
 <!-- =========================================================
-     SECTION 1 — MEET THOMAS (HERO)
+     SECTION 1 — HERO (LOCKED)
      ========================================================= -->
 <section class="about-hero" id="meet-thomas">
   <div class="about-hero-media">
@@ -748,14 +986,12 @@ p.lede:last-child{ margin-bottom:0; }
 </section>
 
 <!-- =========================================================
-     SECTION 2 — THE JOURNEY SO FAR (TIMELINE)
+     SECTION 2 — THE JOURNEY SO FAR
      ========================================================= -->
-<section class="journey-section" id="journey-so-far">
-  <div class="container">
-    <h2 class="section-heading reveal">The Journey So Far</h2>
-  </div>
+<section class="timeline-section" id="journey-so-far">
+  <h2 class="reveal">The Journey So Far</h2>
 
-  <div class="journey-timeline">
+  <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <p class="timeline-year">2016</p>
@@ -794,179 +1030,200 @@ p.lede:last-child{ margin-bottom:0; }
     </div>
   </div>
 
-  <p class="journey-closing reveal">Every one of these milestones quietly changed the direction of my life. What follows is the story behind them.</p>
+  <p class="timeline-closing reveal">Every one of these milestones quietly changed the direction of my life. What follows is the story behind them.</p>
 </section>
 
 <!-- =========================================================
      SECTION 3 — LOOKING FOR SOMETHING
+     Image Left / Text Right / Dark background
      ========================================================= -->
-<section class="story-section on-dark" id="looking-for-something">
-  <div class="story-img-wrap size-xl reveal">
-    <img src="images/about-02-thailand-chi-kung.webp" alt="A young Thomas overlooking the mountains of Pai, Thailand">
-  </div>
-  <p class="story-caption reveal">Pai, Thailand, 2016</p>
+<section class="s-looking" id="looking-for-something">
+  <div class="inner">
 
-  <div class="story-body reveal">
-    <h2 class="section-heading">Looking For Something</h2>
-    <p class="lede">I&rsquo;ve been fascinated by Asian culture for as long as I can remember.</p>
-    <p class="lede">As a teenager, I spent countless hours watching martial arts films, anime and playing games that opened a window into a completely different world. What drew me wasn&rsquo;t just the fighting or adventure, but the values behind them: perseverance, discipline, respect, friendship and the belief that mastery comes through dedication.</p>
-    <p class="lede">That curiosity eventually led me to study Japanese and begin practising Karate. At the time, I had a romantic dream of travelling to Japan, finding a Karate master and becoming his disciple&mdash;sweeping the dojo floor, running errands and dedicating my life to the practice.</p>
-    <p class="lede">As the years passed, my interest in Asia only grew stronger. Eventually I packed my bags and began travelling across the continent, searching for new experiences and, if I&rsquo;m honest, a better sense of direction in my own life.</p>
-
-    <div class="reflective-lines">
-      <p>I wasn&rsquo;t searching for a Kung Fu school.</p>
-      <p>I wasn&rsquo;t searching for a career.</p>
-      <p>I was simply looking for something.</p>
+    <div class="img-col">
+      <div class="img-wrap reveal">
+        <img src="images/about-02-thailand-chi-kung.webp" alt="A young Thomas overlooking the mountains of Pai, Thailand">
+      </div>
+      <p class="img-caption">Pai, Thailand, 2016</p>
     </div>
 
-    <p class="lede">That search eventually brought me to a small mountain town in northern Thailand called Pai.</p>
+    <div class="text-col reveal">
+      <h2>Looking For Something</h2>
+      <p>I&rsquo;ve been fascinated by Asian culture for as long as I can remember.</p>
+      <p>As a teenager, I spent countless hours watching martial arts films, anime and playing games that opened a window into a completely different world. What drew me wasn&rsquo;t just the fighting or adventure, but the values behind them: perseverance, discipline, respect, friendship and the belief that mastery comes through dedication.</p>
+      <p>That curiosity eventually led me to study Japanese and begin practising Karate. At the time, I had a romantic dream of travelling to Japan, finding a Karate master and becoming his disciple&mdash;sweeping the dojo floor, running errands and dedicating my life to the practice.</p>
+      <p>As the years passed, my interest in Asia only grew stronger. Eventually I packed my bags and began travelling across the continent, searching for new experiences and, if I&rsquo;m honest, a better sense of direction in my own life.</p>
+      <p>That search eventually brought me to a small mountain town in northern Thailand called Pai.</p>
+
+      <div class="closing-lines">
+        <p>I wasn&rsquo;t searching for a Kung Fu school.</p>
+        <p>I wasn&rsquo;t searching for a career.</p>
+        <p class="emphasis">I was simply looking for something.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- =========================================================
      SECTION 4 — FINDING A HOME
+     Full-width background image with overlay
      ========================================================= -->
-<section class="story-section on-dark" id="finding-a-home" style="padding:0;">
-  <div class="retreat-feature-media reveal">
+<section class="s-home" id="finding-a-home">
+  <div class="bg-img">
     <img src="images/about-03-nam-yang-thailand.webp" alt="Aerial sunrise view of the Nam Yang Kung Fu Retreat in Pai, Thailand, overlooking the surrounding mountains">
-    <div class="retreat-feature-scrim" aria-hidden="true"></div>
-    <div class="retreat-feature-content">
-      <span class="story-eyebrow cascade-line">Nam Yang Kung Fu Retreat, Pai, Thailand</span>
-      <h2 class="section-heading cascade-line">Finding A Home</h2>
-      <p class="lede cascade-line">When I arrived at Nam Yang, I had no idea how important that place would become in my life.</p>
-      <p class="lede cascade-line">I had originally signed up for a month of training&mdash;long enough to experience the school, meet the people and discover what this way of life was all about.</p>
-      <p class="lede cascade-line">From the moment I arrived, something felt different.</p>
-      <p class="lede cascade-line">It wasn&rsquo;t the training hall, the mountain views or the beautiful surroundings that stayed with me most. It was the atmosphere.</p>
-      <p class="lede cascade-line">There was a genuine sense of community&mdash;a feeling that everyone was walking the same path while supporting one another along the way. Students, teachers and long-term practitioners lived, trained and shared daily life together.</p>
-      <p class="pull-quote cascade-line">For the first time, I wasn&rsquo;t simply visiting a martial arts school. I felt like I had found a home.</p>
+    <div class="overlay"></div>
+    <div class="content reveal">
+      <span class="eyebrow">Nam Yang Kung Fu Retreat, Pai, Thailand</span>
+      <h2>Finding A Home</h2>
+      <p>When I arrived at Nam Yang, I had no idea how important that place would become in my life.</p>
+      <p>I had originally signed up for a month of training&mdash;long enough to experience the school, meet the people and discover what this way of life was all about.</p>
+      <p>From the moment I arrived, something felt different.</p>
+      <p>It wasn&rsquo;t the training hall, the mountain views or the beautiful surroundings that stayed with me most. It was the atmosphere.</p>
+      <p>There was a genuine sense of community&mdash;a feeling that everyone was walking the same path while supporting one another along the way. Students, teachers and long-term practitioners lived, trained and shared daily life together.</p>
+      <p class="final-line">For the first time, I wasn&rsquo;t simply visiting a martial arts school. I felt like I had found a home.</p>
     </div>
   </div>
 </section>
 
 <!-- =========================================================
      SECTION 5 — YEARS OF PRACTICE
+     Text Left / Image Gallery Right / Cream background
      ========================================================= -->
-<section class="story-section on-cream" id="years-of-practice">
-  <div class="story-body reveal">
-    <h2 class="section-heading">Years of Practice</h2>
-    <p class="lede">What was meant to be a one-month stay eventually became several years of my life.</p>
-    <p class="lede">During that time, I immersed myself fully in the practice. Life at Nam Yang followed a simple rhythm: waking at sunrise, training throughout the day, sharing meals with the community and repeating the process again and again.</p>
-    <p class="lede">The days were balanced between Yin and Yang practices. Chi Kung, meditation, Kung Fu forms, partner training and theory all supported one another. Rather than learning isolated techniques, I was gradually discovering a complete system for cultivating body and mind together.</p>
-    <p class="lede">Part of that journey led me to spend a month living at Wat Pa Tam Wua, a Buddhist monastery in northern Thailand. There, the practice became even simpler. Meditation, daily work and long periods of silence taught me that practice wasn&rsquo;t confined to the training hall. It could be carried into every aspect of everyday life.</p>
-    <p class="lede">When I returned to Nam Yang, I committed fully and joined the school&rsquo;s teacher training programme. Over the following years, I returned again and again, spending months at a time immersed in this way of life.</p>
-    <p class="lede">I wasn&rsquo;t the fastest student, and I often took longer than others to learn new forms or progress through the ranking system. Looking back, that became one of the greatest lessons of all.</p>
+<section class="s-practice" id="years-of-practice">
+  <div class="inner">
 
-    <p class="pull-quote">Real progress comes through patience and repetition.</p>
+    <div class="text-col reveal">
+      <h2>Years of Practice</h2>
+      <p>What was meant to be a one-month stay eventually became several years of my life.</p>
+      <p>During that time, I immersed myself fully in the practice. Life at Nam Yang followed a simple rhythm: waking at sunrise, training throughout the day, sharing meals with the community and repeating the process again and again.</p>
+      <p>The days were balanced between Yin and Yang practices. Chi Kung, meditation, Kung Fu forms, partner training and theory all supported one another. Rather than learning isolated techniques, I was gradually discovering a complete system for cultivating body and mind together.</p>
+      <p>Part of that journey led me to spend a month living at Wat Pa Tam Wua, a Buddhist monastery in northern Thailand. There, the practice became even simpler. Meditation, daily work and long periods of silence taught me that practice wasn&rsquo;t confined to the training hall. It could be carried into every aspect of everyday life.</p>
+      <p>When I returned to Nam Yang, I committed fully and joined the school&rsquo;s teacher training programme. Over the following years, I returned again and again, spending months at a time immersed in this way of life.</p>
+      <p>I wasn&rsquo;t the fastest student, and I often took longer than others to learn new forms or progress through the ranking system. Looking back, that became one of the greatest lessons of all.</p>
 
-    <p class="lede">The years I spent in Thailand shaped not only the martial artist I became, but also the teacher I am today.</p>
-  </div>
+      <p class="pull-quote">Real progress comes through patience and repetition.</p>
 
-  <div class="story-img-wrap size-lg reveal" style="margin-top:52px;">
-    <img src="images/about-04-hero-shuang-yang-thailand.webp" alt="Thomas training with fellow students during morning practice on a rooftop at the Nam Yang Kung Fu Retreat">
-  </div>
-  <p class="story-caption reveal">Rooftop practice in Pai, Thailand (2017&ndash;2018)</p>
+      <p>The years I spent in Thailand shaped not only the martial artist I became, but also the teacher I am today.</p>
+    </div>
 
-  <div class="story-body reveal" style="margin-top:52px;">
-    <div class="support-grid">
-      <figure class="support-figure reveal">
-        <div class="story-img-wrap">
+    <div class="gallery-col">
+      <div class="gallery-large reveal">
+        <img src="images/about-04-hero-shuang-yang-thailand.webp" alt="Thomas training with fellow students during morning practice on a rooftop at the Nam Yang Kung Fu Retreat">
+      </div>
+      <div class="gallery-small-pair">
+        <div class="gallery-small reveal">
           <img src="images/about-04-A-monk-life-thailand.webp" alt="Walking meditation with a monk at Wat Pa Tam Wua monastery">
         </div>
-        <p class="story-caption">Walking meditation with monk at Wat Pa Tam Wua.</p>
-      </figure>
-      <figure class="support-figure reveal">
-        <div class="story-img-wrap">
+        <div class="gallery-small reveal">
           <img src="images/about-04-B-Sweeping-thailand-monastery.webp" alt="Sweeping leaves at Wat Pa Tam Wua monastery in northern Thailand">
         </div>
-        <p class="story-caption">Sweeping leaves and helping maintain the monastery grounds.</p>
-      </figure>
+      </div>
     </div>
+
   </div>
 </section>
 
 <!-- =========================================================
      SECTION 6 — BECOMING A TEACHER
+     Image Left / Text Right / Dark background
      ========================================================= -->
-<section class="story-section on-dark" id="becoming-a-teacher">
-  <div class="story-img-wrap size-lg reveal">
-    <img src="images/about-05-hero-nam-yang-thailand-kung-fu.webp" alt="Thomas leading students during a Kung Fu lesson as part of the school's teacher training programme">
-  </div>
-  <p class="story-caption reveal">Teaching a staff class at Nam Yang, Pai, Thailand</p>
+<section class="s-teacher" id="becoming-a-teacher">
+  <div class="inner">
 
-  <div class="story-body reveal">
-    <h2 class="section-heading">Becoming a Teacher</h2>
-    <p class="lede">As part of the teacher training programme, I began assisting classes and teaching some of the more fundamental lessons fairly early on.</p>
-    <p class="lede">What surprised me most was how much teaching accelerated my own learning.</p>
-    <p class="lede">When you&rsquo;re learning something for yourself, it&rsquo;s easy to follow instructions without fully understanding them. But when a student asks a question or struggles with a movement, you quickly discover how well you truly understand it.</p>
-    <p class="lede">Teaching encouraged me to look beyond techniques and explore the principles behind them.</p>
-
-    <p class="pull-quote">The student makes simple things look complicated, while the teacher learns to make complicated things look simple.</p>
-
-    <p class="lede">Helping others progress challenged me to communicate ideas more clearly, simplify complex movements and understand the arts at a much deeper level.</p>
-    <p class="lede">My training and teaching developed together. The more I taught, the more I learned. The more I learned, the more I could share with others.</p>
-    <p class="lede">Over time, teaching became just as important to my own development as training itself, shaping both my understanding of the arts and the instructor I continue to become.</p>
-
-    <figure class="support-single reveal">
-      <div class="story-img-wrap">
+    <div class="img-col">
+      <div class="img-primary reveal">
         <img src="images/about-05-A-grading-thailand.webp" alt="Thomas graduating alongside fellow students at the Nam Yang Instructor Graduation in 2018">
       </div>
-      <p class="story-caption"><span class="cap-label">Nam Yang Instructor Graduation &mdash; 2018</span>Graduating alongside fellow students after several years of training, teaching and living within the Nam Yang community.</p>
-    </figure>
+      <p class="img-caption">Nam Yang Instructor Graduation &mdash; 2018</p>
+      <div class="img-secondary reveal">
+        <img src="images/about-05-hero-nam-yang-thailand-kung-fu.webp" alt="Thomas leading students during a Kung Fu lesson as part of the school's teacher training programme">
+      </div>
+      <p class="img-caption">Teaching a staff class at Nam Yang, Pai, Thailand</p>
+    </div>
+
+    <div class="text-col reveal">
+      <h2>Becoming a Teacher</h2>
+      <p>As part of the teacher training programme, I began assisting classes and teaching some of the more fundamental lessons fairly early on.</p>
+      <p>What surprised me most was how much teaching accelerated my own learning.</p>
+      <p>When you&rsquo;re learning something for yourself, it&rsquo;s easy to follow instructions without fully understanding them. But when a student asks a question or struggles with a movement, you quickly discover how well you truly understand it.</p>
+      <p>Teaching encouraged me to look beyond techniques and explore the principles behind them.</p>
+
+      <p class="pull-quote">The student makes simple things look complicated, while the teacher learns to make complicated things look simple.</p>
+
+      <p>Helping others progress challenged me to communicate ideas more clearly, simplify complex movements and understand the arts at a much deeper level.</p>
+      <p>My training and teaching developed together. The more I taught, the more I learned. The more I learned, the more I could share with others.</p>
+      <p>Over time, teaching became just as important to my own development as training itself, shaping both my understanding of the arts and the instructor I continue to become.</p>
+    </div>
+
   </div>
 </section>
 
 <!-- =========================================================
      SECTION 7 — BUILDING A NEW CHAPTER
+     Text Left / Image Right / Cream background
+     + Full-width Lucas photo beneath
      ========================================================= -->
-<section class="story-section on-cream" id="building-new-chapter">
-  <div class="story-body reveal">
-    <h2 class="section-heading">Building a New Chapter</h2>
-    <p class="lede">In 2020, after several years in Thailand, I moved to Greece and began a completely new chapter of life.</p>
-    <p class="lede">The training continued, but life looked very different. Instead of living and training at the school, I was building a home, raising a family and creating opportunities to share the practice in a new country.</p>
-    <p class="lede">The first retreats were small, but they represented something much bigger than numbers. They marked the beginning of a community. A place where people could come together to train, learn and experience the same values that had shaped my own journey in Thailand.</p>
-    <p class="lede">Although the setting had changed, the intention remained the same: to create an environment where practice, friendship and personal development could grow together.</p>
+<section class="s-newchapter" id="building-new-chapter">
+  <div class="inner">
+
+    <div class="text-col reveal">
+      <h2>Building a New Chapter</h2>
+      <p>In 2020, after several years in Thailand, I moved to Greece and began a completely new chapter of life.</p>
+      <p>The training continued, but life looked very different. Instead of living and training at the school, I was building a home, raising a family and creating opportunities to share the practice in a new country.</p>
+      <p>The first retreats were small, but they represented something much bigger than numbers. They marked the beginning of a community. A place where people could come together to train, learn and experience the same values that had shaped my own journey in Thailand.</p>
+      <p>Although the setting had changed, the intention remained the same: to create an environment where practice, friendship and personal development could grow together.</p>
+    </div>
+
+    <div class="img-col">
+      <div class="img-primary reveal">
+        <img src="images/about-06-supporting-chi-kung-greece.webp" alt="Early retreat Chi Kung training on the beaches of Corfu">
+      </div>
+    </div>
+
   </div>
 
-  <div class="story-img-wrap size-lg reveal" style="margin-top:52px;">
-    <img src="images/about-06-supporting-chi-kung-greece.webp" alt="Early retreat Chi Kung training on the beaches of Corfu">
-  </div>
-  <p class="story-caption reveal">First Greece Retreat, September 2021</p>
-
-  <div class="lucas-photo-wrap">
-    <div class="story-img-wrap reveal">
+  <!-- Full-width Lucas photograph, stands alone -->
+  <div class="lucas-wrap">
+    <div class="lucas-img reveal">
       <img src="images/about-06-kung-fu-retreat-greece.webp" alt="Thomas's son crawling across the retreat training mats during an early Corfu retreat">
     </div>
-    <p class="story-caption reveal">Growing up with the arts.</p>
+    <p class="lucas-caption">Growing up with the arts.</p>
   </div>
 </section>
 
 <!-- =========================================================
      SECTION 8 — CONTINUING THE JOURNEY
+     Text Left / Image Right / Dark background
      ========================================================= -->
-<section class="story-section on-dark" id="continuing-the-journey">
-  <div class="story-img-wrap size-lg reveal">
-    <img src="images/about-07-kung-fu-arillas-classes.webp" alt="Empty training space at Thomas's home in Arillas prepared for classes and retreats">
-  </div>
-  <p class="story-caption reveal">The training space at my home in Arillas, where many classes, workshops and retreats now take place.</p>
+<section class="s-continuing" id="continuing-the-journey">
+  <div class="inner">
 
-  <div class="story-body reveal">
-    <h2 class="section-heading">Continuing the Journey</h2>
-    <p class="lede">Everything I experienced throughout those years in Thailand continues to shape the way I teach today.</p>
-    <p class="lede">The classes, retreats and community at Nam Yang Greece are inspired by the same balance of hard and soft practice, personal development and shared experience that first drew me to Nam Yang all those years ago.</p>
-    <p class="lede">While no two places can ever be the same, my intention has never been to recreate my experience in Thailand. It has been to preserve the spirit of the practice while allowing it to grow in a new home here in Corfu.</p>
-    <p class="lede">Whether someone joins for a weekly class, a retreat or private training, my hope is always the same:</p>
+    <div class="text-col reveal">
+      <h2>Continuing the Journey</h2>
+      <p>Everything I experienced throughout those years in Thailand continues to shape the way I teach today.</p>
+      <p>The classes, retreats and community at Nam Yang Greece are inspired by the same balance of hard and soft practice, personal development and shared experience that first drew me to Nam Yang all those years ago.</p>
+      <p>While no two places can ever be the same, my intention has never been to recreate my experience in Thailand. It has been to preserve the spirit of the practice while allowing it to grow in a new home here in Corfu.</p>
+      <p>Whether someone joins for a weekly class, a retreat or private training, my hope is always the same:</p>
+      <p class="final-line">That they leave with something meaningful they can carry into everyday life.</p>
+    </div>
 
-    <p class="pull-quote">That they leave with something meaningful they can carry into everyday life.</p>
+    <div class="img-col">
+      <div class="img-wrap reveal">
+        <img src="images/about-07-kung-fu-arillas-classes.webp" alt="Empty training space at Thomas's home in Arillas prepared for classes and retreats">
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- =========================================================
-     FINAL CTA — START A CONVERSATION
+     FINAL CTA — START A CONVERSATION (LOCKED)
      ========================================================= -->
 <section class="start-conversation" id="start-conversation">
   <div class="container reveal">
-    <h2 class="section-heading">Start a Conversation</h2>
-    <p class="lede">If you&rsquo;d like to learn more about the practice, retreats, or training opportunities in Arillas, I&rsquo;d be happy to hear from you.</p>
+    <h2>Start a Conversation</h2>
+    <p>If you&rsquo;d like to learn more about the practice, retreats, or training opportunities in Arillas, I&rsquo;d be happy to hear from you.</p>
     <a href="contact.html" class="btn">Talk With Thomas</a>
   </div>
 </section>
@@ -1075,8 +1332,8 @@ p.lede:last-child{ margin-bottom:0; }
     a.addEventListener('click', closeMenu);
   });
 
-  // Scroll reveal
-  var revealEls = document.querySelectorAll('.reveal, .story-img-wrap, .support-figure, .retreat-feature-media');
+  // Scroll reveal — generic .reveal elements
+  var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -1085,48 +1342,27 @@ p.lede:last-child{ margin-bottom:0; }
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.12 });
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
   }
 
-  // Timeline items staggered reveal
+  // Timeline items — staggered
   var timelineItems = document.querySelectorAll('.timeline-item');
-  if('IntersectionObserver' in window){
-    var timelineIO = new IntersectionObserver(function(entries){
+  if('IntersectionObserver' in window && timelineItems.length){
+    var tio = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
-          var idx = Array.prototype.indexOf.call(timelineItems, entry.target);
-          setTimeout(function(){ entry.target.classList.add('in-view'); }, idx * 120);
-          timelineIO.unobserve(entry.target);
+          var i = Array.prototype.indexOf.call(timelineItems, entry.target);
+          setTimeout(function(){ entry.target.classList.add('in-view'); }, i * 130);
+          tio.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
-    timelineItems.forEach(function(el){ timelineIO.observe(el); });
+    }, { threshold: 0.15 });
+    timelineItems.forEach(function(el){ tio.observe(el); });
   } else {
     timelineItems.forEach(function(el){ el.classList.add('in-view'); });
-  }
-
-  // Cascade reveal for the Finding A Home overlay text
-  var cascadeHost = document.querySelector('.retreat-feature-media');
-  if(cascadeHost){
-    var cascadeLines = cascadeHost.querySelectorAll('.cascade-line');
-    if('IntersectionObserver' in window){
-      var cascadeIO = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(entry.isIntersecting){
-            cascadeLines.forEach(function(line, i){
-              setTimeout(function(){ line.classList.add('in-view'); }, i * 110);
-            });
-            cascadeIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25 });
-      cascadeIO.observe(cascadeHost);
-    } else {
-      cascadeLines.forEach(function(line){ line.classList.add('in-view'); });
-    }
   }
 
   // Newsletter signup
@@ -1138,10 +1374,8 @@ p.lede:last-child{ margin-bottom:0; }
       var btn     = document.getElementById('newsletterBtn');
       var confirm = document.getElementById('newsletterConfirm');
       if(!email) return;
-
       btn.disabled = true;
       btn.textContent = 'Sending\u2026';
-
       fetch('https://script.google.com/macros/s/AKfycbxLivBMsFfK4jd0Hr5BzsXQ1y8GC_l2QXN-joEHPoRgOYA9rtltaUTIBRIzk8Bn1THt/exec', {
         method: 'POST',
         mode: 'no-cors',
