@@ -705,7 +705,6 @@ p.lede:last-child{ margin-bottom:0; }
   .footer-newsletter{ flex-direction:column; align-items:flex-start; }
   .newsletter-form{ width:100%; flex-direction:column; align-items:stretch; }
   .newsletter-form input{ flex:1; min-width:0; }
-  .hero-media img{ object-position: 65% 38%; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -770,7 +769,10 @@ p.lede:last-child{ margin-bottom:0; }
      ========================================================= -->
 <section class="hero" id="home">
   <div class="hero-media">
-    <img src="images/Home-LNE_7055.webp" alt="Students and instructor practising Kung Fu forms on the beach at sunrise in Corfu">
+    <picture>
+      <source media="(max-width: 600px)" srcset="images/LNE_7055.jpg">
+      <img src="images/Home-LNE_7055.webp" alt="Students and instructor practising Kung Fu forms on the beach at sunrise in Corfu">
+    </picture>
   </div>
   <div class="container hero-content">
     <h1><span class="accent">Traditional Shaolin Kung Fu</span><br>and Chi Kung in Corfu</h1>
