@@ -1,61 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://crockungfu.com/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://www.crockungfu.com/</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/retreats.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.crockungfu.com/retreats.html</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/retreat-enquiry.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.crockungfu.com/retreat-enquiry.html</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/classes.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.crockungfu.com/classes.html</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/private-training.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.crockungfu.com/private-training.html</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/arts.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.crockungfu.com/arts.html</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/about.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.crockungfu.com/about.html</loc>
   </url>
 
   <url>
-    <loc>https://crockungfu.com/contact.html</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.crockungfu.com/contact.html</loc>
   </url>
 
 </urlset>
