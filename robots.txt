@@ -9,4 +9,4 @@ Disallow: /admin/
 Disallow: /cgi-bin/
 
 # Sitemap location
-Sitemap: https://crockungfu.com/sitemap.xml
+Sitemap: https://www.crockungfu.com/sitemap.xml
