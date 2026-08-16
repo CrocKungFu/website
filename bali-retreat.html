@@ -180,49 +180,43 @@ p.lede:last-child{ margin-bottom:0; }
    FOLD 1 — HERO
    ========================================================= */
 .hero{
-  position: relative; min-height: 100vh; display:flex; align-items:center; justify-content:center;
+  position: relative; min-height: 62vh;
   overflow:hidden; text-align:center;
 }
 .hero-media{ position:absolute; inset:0; overflow:hidden; }
 .hero-media img{
-  width:100%; height:100%; object-fit: cover; object-position: center 42%;
+  width:100%; height:100%; object-fit: cover; object-position: center 38%;
   animation: heroZoom 24s ease-in-out infinite alternate;
 }
 @keyframes heroZoom{ from{ transform: scale(1); } to{ transform: scale(1.08); } }
 .hero-media::after{
   content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(16,15,14,.38) 0%, rgba(16,15,14,.16) 42%, rgba(16,15,14,.5) 100%);
+  background: linear-gradient(180deg, rgba(16,15,14,.45) 0%, rgba(16,15,14,.12) 30%, rgba(16,15,14,.18) 55%, rgba(16,15,14,.62) 100%);
 }
-.hero-content{ position:relative; z-index:2; color: var(--white); max-width: 900px; padding: 0 24px; }
+.hero-top{
+  position:absolute; top: 22%; left:0; right:0; z-index:2;
+  color: var(--white); padding: 0 24px;
+}
+.hero-bottom{
+  position:absolute; top: 68%; left:0; right:0; z-index:2;
+  color: var(--white); padding: 0 24px;
+}
 .hero-eyebrow{
   font-family: var(--font-display); font-weight: 700; letter-spacing: .03em;
   text-transform: uppercase;
-  font-size: clamp(2.1rem, 5.6vw, 4.1rem); color: var(--gold);
-  text-shadow: 0 2px 24px rgba(0,0,0,.6), 0 1px 4px rgba(0,0,0,.5); margin-bottom: 14px;
+  font-size: clamp(2rem, 5vw, 3.6rem); color: var(--gold);
+  text-shadow: 0 2px 24px rgba(0,0,0,.7), 0 1px 4px rgba(0,0,0,.6); margin-bottom: 10px;
 }
 .hero-sub{
   font-family: var(--font-display); font-style: italic; font-weight: 400;
-  font-size: clamp(1.15rem, 2.2vw, 1.55rem); color: var(--white);
-  text-shadow: 0 2px 16px rgba(0,0,0,.55); margin-bottom: 34px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--white);
+  text-shadow: 0 2px 18px rgba(0,0,0,.7), 0 1px 4px rgba(0,0,0,.6);
 }
 .hero-meta{
-  display: inline-block;
-  background: rgba(16,15,14,.4);
-  border-radius: 6px;
-  padding: 16px 30px;
   font-family: var(--font-label); font-weight: 600; letter-spacing: .04em;
   font-size: clamp(.95rem, 1.3vw, 1.08rem); color: var(--white);
+  text-shadow: 0 2px 14px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.6);
   line-height: 1.6;
-  margin-bottom: 30px;
-}
-.hero-teacher{
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
-  letter-spacing: .01em;
-  font-size: 1rem; color: rgba(255,255,255,.82);
-}
-.hero-teacher .accent{
-  font-family: var(--font-label); font-style: normal; font-weight: 600;
-  letter-spacing: .04em; color: var(--gold);
 }
 
 /* =========================================================
@@ -387,8 +381,17 @@ p.lede:last-child{ margin-bottom:0; }
    FOLD 6 — TOGETHER
    ========================================================= */
 .together{ padding: 110px 0; background: var(--white); text-align:center; }
-.together-collage{ max-width: 780px; margin: 0 auto 40px; }
-.together-collage img{ width:100%; border-radius: 4px; }
+.together-collage{ max-width: 780px; margin: 0 auto 40px; position: relative; border-radius: 4px; overflow: hidden; }
+.together-collage img{ width:100%; display:block; }
+.together-collage::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(16,15,14,.45) 0%, rgba(16,15,14,0) 45%);
+}
+.together-title-overlay{
+  position: absolute; top: 28px; left: 0; right: 0; z-index: 2;
+  color: var(--gold); text-shadow: 0 2px 18px rgba(0,0,0,.6);
+  margin-bottom: 0;
+}
 .together-copy{ max-width: 640px; margin: 0 auto; }
 
 /* =========================================================
@@ -431,7 +434,16 @@ p.lede:last-child{ margin-bottom:0; }
 .who{ padding: 120px 0; background: var(--bone); text-align:center; }
 .who h2{ color: var(--gold); }
 .who-intro{ max-width: 640px; margin: 0 auto 60px; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; opacity:.9; }
-.who-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: clamp(30px,4vw,50px); text-align:left; }
+.who-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: clamp(28px,4vw,44px); text-align:left; }
+.who-block{
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(251,186,58,.22);
+  border-radius: 6px;
+  padding: 36px 30px;
+}
+.who-block .gold-line{
+  width: 40px; height: 2px; background: var(--gold); margin-bottom: 22px;
+}
 .who-block h3{
   font-family: var(--font-label); text-transform:uppercase; letter-spacing:.08em;
   color: var(--ink); font-size: 1rem; margin-bottom: 14px;
@@ -493,7 +505,7 @@ p.lede:last-child{ margin-bottom:0; }
 
 .join-form-wrap{ background: rgba(16,15,14,.55); border: 1px solid rgba(255,255,255,.12); border-radius: 6px; padding: clamp(28px,4vw,44px); }
 .join-form-wrap h3{ color: var(--white); font-size: 1.4rem; margin-bottom: 8px; }
-.join-form-wrap > p{ color: #D6D2C7; font-size: .92rem; margin-bottom: 26px; }
+.join-form-wrap > p{ color: #FFFFFF; font-size: .92rem; margin-bottom: 26px; }
 .form-row{ margin-bottom: 20px; }
 .form-row label{
   display:block; font-family: var(--font-label); text-transform:uppercase; letter-spacing:.08em;
@@ -680,11 +692,12 @@ p.lede:last-child{ margin-bottom:0; }
   <div class="hero-media">
     <img src="images/DRAGONFLY-BALI-%5BYOGA-HOUSE%5D-47.webp" alt="The open shala at Dragonfly Village, Bali, surrounded by rice fields">
   </div>
-  <div class="hero-content">
+  <div class="hero-top">
     <div class="hero-eyebrow">Shaolin Arts Retreat</div>
     <div class="hero-sub">Traditional Kung Fu &amp; Chi Kung in Bali</div>
+  </div>
+  <div class="hero-bottom">
     <p class="hero-meta">21–27 February 2027<br>Dragonfly Village, Bali</p>
-    <p class="hero-teacher">with <span class="accent">Thomas Croc</span></p>
   </div>
 </section>
 
@@ -694,11 +707,11 @@ p.lede:last-child{ margin-bottom:0; }
 <section class="split" id="train-together" style="background:var(--bone);">
   <div class="container">
     <div class="split-media reveal-left">
-      <img src="images/LNE_8739.webp" alt="Thomas guiding a student closely during practice">
+      <img src="images/LNE_8739.webp" alt="Thomas guiding a student closely during practice" style="object-position: 75% center;">
     </div>
     <div class="split-text reveal-right">
       <h2 class="section-heading">Train Together</h2>
-      <p class="lede">A small group allows the practice to be experienced closely — with space for individual guidance, questions and attention to detail.</p>
+      <p class="lede">A small group allows the practice to be experienced closely - with space for individual guidance, questions and attention to detail.</p>
       <p class="lede">Throughout the week, Thomas teaches through demonstration, observation and direct interaction, helping each person understand and develop their practice.</p>
     </div>
   </div>
@@ -807,9 +820,9 @@ p.lede:last-child{ margin-bottom:0; }
   <div class="container">
     <div class="together-collage reveal">
       <img src="images/bali-together-collage.webp" alt="Shared dinner, tea talk, and a Bali landscape scene">
+      <h2 class="section-heading together-title-overlay">Together</h2>
     </div>
     <div class="together-copy reveal">
-      <h2 class="section-heading">Together</h2>
       <p class="lede">Beyond the training, the week unfolds through shared meals, tea and conversation, and time to experience Bali together. There is space to connect, explore, and simply enjoy being part of the group.</p>
     </div>
   </div>
@@ -874,14 +887,17 @@ p.lede:last-child{ margin-bottom:0; }
 
     <div class="who-grid">
       <div class="who-block reveal">
+        <div class="gold-line"></div>
         <h3>Explore the Arts</h3>
         <p>For people curious about Traditional Kung Fu and Chi Kung, whether completely new to the practice or already familiar with it.</p>
       </div>
       <div class="who-block reveal">
+        <div class="gold-line"></div>
         <h3>Learn Personally</h3>
         <p>For people who value close guidance, individual corrections and the attention that becomes possible within a small, focused group.</p>
       </div>
       <div class="who-block reveal">
+        <div class="gold-line"></div>
         <h3>Step Out of Routine</h3>
         <p>For those who want to step away from the demands of everyday life and give their attention to movement, practice and themselves.</p>
       </div>
