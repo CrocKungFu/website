@@ -191,29 +191,39 @@ p.lede:last-child{ margin-bottom:0; }
 @keyframes heroZoom{ from{ transform: scale(1); } to{ transform: scale(1.08); } }
 .hero-media::after{
   content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(16,15,14,.5) 0%, rgba(16,15,14,.32) 40%, rgba(16,15,14,.72) 100%);
+  background: linear-gradient(180deg, rgba(16,15,14,.38) 0%, rgba(16,15,14,.16) 42%, rgba(16,15,14,.5) 100%);
 }
-.hero-content{ position:relative; z-index:2; color: var(--white); max-width: 840px; padding: 0 24px; }
+.hero-content{ position:relative; z-index:2; color: var(--white); max-width: 900px; padding: 0 24px; }
 .hero-eyebrow{
-  font-family: var(--font-display); font-weight: 700; letter-spacing: .04em;
-  font-size: clamp(2rem, 5vw, 3.6rem); color: var(--gold-light);
-  text-shadow: 0 2px 20px rgba(0,0,0,.5); margin-bottom: 18px;
+  font-family: var(--font-display); font-weight: 700; letter-spacing: .03em;
+  text-transform: uppercase;
+  font-size: clamp(2.1rem, 5.6vw, 4.1rem); color: var(--gold);
+  text-shadow: 0 2px 24px rgba(0,0,0,.6), 0 1px 4px rgba(0,0,0,.5); margin-bottom: 14px;
 }
 .hero-sub{
   font-family: var(--font-display); font-style: italic; font-weight: 400;
-  font-size: clamp(1.2rem, 2.4vw, 1.7rem); color: var(--bone);
-  text-shadow: 0 2px 14px rgba(0,0,0,.45); margin-bottom: 26px;
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem); color: var(--white);
+  text-shadow: 0 2px 16px rgba(0,0,0,.55); margin-bottom: 34px;
 }
 .hero-meta{
-  font-family: var(--font-body); font-weight: 400; letter-spacing: .03em;
-  font-size: clamp(.95rem, 1.4vw, 1.1rem); color: rgba(255,255,255,.9);
-  margin-bottom: 8px;
+  display: inline-block;
+  background: rgba(16,15,14,.4);
+  border-radius: 6px;
+  padding: 16px 30px;
+  font-family: var(--font-label); font-weight: 600; letter-spacing: .04em;
+  font-size: clamp(.95rem, 1.3vw, 1.08rem); color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 .hero-teacher{
-  font-family: var(--font-label); text-transform: uppercase; letter-spacing: .14em;
-  font-size: .82rem; color: rgba(255,255,255,.75); margin-top: 22px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  letter-spacing: .01em;
+  font-size: 1rem; color: rgba(255,255,255,.82);
 }
-.hero-teacher .accent{ color: var(--gold); }
+.hero-teacher .accent{
+  font-family: var(--font-label); font-style: normal; font-weight: 600;
+  letter-spacing: .04em; color: var(--gold);
+}
 
 /* =========================================================
    SPLIT SECTIONS
@@ -483,7 +493,7 @@ p.lede:last-child{ margin-bottom:0; }
 
 .join-form-wrap{ background: rgba(16,15,14,.55); border: 1px solid rgba(255,255,255,.12); border-radius: 6px; padding: clamp(28px,4vw,44px); }
 .join-form-wrap h3{ color: var(--white); font-size: 1.4rem; margin-bottom: 8px; }
-.join-form-wrap > p{ color: rgba(255,255,255,.7); font-size: .92rem; margin-bottom: 26px; }
+.join-form-wrap > p{ color: #D6D2C7; font-size: .92rem; margin-bottom: 26px; }
 .form-row{ margin-bottom: 20px; }
 .form-row label{
   display:block; font-family: var(--font-label); text-transform:uppercase; letter-spacing:.08em;
@@ -673,7 +683,7 @@ p.lede:last-child{ margin-bottom:0; }
   <div class="hero-content">
     <div class="hero-eyebrow">Shaolin Arts Retreat</div>
     <div class="hero-sub">Traditional Kung Fu &amp; Chi Kung in Bali</div>
-    <p class="hero-meta">21–27 February 2027 &nbsp;·&nbsp; Dragonfly Village, Bali</p>
+    <p class="hero-meta">21–27 February 2027<br>Dragonfly Village, Bali</p>
     <p class="hero-teacher">with <span class="accent">Thomas Croc</span></p>
   </div>
 </section>
@@ -701,7 +711,7 @@ p.lede:last-child{ margin-bottom:0; }
   <div class="container">
     <div class="place-images reveal">
       <img src="images/DRAGONFLY-BALI-%5BD.VILLAGE%5D-68.webp" alt="Rice fields surrounding Dragonfly Village, Ubud, Bali">
-      <img src="images/DRAGONFLY-BALI-%5BD.VILLAGE%5D-50.webp" alt="Traditional wooden buildings at Dragonfly Village">
+      <img src="images/DRAGONFLY-BALI-%5BD.VILLAGE%5D-50.jpg" alt="Traditional wooden buildings at Dragonfly Village">
     </div>
     <div class="place-copy reveal">
       <p class="lede">Set among the rice fields of Ubud, Dragonfly Village offers a natural setting for retreat. Surrounded by greenery and traditional wooden structures, the village is designed around simple, conscious living and a close relationship with its environment. Tucked away from the bustle of Ubud, it gives us space to train, rest and share the experience together, with the surrounding rice fields and countryside close at hand.</p>
@@ -818,7 +828,7 @@ p.lede:last-child{ margin-bottom:0; }
       <p class="lede">For Thomas, teaching is part of being an eternal student of the arts and of life. In a small group, there is space for that attention to remain personal. Through observation, physical guidance, encouragement and direct interaction, he helps students connect more deeply with their centre, their movement and the ground beneath them. Over time, the practice becomes less something to think about and more something to embody, bringing greater efficiency, awareness and calm into everyday life.</p>
     </div>
     <div class="meet-media reveal-right">
-      <img src="images/meet-thomas-bali-01.webp" alt="Thomas guiding a student during practice on the beach">
+      <img src="images/MEET-THOMAS-BALI-01.webp" alt="Thomas guiding a student during practice on the beach">
     </div>
   </div>
 </section>
