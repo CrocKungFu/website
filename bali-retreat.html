@@ -128,8 +128,6 @@ p.lede:last-child{ margin-bottom:0; }
 }
 .main-nav a:hover{ color: var(--gold); }
 .main-nav a:hover::after{ width:100%; }
-.header-actions{ display:flex; align-items:center; gap: 22px; }
-.header-actions .btn{ padding: 10px 18px; font-size:.68rem; white-space: nowrap; }
 .nav-toggle{
   display:none; width: 44px; height: 44px; border: none; background: transparent;
   cursor: pointer; position: relative; z-index: 1100;
@@ -381,17 +379,9 @@ p.lede:last-child{ margin-bottom:0; }
    FOLD 6 — TOGETHER
    ========================================================= */
 .together{ padding: 110px 0; background: var(--white); text-align:center; }
-.together-collage{ max-width: 780px; margin: 0 auto 40px; position: relative; border-radius: 4px; overflow: hidden; }
+.together h2{ margin-bottom: 36px; }
+.together-collage{ max-width: 780px; margin: 0 auto 40px; border-radius: 4px; overflow: hidden; }
 .together-collage img{ width:100%; display:block; }
-.together-collage::after{
-  content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(16,15,14,.45) 0%, rgba(16,15,14,0) 45%);
-}
-.together-title-overlay{
-  position: absolute; top: 28px; left: 0; right: 0; z-index: 2;
-  color: var(--gold); text-shadow: 0 2px 18px rgba(0,0,0,.6);
-  margin-bottom: 0;
-}
 .together-copy{ max-width: 640px; margin: 0 auto; }
 
 /* =========================================================
@@ -599,7 +589,6 @@ p.lede:last-child{ margin-bottom:0; }
    ========================================================= */
 @media (max-width: 1199px){
   .main-nav{ display:none; }
-  .header-actions .btn{ display:none; }
   .nav-toggle{ display:block; }
 }
 
@@ -656,10 +645,6 @@ p.lede:last-child{ margin-bottom:0; }
       <a href="about.html">About Thomas</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <div class="header-actions">
-      <a href="#join-the-retreat" class="btn">Enquire</a>
-    </div>
 
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -818,9 +803,9 @@ p.lede:last-child{ margin-bottom:0; }
      ========================================================= -->
 <section class="together" id="together">
   <div class="container">
+    <h2 class="section-heading">Together</h2>
     <div class="together-collage reveal">
       <img src="images/bali-together-collage.webp" alt="Shared dinner, tea talk, and a Bali landscape scene">
-      <h2 class="section-heading together-title-overlay">Together</h2>
     </div>
     <div class="together-copy reveal">
       <p class="lede">Beyond the training, the week unfolds through shared meals, tea and conversation, and time to experience Bali together. There is space to connect, explore, and simply enjoy being part of the group.</p>
