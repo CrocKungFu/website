@@ -231,20 +231,51 @@ p.lede:last-child{ margin-bottom:0; }
 .split-media img{ width:100%; height:100%; object-fit:cover; }
 
 /* =========================================================
-   FOLD 3 — BALI / DRAGONFLY VILLAGE
+   FOLD 3 — THE MAGICAL CHI OF BALI
    ========================================================= */
-.place{ padding: 110px 0; background: var(--white); text-align:center; }
+.place{
+  padding: 110px 0;
+  background: var(--white);
+  text-align: center;
+}
+
 .place .section-heading{
   margin: 0 0 38px;
 }
-.place-images{
-  display:grid; grid-template-columns: 1.4fr 1fr; gap: clamp(20px,3vw,32px);
-  margin-bottom: 44px; text-align:left;
-}
-.place-images img{ width:100%; height:100%; object-fit:cover; border-radius: 4px; aspect-ratio: 4/3; }
-.place-copy{ max-width: 700px; margin: 0 auto; }
-.place-arrow{ font-family: var(--font-label); text-transform:uppercase; letter-spacing:.18em; color: var(--gold); font-size:.75rem; margin-bottom: 18px; }
 
+.place-images{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(20px,3vw,32px);
+  margin-bottom: 44px;
+  text-align: left;
+}
+
+.place-images img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  aspect-ratio: 4/3;
+}
+
+.place-images img:nth-child(2){
+  object-position: 70% center;
+}
+
+.place-copy{
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.place-arrow{
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--gold);
+  font-size: .75rem;
+  margin-bottom: 18px;
+}
 /* =========================================================
    FOLD 4 — THE PRACTICE
    Copied exactly from the live retreats.html "A Balanced Practice"
